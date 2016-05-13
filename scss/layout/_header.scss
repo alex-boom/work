@@ -1,0 +1,85 @@
+.page {
+  padding: 0 50px 10px 51px;
+  min-width: 1041px;
+  width: 1041px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+#wrapper {
+  width: 100%;
+  border-top: none;
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 0px 10px #e6e6e6;
+  background: #fff;
+  margin-bottom: 10px;
+}
+
+#header {
+  margin-top: -10px;  
+  width:100%;
+  overflow: hidden;
+  background: url("images/buildings.png") no-repeat 100% 19%;
+}
+
+.header-holder {
+  padding: 42px 0 22px 0;
+  overflow: hidden;
+}
+
+.logo {
+  padding-left: 22px;
+  float: left;
+}
+
+.serch-form {
+  padding: 30px 7px 0 0;
+  float: right;
+  text-align: right;
+  p {
+    margin: 0;
+    color: #606060;
+    padding: 1px 8px 8px 0;
+    a{
+      margin-left: 5px;
+    }
+    span {
+      color: #3da0d5;
+    }
+  }
+    .button {
+      padding: 0;
+      background: none;
+      border: 0;
+      color: #0082c8;
+      img{
+        vertical-align: middle;
+        display: inline-block;
+      }
+   }
+}
+
+.form {
+  float: left;
+  .fake-select{
+    margin-right: 3px;
+  }
+  .input {
+    width: 162px;
+    height: 23px;
+    border: 1px solid #ccc;
+    margin-right: 4px;
+  }
+}

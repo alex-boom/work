@@ -1,0 +1,25 @@
+.header-menu {;
+  background: linear-gradient(to bottom, #0082c8 0%,#0181c8 47%,#0072b8 50%,#0082c8 100%);
+  margin: 0 -1px;
+  ul{
+    @extend %clearfix;
+    @extend %listreset;
+    li{   
+      border-right: 1px solid #0065b2;
+      box-shadow: 1px 0px 0px 0px #66b4de;
+      float: left;
+      a{
+        display: block;
+        color: #fff;
+        text-align: center;
+        padding: 10px 24px;
+        line-height: 15px;
+        font-weight: 600;
+        &:hover{
+          background: linear-gradient(to bottom, #0082c8 0%,#0181c8 47%,#0072b8 50%,#0082c8 100%);
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
