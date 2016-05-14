@@ -1,0 +1,132 @@
+.footer{
+	margin: 0 152px 20px 100px;
+	@include media('<widescreen'){
+		margin: 0 15px 20px 15px;
+	}
+}
+.block-wrap{
+	@extend %clearfix;
+	.block{
+		float: left;
+		width: 33.33%;
+		@include media('<tablet'){
+			width: 100%;
+			text-align: center;
+			margin-bottom: 20px;
+			padding-right: 20px;
+		}
+		.list{
+			@extend %listreset;
+			text-transform: uppercase;
+			font-size: 21px;
+			font-weight: bold;
+			margin-bottom: 28px;
+			li{
+				margin-bottom: 12px;
+			}
+			a{
+				color: #000;
+				&:hover{
+				text-decoration: underline;
+				}
+				@include media('<desktop'){
+					font-size: 18px;
+				}
+			}
+		}
+		.alt{
+			text-transform: none;
+		}
+		.address{
+			text-decoration: none;
+			font-style: normal;
+			line-height: 27px;
+			margin-bottom: 27px;
+		}
+		> a{
+			color: #000;
+			font-weight: bold;
+			&:hover{
+				color: $base-link-color;
+			}
+		}
+		.fa-angle-right{
+			font-size: 12px;
+			font-weight: bold;
+			margin-left: 4px;
+		}
+	}
+}
+
+.social{
+	h2{
+		padding-bottom: 11px;
+		@include media('<tablet'){
+			line-height: 21px;
+		}
+	}
+	.alt{
+		margin-bottom: 2px;
+	}
+}
+.soccial-networks{
+	@extend %listreset;
+	@extend %clearfix;
+	display: block;
+	margin-bottom: 28px;
+	@include media('<tablet'){
+		text-align: center;
+	}
+	@include media('<phone'){
+		text-align: left;
+	}
+	li{
+		margin-bottom: 15px;
+		@include media('<tablet'){
+			display: inline-block;
+			margin-right: 10px;
+		}
+		@include media('<phone'){
+			display: block;
+		}
+	}
+	a{
+		display: block;
+		color: #000;
+		&:hover{
+			color: $base-link-color;
+			.fa{
+				color: $base-link-color;
+				box-shadow: 0px 0px 0px 1px $base-link-color;
+			}
+		}
+		span{
+			vertical-align: middle;
+			font-size: 24px;
+			@include media('<widescreen'){
+				font-size: 18px;
+			}
+		}
+	}
+	.fa{
+		color: #6e6e6e;
+		font-size: 34px;
+		border: 1px solid #bfbfbf;
+		box-shadow: 0px 0px 0px 1px #6e6e6e;
+		width: 40px;
+		height: 40px;
+		text-align: center;
+		line-height: 41px;
+		margin-right: 10px;
+		vertical-align: middle;
+		@include media('<widescreen'){
+			font-size: 27px;
+		}
+		@include media('<tablet'){
+			margin-right: 5px;
+		}
+	}
+	.fa-youtube{
+		font-size: 28px;
+	}
+}

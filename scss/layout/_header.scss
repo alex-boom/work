@@ -1,0 +1,132 @@
+.header{
+	@extend %clearfix;
+	width: 100%;
+	margin: 0 0 1% 0;
+	background:  url(images/header-bg.jpg) 0 0/100% no-repeat;
+	@include media('<desktop') {
+		background-size: 936px 246px;
+	}
+	@include media('<tablet') {
+		background-size: 100%;
+		padding-bottom: 66px;
+	}
+	@include media('<phone') {
+		background-size: 540px 123px;
+		height: 123px;
+	}
+}
+.header-holder{
+	.container{
+		@extend %clearfix;
+		white-space: nowrap;
+		position: relative;
+		margin-left: 101px;
+		@include media('<tablet'){
+			margin-left: 30px;
+		}
+	}
+	.logo{
+		display: inline-block;
+		text-align: left;
+		color: #fff;
+		margin: 0 0 72px 42px;
+		@include media('<widescreen'){
+			margin-bottom: 60px;
+		}
+		@include media('<desktop'){
+			margin-bottom: 30px;
+		}
+		@include media('<tablet'){
+			margin: 0;
+			margin: 4px 0 0 6px;
+		}
+		.logo-wrap{
+			text-align: right;
+		}
+		a{
+			display: block;
+			margin-bottom: 17px;
+			@include media('<widescreen'){
+				width: 70%;
+				margin-bottom: 8px;
+			}
+			@include media('<tablet'){
+				width: 50%;
+			}
+		}
+		h4{
+			margin-right: 32px;
+			text-align: right;
+			@include media('<widescreen'){
+				font-size: 15px;
+				margin-right: 109px;
+			}
+			@include media('<tablet'){
+				display: none;
+			}
+		}
+		/*margin-left: 42px;
+		margin-right: 800px;
+		@include media('<tablet') {
+			margin-left: 0;;
+		}
+		@include media('<phone') {
+			position: absolute;
+			top: 13px;
+			left: 0;
+		}
+		a{
+			margin-bottom: 17px;
+			display: block;
+			img{
+				min-width: 191px;
+				@include media('<desktop') {
+					min-width: 191px;
+				}
+				@include media('<tablet'){
+					min-width: 130px
+				}
+			}
+		}
+		h4{
+			color: #fff;
+			padding-left: 41px;
+			@include media('<desktop'){
+				padding-left: 0;
+			}
+			@include media('<tablet') {
+				display: none;
+			}
+			span{
+				padding-left: 60px;
+			}
+		}*/
+	}
+}
+.select-form{
+	@extend %clearfix;
+	white-space: nowrap;
+	padding: 22px 0 0 0px;
+	margin-bottom: 19px;
+	font-size: 15px;
+	font-weight: bold;
+	@include media('<tablet') {
+		/*position: absolute;
+		top: 50px;
+		left: 0;*/
+		margin: 0 0 7px 40%;
+	}
+	img{
+		float: left;
+		margin-right: 4px;;
+	}
+	.form{
+		float: left;
+		select{
+			width: 53px;
+			margin-left: 4px;
+			height: 20px;
+		}
+	}
+}
+

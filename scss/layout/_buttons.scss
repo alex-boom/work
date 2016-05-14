@@ -1,0 +1,81 @@
+.btn{
+	font-size: 21px;
+	margin-bottom: 10px;
+	display: inline-block;
+	padding: 18px 62px;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #fff;
+	white-space: nowrap;
+	background: linear-gradient(to bottom, #f5caaa 0%,#e3a576 2%,#d8813e 3%,#db7628 5%,#de792b 7%,#da7a30 8%,#da782d 12%,#d9772c 95%,#ce732d 97%,#8c4e1f 98%,#72533e 100%);
+	&:hover{
+		opacity: 0.8;
+		color: #fff;
+	}
+	@include media('<desktop') {
+		font-size: 18px;
+		text-align: center;
+		width: 100%;
+	}
+	@include media('<tablet') {
+		font-size: 15px;
+	}
+	&.resize-btn{
+		width: 100%;
+		padding: 18px 0;
+		text-align: center;
+	}
+}
+.toggle-wrap{
+	background-color: RGBA(0, 0, 0, 0.7);
+	border-radius: 3px;
+	padding: 6px 6px 1px;
+	position: absolute;
+	top: 20px;
+	right: 24px;
+	display: block;
+	border: 1px solid #fff;
+	@include media('>tablet'){
+		display: none;
+	}
+	@include media('<tablet'){
+		display: block;
+	}
+	.toggle-mnu {
+		display: block;
+		width: 31px;
+		height: 26px;
+		span:after,
+		span:before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 9px;
+		}
+		span:after {
+			top: 18px;
+		}
+		span {
+			position: relative;
+			display: block;
+		}
+		span, 
+		span:after, 
+		span:before {
+			width: 100%;
+			height: 3px;
+			background-color: white;
+			transition: all 0.3s;
+			backface-visibility: hidden;
+		}
+		&.on span {
+			background-color: transparent;
+		}
+		&.on span:before {
+			transform: rotate(45deg) translate(-1px, 0px);
+		}
+		&.on span:after {
+			transform: rotate(-45deg) translate(6px, -7px);
+		}
+	}
+}

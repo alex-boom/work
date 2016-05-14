@@ -1,0 +1,24 @@
+.article{
+	.btn{
+		margin-bottom: 35px;
+	}
+	h1 {
+		br {
+			@include media('<tablet') {
+				display: none;
+			}
+		}
+	}
+	h2{
+		margin: 10px 0 7px 0;
+		text-transform: uppercase;
+	}
+	p{
+		margin-bottom: 22px;
+	}
+	.btn{
+		@include media('<tablet') {
+			padding: 18px 0;
+		}
+	}
+}

@@ -1,0 +1,67 @@
+.aside{
+	float: right;
+	width: 34%;
+	padding: 0 0 0 29px;
+	position: relative;
+	@include media('<widescreen'){
+		padding: 0 0 0 15px;
+	}
+	@include media('<desktop'){
+		clear: both;
+		float: none;
+		padding: 0;
+		width: 100%;
+	}
+}
+.aside-widget{
+	margin-bottom: 39px;
+}
+.content-section{
+	@extend %listreset;
+	@extend %clearfix;
+	margin-bottom: 35px;
+	padding: 28px 25px 25px 25px;
+	background: #f1f1f1;
+	h1{
+		margin-bottom: 9px;
+	}
+	.section{
+		h2{
+			margin: 0 0 2px 0;
+			a{
+				color: #000;
+				&:hover{
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
+.list-section{
+	padding-bottom: 34px;
+	margin-bottom: 40px;
+	font-size: 21px;
+	@include media('<widescreen') {
+		font-size: 19px;
+		padding: 15px;
+	}
+	@include media('<tablet') {
+		font-size: 17px;
+	}
+	@include media('<xs-phone') {
+		padding: 15px;
+		font-size: 13px;
+	}
+	.list{
+		@extend %clearfix;
+		margin: 0;
+		padding: 0 0 0 25px;
+		line-height: 27px;
+		a{
+		color: #000;
+		&:hover{
+			text-decoration: underline;
+			}
+		}
+	}
+}
