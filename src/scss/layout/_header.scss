@@ -1,0 +1,227 @@
+.bar{
+	@extend %clearfix;
+	font-family: 'Source Sans Pro', sans-serif;
+	background: $whisper;
+	border-bottom: 1px solid $solitude;
+	text-align: center;
+	overflow: hidden;
+	a{
+		color: $blue;
+	}
+}
+.fixed{
+	width: 100%;
+	border-radius: 0;
+	background: $white;
+	color: $white;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+	padding: 0 !important;
+	.logo{
+		img {
+			width: 82px;
+			padding-top: 10px;
+		}
+	}
+}
+.social{
+	float: right;
+	margin-right: 33px;
+	@media (max-width: $screen-xs-max) {
+		margin-right: 15px;
+	}
+}
+.contact-links,
+.social{
+	@extend %clearfix;
+	@extend %listreset;
+	@media (max-width: $screen-xs-min) {
+		display: none;
+	}
+	li{
+		float: left;
+		font-size: 12px;
+		.fa{
+			padding: 0 9px;
+			line-height: 40px;
+			@include animate(background);
+			&:hover{
+				color: $white;
+			}
+			&.fa-envelope-o{font-size: 11px;}
+			&.fa-mobile{font-size: 18px;}
+			&.fa-dribbble{
+				font-size: 14px;
+				&:hover{
+					background: $dribbble;
+				}
+			}
+			&.fa-facebook{
+				&:hover{
+					background: $facebook;
+				}
+			}
+			&.fa-google-plus{
+				&:hover{
+					background: $google;
+				}
+			}
+			&.fa-twitter{
+				&:hover{
+					background: $twitter;
+				}
+			}
+			&.fa-pinterest-p{
+				&:hover{
+					background: $pinterest;
+				}
+			}
+			&.fa-behance{
+				&:hover{
+					background: $behance;
+				}
+			}
+		}
+	}
+}
+.contact-links{
+	float: left;
+	@media (max-width: $screen-xs-max) {
+		margin-left: 15px;
+	}
+	li{
+		margin-right: 27px;
+		.fa{
+			margin-right: 8px;
+			padding: 0;
+			background: none;
+			&:hover{
+				color: $green;
+			}
+		}
+	}
+}
+.logo{
+	margin: 8px -16px;
+	@media (max-width: $screen-xs-max) {
+		margin: 11px 0 0 15px;
+	}
+	img {
+		@include animate(opacity);
+		&:hover{
+			opacity: .6;
+		}
+		@media (max-width: $screen-sm-max) {
+			width: 130px;
+			padding-top: 10px;
+		}
+		@media (max-width: $screen-xs-max) {
+			width: 125px;
+		}
+	}
+}
+.search-link {
+	float: right;
+	margin: -37px 39px 0 0;
+	color: $cello;
+	font-size: 13px;
+	@media (max-width: $screen-md-max) {
+		display: none;
+	}
+}
+.dropdown-container {
+	padding: 33px 40px 20px;
+	margin-top: -3px;
+	background: $whisper;
+	border: 1px solid $solitude;
+	@media (max-width: $screen-md-max) {
+		padding: 15px;
+	}
+	h4 {
+		font-size: 16px;
+		font-weight: bold;
+		letter-spacing: .05em;
+		color: $blue;
+		text-transform: uppercase;
+		margin: 0 0 29px 0;
+	}
+	p {
+		font-size: 13px;
+		line-height: 22px;
+		color: $light-blue;
+		margin: 0 0 23px 0;
+	}
+	.fa{
+		font-size: 22px;
+	}
+}
+.box-focus {
+	margin: 0 0 20px 0;
+	.rollover{
+		width: 96%;
+	}
+	img {
+		display: block;
+		margin-bottom: 22px;
+		width: 100%;
+		@media (max-width: $screen-xs-max) {
+			width: 50%;
+		}
+	}
+}
+.box-special {
+	position: relative;
+	ul {
+		@extend %listreset;
+		position: relative;
+		margin: -6px 0 0 4px;
+	}
+	li {
+		list-style: none;
+		&:before{
+			display: inline-block;
+			content: "\f1db";
+			font-size: 9px;
+			margin-right: 13px;
+			color: $green;
+			font-family: "FontAwesome";
+		}
+	}
+	a {
+		font-size: 13px;
+		line-height: 27px;
+		color: $light-blue;
+	}
+	.fa{
+		font-size: 9px;
+		margin-right: 13px;
+		color: $green;
+	}
+}
+.box-works {
+	margin-left: 5px;
+	ul {
+		@extend %clearfix;
+		@extend %listreset;
+		overflow: hidden;
+		margin-top: -5px;
+	}
+	li {
+		@extend %listreset;
+		float: left;
+		width: 50%;
+		padding: 0 3px 3px 0;
+	}
+	img {
+		width: 100%;
+	}
+}
+.box-about{
+	margin-left: 8px;
+	p{
+		margin-top: -5px;
+	}
+}

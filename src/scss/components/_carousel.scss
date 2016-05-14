@@ -1,0 +1,232 @@
+.owl-carousel{
+	@extend %listreset;
+	position: relative;
+	text-align: center;
+	.owl-prev,
+	.owl-next{
+		position: absolute;
+		top: 50%;
+		z-index: 5;
+		background: $blue;
+		width: 60px;
+		height: 60px;
+		text-align: center;
+		font-size: 0;
+		line-height: 0;
+		color: $white;
+		border-radius: 3px;
+		margin: -30px 0 0;
+		opacity: .25;
+		@include animate(opacity);
+		&:hover{
+			opacity: 1;
+			color: $green;
+		}
+		@media (max-width: $screen-sm-max) {
+			display: none;
+		}
+	}
+	.owl-prev{
+		left: 30px;
+		&:before{
+			content: "\E004";
+			font: 26px/60px iconfont;
+			display: inline-block;
+		}
+	}
+	.owl-next{
+		right: 30px;
+		&:before{
+			content: "\E005";
+			font: 26px/60px iconfont;
+			display: inline-block;
+		}
+	}
+	> .owl-dots{
+		position: absolute;
+		z-index: 5;
+		bottom: -10px;
+		left: 50%;
+		background: $white;
+		border-radius: 2px;
+		padding: 13px 15px 0;
+		transform: translate(-50%);
+		.owl-dot{
+			margin: 0 0 5px 10px;
+			float: left;
+			width: 15px;
+			height: 15px;
+			border-radius: 50%;
+			background: $blue;
+			@include animate(background);
+			&:first-child{
+				margin-left: 0;
+			}
+			&.active{
+				background: $green;
+			}
+		}
+	}
+}
+.carousel-item{
+	background: $medium-blue no-repeat;
+	min-height: 330px;
+	&.item-bg{
+		background: $light-gray;
+	}
+	.item-wrap{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 3;
+	}
+	.wrapper{
+		display: table;
+		width: 100%;
+		height: 100%;
+	}
+	.box-article{
+		display: table-cell;
+		vertical-align: middle;
+		&.article-top{
+			vertical-align: top;
+		}
+	}
+	.description{
+		h1{
+			color: $white;
+			font-size: 78px;
+			line-height: 88px;
+			margin: 0 0 15px;
+			text-transform: uppercase;
+			overflow: hidden;
+			letter-spacing: .06em;
+			font-weight: bold;
+			@media (max-width: $screen-md-max) {
+				font-size: 45px;
+				line-height: 47px;
+			}
+			@media (max-width: $screen-xs-max) {
+				font-size: 30px;
+				line-height: 30px;
+				margin-bottom: 0;
+			}
+		}
+		p{
+			color: $medium-gray;
+			font-size: 22px;
+			letter-spacing: 1px;
+			margin-bottom: 84px;
+			@media (max-width: $screen-sm-max) {
+				margin-bottom: 30px;
+			}
+			@media (max-width: $screen-xs-max) {
+				font-size: 15px;
+				margin-bottom: 20px
+			}
+		}
+		br{
+			@media (max-width: $screen-sm-max) {
+				display: none;
+			}
+		}
+		&.description-right-bg,
+		&.description-left-bg{
+			h1{
+				span{
+					background: $blue;
+					padding: 20px 40px;
+					display: inline-block;
+					margin-bottom: 10px;
+					@media (max-width: $screen-xs-max) {
+						padding: 10px;
+					}
+				}
+			}
+			p{
+				color: $white;
+			}
+		}
+		&.description-right-bg{
+			margin-top: 50px;
+			@media (max-width: $screen-xs-max) {
+				margin-top: 10px;
+			}
+		}
+		&.description-left-bg{
+			p{
+				color: $blue;
+			}
+		}
+		&.description-top{
+			margin-top: 20px;
+			@media (max-width: $screen-sm-max) {
+				margin-top: 50px;
+				p{
+					color: $white;
+					background: rgba(78, 104, 131, .6);
+				}
+			}
+		}
+	}
+}
+.carousel{
+	margin-bottom: 21px;
+	.controls{
+		display: inline-block;
+		vertical-align: top;
+		padding: 0 30px;
+		margin: 27px 0 0 -30px;
+		height: 30px;
+		position: relative;
+		transform: translate(10%);
+		.owl-dots{
+			margin: 8px 15px 0;
+			.owl-dot{
+				float: left;
+				width: 15px;
+				height: 15px;
+				border-radius: 50%;
+				background: $blue;
+				margin: 0 10px 10px 0;
+				&:last-child{
+					margin-right: 0;
+				}
+				&.active{
+					background: $green;
+				}
+			}
+		}
+		.owl-nav{
+			.owl-prev,
+			.owl-next{
+				top: 100%;
+				width: 30px;
+				height: 30px;
+				display: block !important;
+				&:before{
+					font: 13px/30px iconfont;
+				}
+			}
+			.owl-prev{
+				left: 0;
+			}
+			.owl-next{
+				right: 0;
+			}
+		}
+	}
+	.slide{
+		margin-bottom: 10px;
+		.head{
+			display: block;
+			margin-bottom: -10px;
+			font-size: 16px;
+		}
+		.descr{
+			font-size: 13px;
+		}
+	}
+}
