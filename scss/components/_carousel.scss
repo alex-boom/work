@@ -1,0 +1,182 @@
+.section-slider{
+	position: relative;
+	overflow: hidden;
+	padding: 90px 0 52px 0;
+	@include media('<phone'){
+		padding: 31px 0 31px;
+	}
+	.heading{
+		&:after{
+			@include media('<xs-phone') {
+				margin-bottom: -10px;
+			}
+		}
+	}
+	h1{
+		@include media('<phone'){
+			margin-bottom: 9px;
+		}
+	}
+}
+.owl-wrapper{
+	@include media('<phone') {
+		transform: none !important;
+	}
+}
+.owl-carousel{
+	@extend %clearfix;
+	@extend %listreset;
+	width: 867px;
+	margin: auto;
+	@include media('<widescreen') {
+		width: 80%;
+	}
+	@include media('<phone'){
+		width: 100%;
+	}
+	.owl-item{
+		@include media('<phone') {
+			float: none;
+			display: block;
+			margin-left: 29px;
+			padding: 11px 0 10px 0;
+			border-bottom: 1px solid #d7d7d7;
+			&:last-child{
+				border-bottom: none;
+				padding-bottom: none;
+			}
+		}
+	}
+}
+.owl-controls{
+	.owl-buttons{
+		position: absolute;
+		top: 0;
+		width: 100%;
+		@include media('<tablet') {
+			display: none;
+		}
+		.owl-prev{
+			&:before {
+				position: absolute;
+				left: -65px;
+				top: 52px;
+				content: "\E002";
+				font-size: 70px;
+				font-family: iconfont;
+			}
+			&:after{
+				position: absolute;
+				top: 89px;
+				left: -41px;
+				content: "\E010";
+				font-size: 9px;
+				font-family: iconfont;
+			}
+		}
+		.owl-next{
+			&:before {
+				position: absolute;
+				top: 52px;
+				right: -64px;
+				content: "\E001";
+				font-size: 70px;
+				font-family: iconfont;
+			}
+			&:after{
+				position: absolute;
+				top: 89px;
+				right: -41px;
+				content: "\E011";
+				font-size: 9px;
+				font-family: iconfont;
+			}
+		}
+	}
+}
+.carousel-item{
+	text-align: center;
+	white-space: nowrap;
+	@include media('<phone'){
+		text-align: left;
+	}
+	a{
+		color: #787878;
+	}
+	.circle{
+		display: inline-block;
+		width: 110px;
+		height: 110px;
+		border-radius: 50%;
+		background-color: #769eca;
+		margin: 27px 21px 21px;
+		padding: 28px 0;
+		text-align: center;
+		@include media('<phone'){
+			width: 55px;
+			height: 55px;
+			margin: 0;
+			padding: 14px 0;
+			vertical-align: middle;
+		}
+		&.blue{
+			background-color: #1a3255 !important;
+		}
+		&.purple{
+			background-color: #6c6b86 !important;
+		}
+		&.bali{
+			background-color: #869bac !important;
+		}
+		&.nepal{
+			background-color: #92a4bc !important;
+		}
+		&.grey{
+			background-color: #55575a !important;
+		}
+		&.chatelle{
+			background-color: #c0b5cf !important;
+		}
+		&.cold{
+			background-color: #cfb5c1 !important;
+		}
+		.icon{
+			font-size: 49px;
+			color: #fff;
+			margin: 0;padding: 0;
+			@include media('<phone'){
+				font-size: 25px !important;
+			}
+		}
+		.icon-case{
+			font-size: 40px;
+			margin-right: 6px;
+		}
+		.icon-calculator{
+			margin-left: 5px;
+		}
+	}
+	.description-box{
+		text-align: center;
+		padding: 0 11px;
+		white-space: normal;
+		@include media('<phone'){
+			display: inline-block;
+			text-align: left;
+			vertical-align: middle;
+			width: calc(100% - 90px);
+		}
+		.phone{
+			display: none;
+			@include media('<phone'){
+				display: block;
+				line-height: 0;
+			}
+		}
+		.desktop{
+			@include media('<phone'){
+				display: none;
+			}
+		}
+	}
+}

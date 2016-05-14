@@ -1,0 +1,121 @@
+.header{
+	background: url(../build/images/homeBg-2x.jpg) no-repeat;
+	background-size: cover !important;
+	width: 100%;
+	min-height: 100vh;
+	position: relative;
+	overflow: hidden;
+	@include media('<tablet') {
+		background: url(../build/images/homeBg-small.jpg) no-repeat;
+	}
+	.header-holder{
+		@include media('<tablet') {
+			@extend %clearfix;
+		}
+	}
+	.active{
+		display: block !important;
+		@include media('<tablet') {
+			display: none !important;
+		}
+	}
+	.pause,
+	.play{
+		display: none;
+		position: absolute;
+		bottom: 42px; right: 41px;
+		color: #fff;
+		font-size: 18px;
+		@include animate(opacity);
+		&:hover{
+			opacity: .6;
+		}
+		img{
+			vertical-align: middle;
+			margin-left: 4px;
+		}
+		.fa{
+			font-size: 20px;
+			margin-left: 5px;
+		}
+	}
+}
+.header-wrap{
+	@extend %clearfix;
+	margin: 0 auto;
+	padding: 31px;
+	text-align: right;
+	position: relative;
+	@include media('<desktop') {
+		padding: 20px 10px;
+	}
+	@include media('<tablet') {
+		padding: 0;
+	}
+}
+.logo{
+	float: left;
+	@include media('<desktop') {
+		display: inline-block;
+	}
+	@include media('<tablet') {
+		width: 63%;
+		height: 61px;
+		background: #043355;
+		text-align: center;
+		padding: 13px 57px 14px;
+	}
+	@include media('<xs-phone') {
+		padding: 20px 57px 21px;
+	}
+}
+.slogan-wrap{
+	overflow: hidden;
+	position: absolute;
+	height: 50%;
+	margin: auto;
+	top: 0; left: 0; bottom: 0; right: 0;
+	color: #fff;
+	text-align: center;
+	&:before {
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+		content: "";
+	}
+	.slogan{
+		display: inline-block;
+		text-align: center;
+		vertical-align: middle;
+		width: 90%;
+		margin-bottom: 0;
+		 &:after{
+			content:"";
+			clear:both;
+			display:block;
+			padding-bottom: 32px;
+			border-bottom: 1px solid #fff;
+			width: 250px;
+			margin: 0 auto;
+			@include media('<tablet') {
+				width: 200px;
+			}
+			@include media('<phone') {
+				width: 124px;
+				padding-bottom: 16px;
+			}
+		}
+		@include media('<tablet') {
+			font-size: 30px;
+		}
+		@include media('<phone') {
+			font-size: 22px;
+			padding-top: 30px;
+		}
+		br{
+			@include media('<tablet') {
+				display: none;
+			}
+		}
+	}
+}

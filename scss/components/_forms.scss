@@ -1,0 +1,29 @@
+.forms{
+	.input-wrap{
+		@extend %clearfix;
+		padding: 0 1px 7px;
+		@include media('<phone'){
+			margin-bottom: -17px;
+			padding: 0 29px 7px;
+		}
+	}
+	.input{
+		width: 50%;
+		float: left;
+		padding: 0 15px;
+		@include media('<phone') {
+			float: none;
+			width: 100%;
+			padding: 0 0 20px 0;
+		}
+		input[type="text"]{
+			width: 100%;
+			border: none;
+			padding: 15px;
+			background: #2a4061;
+			@include media('<desktop') {
+				padding: 10px;
+			}
+		}
+	}
+}

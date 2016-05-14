@@ -1,0 +1,65 @@
+.main-nav{
+	@extend %listreset;
+	@extend %clearfix;
+	float: right;
+	margin: 8px 23px;
+	font-size: 18px;
+	@include media('<desktop') {
+		float: none;
+		display: inline-block;
+		margin: 8px 0;
+		text-align: right;
+		font-size: 16px;
+	}
+	@include media('>tablet'){
+		display: inline-block!important;
+	}
+	@include media('<tablet'){
+		display: none;
+		position: absolute;
+		z-index: 1;
+		top: 100%;
+		right: 0;
+		left: 0;
+		background-color: RGBA(0, 0, 0, 0.8);
+		margin: 0;
+		padding: 0;
+		text-align: center;
+		font-size: 14px;
+		font-weight: bold;
+	}
+	.active{
+		border-bottom: 1px solid #fff;
+		@include media('<tablet') {
+			border-bottom: none;
+		}
+	}
+	li{
+		margin-left: 47px;
+		float: left;
+		padding-bottom: 11px;
+		&:hover{
+			border-bottom: 1px solid #fff;
+		}
+		@include media('<widescreen') {
+			margin-left: 17px;
+		}
+		@include media('<desktop') {
+			margin-left: 8px;
+		}
+		@include media('<tablet') {
+			float: none;
+			text-transform: uppercase;
+			border-bottom: 1px solid #fff;;
+			padding: 13px;
+			margin: 0;
+		}
+	}
+	a{
+		color: #fff;
+		@include animate(opacity);
+		&:hover{
+			opacity: .6;
+		}
+	}
+}

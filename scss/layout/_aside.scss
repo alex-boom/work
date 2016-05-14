@@ -1,0 +1,47 @@
+.brochures{
+	@extend %clearfix;
+	width: 663px;
+	margin: 53px auto 0;
+	text-align: center;
+	@include media('<tablet'){
+		width: 100%;
+		margin-top: 37px;
+	}
+	.description-box{
+		margin-bottom: 37px;
+		@include media('<phone'){
+			margin-bottom: 17px;
+		}
+	}
+	.brochure-item{
+		float: left;
+		width: 50%;
+		margin-bottom: 20px;
+		@include media('<tablet'){
+			display: inline-block;
+			float: none;
+			width: 100%;
+		}
+		img{
+			padding-bottom: 11px;
+			@include media('<phone'){
+				width: 83px;
+				height: 129px;
+				margin-bottom: -6px;
+			}
+		}
+		.description-box{
+			margin-bottom: 8px;
+			@include media('<phone'){
+				margin-bottom: 3px;
+			}
+		}
+		strong{
+			font-size: 13px;
+			letter-spacing: 1px;
+			@include media('<phone'){
+				font-size: 12px;
+			}
+		}
+	}
+}

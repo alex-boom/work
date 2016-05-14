@@ -1,0 +1,57 @@
+.footer-mobile{
+	display: none;
+	text-align: center;
+	@include media('<tablet') {
+		display: block;
+	}
+	.navigation{
+		@extend %clearfix;
+		margin: 0 30px;
+		padding: 15px 0;
+		border-bottom: 1px solid #ddd;
+		@include media('<xs-phone') {
+			text-align: left;
+		}
+		ul{
+			@extend %listreset;
+			display: inline-block;
+			text-align: left;
+			vertical-align: top;
+			margin: 0 27px;
+			color: #787878;
+			@include media('<xs-phone') {
+				margin: 0 54px 0 0px;
+			}
+			a{
+				color: #787878;
+				font-size: 13px;
+				line-height: 20px;
+				@include animate(opacity);
+				&:hover{
+					opacity: .6;
+				}
+			}
+			.fa-linkedin-square{
+				margin-right: 3px;
+				font-size: 12px;
+				color: #1d8cb5;
+			}
+		}
+	}
+	.wrap-details{
+		margin: 9px 0;
+		font-size: 9px;
+	}
+	img{
+		@include media('<phone') {
+			width: 85px;
+			height: 19px;
+			margin-bottom: 4px;
+		}
+	}
+	.copyright{
+		@include media('<phone') {
+			margin-bottom: 21px;
+		}
+	}
+}

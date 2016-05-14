@@ -1,0 +1,337 @@
+.section-person{
+	padding: 69px 0 77px 0;
+	overflow: hidden;
+	@include media('<phone') {
+		padding: 31px 0 21px;
+	}
+	.container{
+		max-width: 986px;
+		@include media('<tablet-large') {
+			max-width: 500px;
+		}
+		@include media('<phone'){
+			max-width: 262px;
+		}
+	}
+	.btn-wrap{
+		margin-top: 32px;
+	}
+}
+.person-wrap{
+	@extend %clearfix;
+	text-align: center;
+	.person-item{
+		width: 25%;
+		float: left;
+		@include media('<tablet-large'){
+			width: 50%;
+		}
+		@include media('<phone'){
+			margin-bottom: 22px;
+		}
+		.circle-item{
+			width: 180px;
+			height: 180px;
+			border-radius: 50%;
+			margin: 23px 0 18px 0;
+			@include animate(opacity);
+			&:hover{
+				opacity: .8;
+			}
+			@include media('<phone'){
+				width: 90px;
+				height: 90px;
+				margin: 12px 0 3px 0;
+			}
+		}
+		.descr-wrap{
+			@include media('<phone') {
+				min-height: 50px;
+			}
+			@include media('<xs-phone'){
+				min-height: 46px;
+			}
+		}
+		.description-box{
+			margin: 0;
+		}
+		span{
+			font-size: 14px;
+			@include media('<phone'){
+				font-size: 12px;
+			}
+		}
+		.contact{
+			@extend %clearfix;
+			@extend %listreset;
+			margin-top: 2px;
+			li{
+				display: inline-block;
+				@include animate(opacity);
+				&:hover{
+					opacity: .6;
+				}
+				.fa{
+					font-size: 21px;
+					color: #1d8cb5;
+					@include media('<phone'){
+						font-size: 17px;
+					}
+				}
+				.icon-note{
+					font-size: 23px;
+					vertical-align: middle;
+					@include media('<phone'){
+						font-size: 17px;
+					}
+				}
+				strong{
+					color: #1a3255;
+					font-size: 15px;
+					@include media('<phone'){
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
+.section-tax{
+	overflow: hidden;
+	padding: 73px 0 79px;
+	background: #1a3255 url('../build/images/bg-map.jpg') no-repeat 50% 0;
+	color: #fff;
+	text-align: center;
+	@include media('<phone') {
+		padding: 35px 0 20px;
+	}
+	.heading{
+		margin-bottom: 28px;
+	}
+	.description-box{
+		width: 85%;
+		margin: 0 auto;
+	}
+	.btn-wrap{
+		margin-top: 31px;
+	}
+	.btn{
+		color: #fff !important;
+		border: 1px solid #fff !important;
+		@include media('<phone'){
+			margin-top: 4px;
+		}
+		.icon-arrows-right{
+			color: #fff;
+		}
+	}
+}
+.section-form{
+	padding-top: 77px;
+	@include media('<xs-phone') {
+		padding-top: 36px;
+	}
+	.container{
+		max-width: 767px;
+		margin: 0 auto;
+	}
+	background: #1a3255;
+	color: #fff;
+	text-align: center;
+	.description-box{
+		margin-bottom: 40px;
+		@include media('<tablet'){
+			width: 80%;
+			margin: 0 auto 18px;
+		}
+		@include media('<phone') {
+			width: 88%;
+		}
+	}
+	.btn{
+		background: none;
+		color: #fff !important;
+		border: 1px solid #fff !important;
+		.icon-arrows-right{
+			color: #fff !important;
+		}
+	}
+}
+.section-contacts{
+	overflow: hidden;
+	padding: 72px 0 73px;
+	text-align: center;
+	border-bottom: 1px solid #173356;
+	@include media('<phone') {
+		padding: 31px 0 21px;
+	}
+	.description-box{
+		width: 95%;
+		margin: auto;
+		@include media('<xs-phone'){
+			width: 90%;
+			line-height: 17px;
+			margin-bottom: -8px;
+		}
+	}
+}
+.map-wrap{
+	@extend %clearfix;
+	display: inline-block;
+	margin-top: 7px;
+}
+.map-item{
+	margin: 0 48px;
+	float: left;
+	@include media('<desktop') {
+		margin: 0 20px;
+	}
+	@include media('<tablet'){
+		margin: 0 10px 36px;
+		&:last-child{
+			margin-bottom: 16px;
+		}
+	}
+	@include media('<phone-large') {
+		float: none;
+	}
+	.map-hold {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		width: 220px;
+		height: 220px;
+		border-radius: 50%;
+		&:hover{
+			&:before{
+				background: none;
+			}
+		}
+		&:before{
+			content:"";
+			position: absolute;
+			left: 0;
+			top: 0;
+			background: rgba(80, 126, 175, 0.7);
+			width: 220px;
+			height: 220px;
+			border-radius: 50%;
+			@include animate(background);
+			@include media('<desktop'){
+				width: 160px;
+				height: 160px;
+			}
+			@include media('<phone'){
+				width: 111px;
+				height: 111px;
+			}
+		}
+		@include media('<desktop'){
+			width: 160px;
+			height: 160px;
+		}
+		@include media('<phone'){
+			width: 111px;
+			height: 111px;
+		}
+		img {
+			vertical-align: top;
+		}
+	}
+	.description-box{
+		margin: 28px 0 21px 0;
+		&:after{
+			content:"";
+			clear:both;
+			display:block;
+			border-bottom: 2px solid #1a3255;
+			width: 12px;
+			margin: 10px auto;
+			@include media('<phone'){
+				width: 9px;
+				margin-top: 4px;
+			}
+		}
+		@include media('<phone'){
+			margin-top: 14px;
+		}
+	}
+	address{
+		min-height: 82px;
+		font-size: 14px;
+		font-style: normal;
+		line-height: 20px;
+		margin-bottom: 17px;
+		@include media('<xs-phone'){
+			margin-top: -9px;
+			font-size: 12px;
+			line-height: 14px;
+		}
+	}
+	.contacts{
+		@extend %listreset;
+		line-height: 20px;
+		@include media('<tablet') {
+			font-size: 12px;
+		}
+		@include media('<xs-phone'){
+			margin-top: -27px;
+			line-height: 14px;
+		}
+	}
+}
+.section-questions{
+	overflow: hidden;
+	padding: 70px 0 100px;
+	@include media('<phone-large') {
+		display: none;
+	}
+	@include media('<phone') {
+		padding: 31px 0 21px;
+	}
+	.description-box{
+		margin-bottom: 17px;
+	}
+	.forms{
+		margin: 0 15px;
+		h6{
+			margin-bottom: 10px;
+			padding-left: 8px;
+			font-size: 15px;
+			color: $white-gray;
+			text-align: left;
+		}
+		.forms-wrap{
+			@extend %clearfix;
+		}
+		.input-wrap{
+			width: 50%;
+			float: left;
+			padding: 0 15px 0 0;
+			input[type="text"]{
+				float: none;
+				width: 100%;
+				border: none;
+				background: #2a4061;
+				padding: 16px;
+				margin-bottom: 19px;
+			}
+		}
+		.textarea{
+			float: right;
+			width: 50%;
+			padding-left: 14px;
+			margin-bottom: 19px;
+			textarea{
+				width: 100%;
+				background: #2a4061;
+				border: none;
+				padding: 17px 20px;
+				height: 191px;
+			}
+		}
+		.btn-wrap{
+			margin-top: 20px;
+		}
+	}
+}

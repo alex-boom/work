@@ -1,0 +1,90 @@
+@font-face {
+	font-family: "iconfont";
+	src: url('fonts/iconfont/iconfont.eot');
+	src: url('fonts/iconfont/iconfont.eot?#iefix') format('eot'),
+		url('fonts/iconfont/iconfont.woff2') format('woff2'),
+		url('fonts/iconfont/iconfont.woff') format('woff'),
+		url('fonts/iconfont/iconfont.ttf') format('truetype'),
+		url('fonts/iconfont/iconfont.svg#iconfont') format('svg');
+}
+
+.icon:before {
+	font-family: "iconfont";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	/* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
+	text-decoration: none;
+	text-transform: none;
+}
+
+
+.icon-arrow-right:before {
+	content: "\E001";
+}
+
+.icon-arrow_left:before {
+	content: "\E002";
+}
+
+.icon-arrows-down:before {
+	content: "\E003";
+}
+
+.icon-arrows-right:before {
+	content: "\E004";
+}
+
+.icon-calculator:before {
+	content: "\E005";
+}
+
+.icon-case:before {
+	content: "\E006";
+}
+
+.icon-clock-bigben:before {
+	content: "\E007";
+}
+
+.icon-clock:before {
+	content: "\E008";
+}
+
+.icon-hand-1:before {
+	content: "\E009";
+}
+
+.icon-hand:before {
+	content: "\E00A";
+}
+
+.icon-interface:before {
+	content: "\E00B";
+}
+
+.icon-justice:before {
+	content: "\E00C";
+}
+
+.icon-key:before {
+	content: "\E00D";
+}
+
+.icon-nature:before {
+	content: "\E00E";
+}
+
+.icon-note:before {
+	content: "\E00F";
+}
+
+.icon-small-arrow-left:before {
+	content: "\E010";
+}
+
+.icon-small-arrow-right:before {
+	content: "\E011";
+}

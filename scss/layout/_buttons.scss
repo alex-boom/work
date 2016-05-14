@@ -1,0 +1,108 @@
+.btn-wrap{
+	margin-top: 33px;
+	text-align: center;
+	@include media('<phone'){
+		margin: 12px 0 19px 0;
+	}
+}
+.btn{
+	color: #1a3255;
+	font-size: 14px;
+	padding: 15px 0;
+	width: 170px;
+	border: 1px solid #1a3255;
+	display: inline-block;
+	opacity: 1;
+	@include animate(opacity);
+	&:hover {
+		opacity: 0.6;
+	}
+	@include media('<phone'){
+		width: 142px;
+		padding: 12px 0;
+		font-size: 12px;
+	}
+}
+.toggle-wrap{
+	float: left;
+	width: 37%;
+	padding: 22px;
+	background-color: #fff;
+	text-align: center;
+	@include media('>tablet'){
+		display: none;
+	}
+	@include media('<tablet'){
+		display: block;
+	}
+	.toggle-mnu {
+		display: inline-block;
+		width: 25px;
+		height: 10px;
+		span:after,
+		span:before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 6px;
+		}
+		span:after {
+			top: 12px;
+		}
+		span {
+			position: relative;
+			display: block;
+		}
+		span, 
+		span:after, 
+		span:before {
+			width: 100%;
+			height: 2px;
+			border-radius: 1px;
+			background-color: #444;
+			transition: all 0.3s;
+			backface-visibility: hidden;
+		}
+		&.on span {
+			background-color: transparent;
+		}
+		&.on span:before {
+			transform: rotate(45deg) translate(-1px, 0px);
+		}
+		&.on span:after {
+			transform: rotate(-45deg) translate(6px, -7px);
+		}
+	}
+}
+.arrow-down{
+	text-align: center;
+	display: inline-block;
+	position: absolute;
+	left: 0; bottom: 94px; right: 0;
+	@include animate(opacity);
+	&:hover{
+		opacity: .6;
+	}
+	@include media('<tablet') {
+		bottom: 64px;
+	}
+	.icon-arrows-down{
+		border: 1px solid #fff;
+		font-size: 20px;
+		padding: 11px 14px;
+		color: #fff;
+		margin: 0;
+		@include media('<tablet') {
+			font-size: 12px;
+			padding: 10px 12px;
+		}
+	}
+}
+.icon{
+	font-size: 13px;
+	margin-left: 6px;
+	vertical-align: sub;
+}
+.icon-arrows-down{
+	font-size: 11px;
+}

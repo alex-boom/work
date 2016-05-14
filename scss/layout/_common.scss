@@ -1,0 +1,71 @@
+.section{
+	overflow: hidden;
+	padding: 70px 0 80px 0;
+	@include media('<phone') {
+		padding: 31px 0 21px;
+	}
+}
+.container{
+	max-width: 996px;
+	margin: 0 auto;
+}
+.heading{
+	text-align: center;
+	margin-bottom: 37px;
+	&:after{
+		content:'';
+		display:block;
+		border-bottom: 1px solid #769eca;
+		margin: 0 auto;
+		width: 250px;
+		padding-bottom: 31px;
+		@include media('<xs-phone') {
+			width: 125px;
+			padding-bottom: 15px;
+		}
+	}
+	@include media('<phone') {
+		margin-bottom: 18px;
+	}
+	h1{
+		margin-bottom: 0;
+	}
+}
+.description-box {
+	font-size: 18px;
+	font-weight: 300;
+	@include media('<phone') {
+		font-size: 16px;
+	}
+	@include media('<xs-phone') {
+		font-size: 14px;
+	}
+}
+.description-wrap{
+	padding: 0 80px;
+	margin-bottom: 53px;
+	@include media('<desktop'){
+		padding: 0 30px;
+		margin-bottom: 25px;
+	}
+	@include media('<phone'){
+		padding: 0 15px;
+		margin-bottom: 17px;
+	}
+}
+.block-bg{
+	.desktop-bg{
+		max-height: 300px;
+		min-height: 200px;
+		width: 100%;
+		@include media('<phone'){
+			display: none;
+		}
+	}
+	.phone-bg{
+		display: none;
+		@include media('<phone'){
+			display: block;
+		}
+	}
+}
