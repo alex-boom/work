@@ -1,9 +1,15 @@
-#main{;
-    width:100%;
-    overflow:hidden;
+#main {
+	width: 100%;
+	overflow: hidden;
 }
-#content{
-  width: 100%;
-  float: left;
-  padding: 9px 248px 93px 199px;
+#content {
+	width: 100%;
+	float: left;
+	padding: 9px 247px 103px 199px;
+	@include media('<desktop') {
+		clear: both;
+		width: 100%;
+		float: none;
+		padding: 0;
+	}
 }

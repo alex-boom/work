@@ -1,85 +1,129 @@
 .page {
-  padding: 0 50px 10px 51px;
-  min-width: 1041px;
-  width: 1041px;
-  margin: 0 auto;
+	padding: 0 50px 10px 51px;
+	min-width: 320px;
+	margin: 0 auto;
+	@include media('<desktop') {
+		padding: 0;
+	}
+	@include media('<tablet') {
+		padding: 0;
+	}
 }
-
-h1 {
-  font-size: 16px;
-  margin-bottom: 2px;
-}
-
-a {
-  outline: none;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
 #wrapper {
-  width: 100%;
-  border-top: none;
-  border: 1px solid #ccc;
-  box-shadow: 0px 0px 0px 10px #e6e6e6;
-  background: #fff;
-  margin-bottom: 10px;
+	width: 100%;
+	border-top: none;
+	border: 1px solid #ccc;
+	box-shadow: 0px 0px 0px 10px #e6e6e6;
+	background: #fff;
+	margin-bottom: 10px;
 }
-
 #header {
-  margin-top: -10px;  
-  width:100%;
-  overflow: hidden;
-  background: url("images/buildings.png") no-repeat 100% 19%;
+	margin-top: -10px;
+	width: 100%;
+	background: url("images/buildings.png") no-repeat 100% 10px;
+	@include media('<desktop') {
+		background: url("images/buildings.png") 210px 0/80% no-repeat;
+	}
+	@include media('<tablet') {
+		background-size: 403px 108px;
+	}
+	@include media('<phone') {
+		background-size: 515px 143px;
+		background-position: 37px 0;
+	}
 }
-
 .header-holder {
-  padding: 42px 0 22px 0;
-  overflow: hidden;
+	padding: 44px 0 20px 0;
+	@extend %clearfix;
+	@include media('<desktop') {
+		padding: 26px 0 0 0;
+	}
+	@include media('<phone') {
+		text-align: center;
+	}
 }
-
 .logo {
-  padding-left: 22px;
-  float: left;
+	display: inline-block;
+	padding-left: 22px;
+	float: left;
+	@include media('<tablet') {
+		width: 40%;
+		padding-top: 3px;
+	}
+	@include media('<phone') {
+		padding-left: 7px;
+	}
+	img {
+		min-width: 170px;
+	}
 }
-
 .serch-form {
-  padding: 30px 7px 0 0;
-  float: right;
-  text-align: right;
-  p {
-    margin: 0;
-    color: #606060;
-    padding: 1px 8px 8px 0;
-    a{
-      margin-left: 5px;
-    }
-    span {
-      color: #3da0d5;
-    }
-  }
-    .button {
-      padding: 0;
-      background: none;
-      border: 0;
-      color: #0082c8;
-      img{
-        vertical-align: middle;
-        display: inline-block;
-      }
-   }
+	padding: 30px 7px 0 0;
+	float: right;
+	text-align: right;
+	@include media('<desktop') {
+		padding-bottom: 10px;
+	}
+	@include media('<tablet') {
+		display: inline-block;
+		text-align: center;
+		float: none;
+		padding: 3px 0;
+	}
+	@include media('<phone') {
+		padding: 0 45px 5px 0;
+	}
+	@include media('<xs-phone') {
+		padding-right: 0;
+	}
+	p {
+		margin: 0;
+		color: #606060;
+		padding: 1px 8px 8px 0;
+		@include media('<phone') {
+			background: rgba(96, 96, 96, 0.49);
+			display: inline-block;
+			padding: 5px 0;
+			border-radius: 3px;
+			color: #fff;
+		}
+		a {
+			margin-left: 5px;
+			@include media('<phone') {
+				color: #fff;
+			}
+		}
+		span {
+			color: #3da0d5;
+		}
+	}
+	.button {
+		padding: 0;
+		background: none;
+		border: 0;
+		color: #0082c8;
+		vertical-align: top;
+		margin-top: -1px;
+		img {
+			display: inline-block;
+		}
+	}
 }
-
 .form {
-  float: left;
-  .fake-select{
-    margin-right: 3px;
-  }
-  .input {
-    width: 162px;
-    height: 23px;
-    border: 1px solid #ccc;
-    margin-right: 4px;
-  }
+	.fake-select {
+		margin-right: 3px;
+	}
+	.input {
+		width: 162px;
+		height: 23px;
+		border: 1px solid #ccc;
+		margin-right: 4px;
+		@include media('<tablet') {
+			width: 40%;
+			margin: 0;
+		}
+		@include media('<phone') {
+			width: 30%;
+		}
+	}
 }

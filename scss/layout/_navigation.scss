@@ -1,25 +1,100 @@
-.header-menu {;
-  background: linear-gradient(to bottom, #0082c8 0%,#0181c8 47%,#0072b8 50%,#0082c8 100%);
-  margin: 0 -1px;
-  ul{
-    @extend %clearfix;
-    @extend %listreset;
-    li{   
-      border-right: 1px solid #0065b2;
-      box-shadow: 1px 0px 0px 0px #66b4de;
-      float: left;
-      a{
-        display: block;
-        color: #fff;
-        text-align: center;
-        padding: 10px 24px;
-        line-height: 15px;
-        font-weight: 600;
-        &:hover{
-          background: linear-gradient(to bottom, #0082c8 0%,#0181c8 47%,#0072b8 50%,#0082c8 100%);
-          text-decoration: underline;
-        }
-      }
-    }
-  }
+.header-menu {
+	background: linear-gradient(to bottom, #0082c8 0%, #0181c8 47%, #0072b8 50%, #0082c8 100%);
+	margin: 0 -1px;
+	@include media('>tablet') {
+		display: inline-block !important;
+		width: 100%;
+	}
+	@include media('<tablet'){
+		padding: 0;
+		display: none;
+		position: absolute;
+		top: 90px;
+		right: 0;
+		left: 0;
+		text-align: center;
+		padding: 0;
+		margin: 0;
+	}
+	ul {
+		@extend %clearfix;
+		@extend %listreset;
+		li {
+			border-right: 1px solid #0065b2;
+			box-shadow: 1px 0px 0px 0px #66b4de;
+			float: left;
+			@include media('<tablet') {
+				border: none;
+				clear: both;
+				float: none !important;
+				border: 1px solid #fff;
+				background-color: RGBA(0,0,0,.7);
+			}
+			a {
+				display: block;
+				color: #fff;
+				text-align: center;
+				padding: 10px 24px 9px;
+				line-height: 16px;
+				font-weight: 600;
+				&:hover {
+					background: linear-gradient(to bottom, #0082c8 0%, #0181c8 47%, #0072b8 50%, #3DA0D5 100%);
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}
+.toggle-wrap{
+	background-color: RGBA(0, 0, 0, 0.7);
+	border-radius: 3px;
+	padding: 6px 6px 1px;
+	position: absolute;
+	top: 20px;
+	right: 24px;
+	display: block;
+	border: 1px solid #fff;
+	@include media('>tablet'){
+		display: none;
+	}
+	@include media('<tablet'){
+		display: block;
+	}
+	.toggle-mnu {
+		display: block;
+		width: 31px;
+		height: 26px;
+		span:after,
+		span:before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 9px;
+		}
+		span:after {
+			top: 18px;
+		}
+		span {
+			position: relative;
+			display: block;
+		}
+		span, 
+		span:after, 
+		span:before {
+			width: 100%;
+			height: 3px;
+			background-color: white;
+			transition: all 0.3s;
+			backface-visibility: hidden;
+		}
+		&.on span {
+			background-color: transparent;
+		}
+		&.on span:before {
+			transform: rotate(45deg) translate(-1px, 0px);
+		}
+		&.on span:after {
+			transform: rotate(-45deg) translate(6px, -7px);
+		}
+	}
 }
