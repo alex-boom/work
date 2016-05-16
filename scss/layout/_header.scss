@@ -1,0 +1,32 @@
+.page {
+	margin: 0 auto;
+	min-width: 320px;
+}
+#wrapper {
+	width: 100%;
+	position: relative;
+}
+#header {
+	margin-bottom: 54px;
+	@include media('<tablet') {
+		margin-bottom: 15px;
+	}
+}
+.header-holder {
+	@extend %clearfix;
+	padding: 29px 33px 15px 34px;
+	.logo-1 {
+		float: left;
+		padding-top: 8px;
+	}
+	.logo-2 {
+		float: right;
+	}
+	@include media('<tablet') {
+		text-align: center;
+		.logo-1,
+		.logo-2 {
+			float: none;
+		}
+	}
+}

@@ -1,0 +1,6 @@
+@font-face {
+	font-family: "UniversBold";
+	src: url('fonts/UniversBold/Univers Bold.ttf');
+	src: url('fonts/UniversBold/Univers Bold.ttf?#iefix') format('ttf'),
+		 url('fonts/UniversBold/Univers Bold.ttf') format('ttf');
+}

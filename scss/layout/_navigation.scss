@@ -1,0 +1,160 @@
+.header-box {
+	padding: 7px 26px 0;
+	background: #fea501;
+	overflow: hidden;
+	@extend %listreset;
+	@extend %clearfix;
+	@include media('<phone'){
+		padding: 0;
+		position: absolute;
+		top: 164px;
+		right: 0;
+		left: 0;
+		text-align: center;
+		padding: 0;
+		margin: 0;
+	}
+}
+.header-menu {
+	@extend %listreset;
+	@extend %clearfix;
+	@include media('>phone') {
+		display: block !important;
+		width: 100%;
+	}
+	@include media('<phone') {
+		display: none;
+	}
+	> li {
+		float: left;
+		&.hover {
+			> a {
+				background-color: #fff;
+				color: $orange;
+				text-decoration: none;
+				@include media('<phone') {
+					opacity: 0.6;
+				}
+			}
+			ul {
+				display: block;
+			}
+		}
+		@include media('<phone') {
+			float: none;
+			margin: 0;
+			border-bottom: 1px dotted #fff;
+		}
+		> a {
+			display: block;
+			color: #fff;
+			text-align: center;
+			padding: 8px 13px 6px 13px;
+			margin-right: 2px;
+			font-size: 10px;
+			font-weight: bold;
+			background-color: $orange;
+			border-radius: 8px 8px 0 0;
+			line-height: 15px;
+			@include media('<phone') {
+				padding: 13px 0;
+				border-radius: 0;
+				text-transform: uppercase;
+				text-decoration: none;
+			}
+		}
+	}
+}
+.dropdown-inside {
+	@extend %listreset;
+	@extend %clearfix;
+	display: none;
+	position: absolute;
+	top: 128px;
+	left: 19px;
+	@include media('<tablet'){
+		top: 169px;
+	}
+	@include media('<phone') {
+		@extend %clearfix;
+		position: inherit;
+	}
+	li {
+		float: left;
+		@include media('<phone') {
+			float: none;
+			border-bottom: 1px dotted #fff;
+		}
+	}
+	a {
+		font-weight: bold;
+		margin: 4px;
+		font-size: 10px;
+		padding: 11px 0;
+		&:hover {
+			text-decoration: underline;
+		}
+		@include media('<phone') {
+			display: inline-block;
+			padding: 8px 13px 6px 13px !important;
+			color: #fff;
+			font-size: 11px;
+		}
+	}
+	.pr {
+		margin-left: 7px;
+		padding-right: 100px;
+		@include media('<phone') {
+			padding: 0;
+		}
+	}
+}
+.toggle-wrap{
+	background: #fea501;
+	padding: 10px 10px 0;
+	text-align: right;
+	border: 1px solid #fff;
+	@include media('>phone'){
+		display: none;
+	}
+	@include media('<phone'){
+		display: block;
+	}
+.toggle-mnu {
+	display: inline-block;
+	width: 35px;
+	height: 28px;
+	span:after,
+	span:before {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 9px;
+	}
+	span:after {
+		top: 18px;
+	}
+	span {
+		position: relative;
+		display: block;
+	}
+	span,
+	span:after,
+	span:before {
+		width: 100%;
+		height: 5px;
+		background-color: white;
+		transition: all 0.3s;
+		backface-visibility: hidden;
+	}
+		&.on span {
+			background-color: transparent;
+		}
+		&.on span:before {
+			transform: rotate(45deg) translate(-1px, 0px);
+		}
+		&.on span:after {
+			transform: rotate(-45deg) translate(6px, -7px);
+		}
+	}
+}

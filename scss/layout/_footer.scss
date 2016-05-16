@@ -1,0 +1,27 @@
+.footer {
+	@extend %clearfix;
+	background: #ebebeb;
+	font-size: 10px;
+	font-weight: bold;
+	color: #9f9f9f;
+	overflow: hidden;
+	padding: 13px 34px 14px 41px;
+	line-height: 16px;
+	@include media('<phone') {
+		padding: 20px;
+	}
+	.copy,
+	.by {
+		display: block;
+		@include media('<tablet') {
+			float: none !important;
+			text-align: center;
+		}
+	}
+	.copy {
+		float: left;
+	}
+	.by {
+		float: right;
+	}
+}

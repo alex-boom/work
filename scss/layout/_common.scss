@@ -1,0 +1,140 @@
+#main {
+	width: 100%;
+	overflow: hidden;
+}
+.content-wrap {
+	@extend %clearfix;
+	margin-bottom: 16px;
+}
+#content {
+	width: 100%;
+	float: left;
+	padding: 0px 269px 0 0;
+	margin: 0 0 0 22px;
+	@include media('<tablet') {
+		float: none;
+		clear: both;
+		padding: 0;
+		width: 95%;
+		margin: 0 auto;
+		margin-bottom: 20px;
+	}
+}
+.title-article {
+	margin-bottom: 50px;
+	@include media('<tablet') {
+		margin-bottom: 20px;
+	}
+	h1 {
+		font-weight: 200;
+		font-size: 27px;
+		letter-spacing: -1px;
+		color: #e4701e;
+	}
+}
+.article {
+	color: $black;
+	.alt{
+		@include media('<large-phone') {
+			margin-left: 15px;
+		}
+	}
+}
+.article-wrapper {
+	p {
+		line-height: 17px;
+	}
+}
+.column {
+	column-count: 2;
+	column-gap: 25px;
+	@include media('<large-phone') {
+		padding: 0;
+		margin: 0 15px;
+		column-count: 1;
+	}
+}
+.list-wrap {
+	@extend %clearfix;
+	margin-bottom: 45px;
+	.title {
+		background: #bcbcbc;
+		padding-left: 20px;
+		h1 {
+			font-weight: normal;
+			color: #fff;
+			letter-spacing: -2px;
+			padding: 1px;
+			margin-bottom: 23px;
+			@include media('<desktop') {
+				text-align: center;
+			}
+		}
+	}
+}
+.list-container {
+	display: flex;
+	@include media('<tablet') {
+		display: block;
+	}
+	.list {
+		width: 25%;
+		border-right: 1px dotted;
+		padding-left: 6px;
+		min-height: 193px;
+		&:last-child {
+			border-right: none;
+		}
+		@include media('<tablet') {
+			width: 50%;
+			float: left;
+			min-height: 0;
+			border-right: none;
+			margin-bottom: 15px;
+			padding: 0 0 0 50px;
+		}
+		@include media('<xs-phone') {
+			width: 100%;
+			text-align: center;
+			padding: 0;
+		}
+		.sub-title {
+			font-size: 13px;
+			color: #fea501;
+			padding-left: 4px;
+			margin-bottom: 10px;
+			display: block;
+			font-weight: bold;
+		}
+		ul {
+			@extend %listreset;
+			@extend %clearfix;
+			padding-left: 5px;
+			li {
+				font-size: 11px;
+				padding-left: 10px;
+				font-weight: bold;
+				overflow: hidden;
+				margin-bottom: 9px;
+				position: relative;
+				&:before {
+					content: " ";
+					position: absolute;
+					left: 0;
+					top: 3px;
+					width: 7px;
+					height: 7px;
+					background-image: url(images/spritesheet.png);
+					background-position: -28px -5px;
+					@include media('<xs-phone') {
+						display: none;
+					}
+				}
+				a {
+					padding-left: 2px;
+					display: inline-block;
+				}
+			}
+		}
+	}
+}
