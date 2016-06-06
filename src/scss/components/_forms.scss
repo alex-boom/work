@@ -1,0 +1,39 @@
+//forms
+.form-information{
+	font-size: 15px;
+	input{
+		width: 47%;
+		margin: 0 25px 28px 0;
+		height: 45px;
+		border-radius: 4px;
+		padding-left: 20px;
+		color: black;
+		@include media('<desktop'){
+			width: 100%;
+		}
+	}
+	input[type=email]{
+		margin-right: 0;
+	}
+	.textarea{
+		padding-left: 6px;
+		margin-bottom: 33px;
+		@include media('<desktop'){
+			padding-left: 0;
+		}
+		textarea{
+			width: 100%;
+			padding: 20px;
+			border-radius: 4px;
+			height: 181px;
+		}
+	}
+	.btn-medium{
+		font-size: 22px;
+		padding: 12px 59px;
+		border: 0;
+		@include media('<tablet'){
+			width: 70%;
+		}
+	}
+}

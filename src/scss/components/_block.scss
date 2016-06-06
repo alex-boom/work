@@ -1,0 +1,97 @@
+//block
+.box-price{
+	width: 33.3%;
+	background: $solitude;
+	position: relative;
+	padding-bottom: 99px;
+	margin-right: 30px;
+	&:last-child{
+		margin-right: 0;
+	}
+	&:hover{
+		.btn-small,
+		.heading{
+			background: $medium-turquoise
+		}
+	}
+	@include media('<desktop'){
+		margin-right: 10px;
+	}
+	@include media('<tablet'){
+		flex: 50%;
+	}
+	.heading{
+		font-size: 26px;
+		line-height: 75px;
+		background: $fiord;
+		color: $white;
+		border-radius: 4px 4px 0px 0px;
+		@include animate(background);
+		@include media('<tablet'){
+			border-radius: 0;
+		}
+	}
+	strong{
+		display: block;
+		font-size: 20px;
+		line-height: 70px;
+	}
+	.price-list{
+		background: $white;
+		@extend %listreset;
+		li{
+			line-height: 45px;
+			color: $manatee;
+			border-top: 1px solid $white-smoke;
+			&:last-child{
+				border-bottom: 1px solid $white-smoke;;
+			}
+		}
+	}
+	.btn-small{
+		position: absolute;
+		bottom: 28px;
+		left: 50%;
+		transform: translateX(-50%);
+		padding: 10px 55px;
+		font-size: 17px;
+		font-weight: bold;
+		background: $slate-grey;
+		@include animate(background);
+		@include media('<tablet'){
+			width: 70%;
+		}
+	}
+}
+.box-social{
+	@extend %clearfix;
+	@extend %listreset;
+	margin-bottom: 20px;
+	li{
+		float: left;
+		margin-right: 16px;
+		@include media('<tablet'){
+			float: none;
+			display: inline-block;
+		}
+		.fa{
+			text-decoration: none;
+			color: white;
+			text-align: center;
+			width: 41px;
+			height: 41px;
+			line-height: 44px;
+			border-radius: 50%;
+			font-size: 23px;
+			&.fa-facebook{
+				background: #3b5997;
+			}
+			&.fa-twitter{
+				background: #3ec2f3;
+			}
+			&.fa-google-plus{
+				background: #e44c41;
+			}
+		}
+	}
+}

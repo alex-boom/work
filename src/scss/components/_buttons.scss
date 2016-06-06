@@ -1,0 +1,99 @@
+//buttons
+%btn{
+	border-radius: 5px;
+	text-decoration: none;
+	white-space: nowrap;
+	display: inline-block;
+	@include animate(opacity);
+	&:hover{
+		opacity: .6;
+	}
+}
+.btn-large{
+	@extend %btn;
+	border: 3px solid $white;
+	padding: 16px 37px;
+	font-size: 26px;
+	color: $white;
+	letter-spacing: 1px;
+	@include media('<tablet'){
+		padding: 10px 26px;
+		font-size: 22px;
+	}
+}
+.btn-medium{
+	@extend %btn;
+	background: $medium-turquoise;
+	padding: 17px 44px;
+	color: $white;
+	font-size: 24px;
+	letter-spacing: 1;
+	@include media('<phone'){
+		width: 70%;
+		padding: 14px 0;
+	}
+}
+.btn-small{
+	@extend %btn;
+	background: $medium-turquoise;
+	padding: 7px 14px;
+	color: $white;
+	text-transform: capitalize;
+	@include media('<phone'){
+		width: 70%;
+	}
+}
+.toggle-wrap{
+	background-color: RGBA(0, 0, 0, 0.4);
+	border-radius: 3px;
+	padding: 6px 6px 1px;
+	position: absolute;
+	top: 36px;
+	transform: translateY(-50%);
+	right: 24px;
+	display: block;
+	border: 1px solid #fff;
+	@include media('>tablet'){
+		display: none;
+	}
+	@include media('<tablet'){
+		display: block;
+	}
+	.toggle-mnu {
+		display: block;
+		width: 31px;
+		height: 26px;
+		span:after,
+		span:before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 9px;
+		}
+		span:after {
+			top: 18px;
+		}
+		span {
+			position: relative;
+			display: block;
+		}
+		span, 
+		span:after, 
+		span:before {
+			width: 100%;
+			height: 3px;
+			background-color: $white;
+			transition: all 0.3s;
+			backface-visibility: hidden;
+		}
+		&.on span {
+			background-color: transparent;
+		}
+		&.on span:before {
+			transform: rotate(45deg) translate(-1px, 0px);
+		}
+		&.on span:after {
+			transform: rotate(-45deg) translate(6px, -7px);
+		}
+	}
+}

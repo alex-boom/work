@@ -1,0 +1,63 @@
+//navigation
+.main-nav{
+	@extend %clearfix;
+	float: right;
+	margin-right: -20px;
+	@include media('<desktop'){
+		padding-right: 10px;
+	}
+	@include media('>tablet'){
+		display: block !important;
+	}
+	@include media('<tablet'){
+		display: none;
+		float: none;
+		text-align: center;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+	}
+	.active{
+		background: $solitude;
+		box-shadow: inset 0px -3px 0px 0px $medium-turquoise;
+		@include media('<tablet'){
+			box-shadow: none;
+			background: black(.5);
+			padding: 15px;
+			border-top: 1px solid $white;
+		}
+	}
+	ul{
+		@extend %clearfix;
+		@extend %listreset;
+		li{
+			float: left;
+			padding: 41px 22px;
+			margin-left: 9px;
+			&:hover{
+				background: $solitude;
+				box-shadow: inset 0px -3px 0px 0px $medium-turquoise;
+				@include media('<tablet'){
+					background: black(.3);
+					box-shadow: none;
+				}
+			}
+			@include media('<tablet'){
+				float: none;
+				border-top: 1px solid $white;
+				background: black(.5);
+				padding: 15px;
+				box-shadow: none;
+				margin: 0;
+			}
+		}
+		a{
+			color: $tuna;
+			font-size: 15px;
+			font-weight: bold;
+			text-decoration: none;
+			@include media('<tablet'){
+				color: $white;
+			}
+		}
+	}
+}

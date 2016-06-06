@@ -15,6 +15,12 @@ h6, .h6,
 
 h1, .h1 {
   font-size: $h1-font-size;
+  @include media('<tablet'){
+    font-size: 50px;
+  }
+  @include media('<phone'){
+    font-size: 40px;
+  }
 }
 
 h2, .h2 {
