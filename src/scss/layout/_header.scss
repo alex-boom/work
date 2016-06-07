@@ -1,6 +1,12 @@
 //header
 .header{
 	@extend %clearfix;
+	.container{
+		overflow: visible;
+		@include media('<desktop-2'){
+			overflow: hidden;
+		}
+	}
 	.logo{
 		padding: 31px 0 0 10px;
 		@include media('<tablet'){
