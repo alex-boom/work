@@ -63,14 +63,15 @@
   gulp.task('buildSass', function () {
     gulp.src(`./${Paths.src}/${Paths.scss}/app.scss`)
       .pipe(sourcemaps.init({loadMaps: true}))
-      .pipe(sass().on('error', function (err) {
+      .pipe(sass(/*{outputStyle: 'compact'} вставляем если нужен не минифицированный код css*/).on('error', function (err) {
         showError.apply(this, ['Sass compile error', err]);
       }))
       .pipe(gcmq())
-      .pipe(cssnano({safe: true}))
+      .pipe(cssnano({safe: true})) // нужно закоментировать для отключения минификации файла css
       .pipe(autoprefixer('last 3 versions'))
       .pipe(sourcemaps.write('./'))
       .pipe(gulp.dest(`./${Paths.build}/`));
+      //.pipe(sass({outputStyle: 'expanded', 'compact', compress}) включение разных вариантов, минифицировать, не минифицировать и т.д.
   });
 
   /**
