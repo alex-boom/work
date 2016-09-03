@@ -1,0 +1,36 @@
+//footer
+.footer{
+	padding: 24px 0 18px;
+	text-align: center;
+	background: #344b8e;
+	.social{
+		display: inline-block;
+		@extend %listreset;
+		@extend %clearfix;
+		@media (max-width: $screen-md-max) {
+			display: block;
+			margin: auto;
+		}
+		li{
+			float: left;
+			margin-right: 27px;
+			&:last-child{
+				margin: 0;
+			}
+			@media (max-width: $screen-md-max) {
+				float: none;
+				margin: 0;
+			}
+			a{
+				display: block;
+				padding: 15px;
+				font-size: 25px;
+				color: #fff;
+				@include animate(color);
+				&:hover{
+					color: #30bae7;
+				}
+			}
+		}
+	}
+}

@@ -2,18 +2,75 @@ import HP from './helpers';
 
 (function ($) {
 
-  // When DOM is ready
-  $(function () {
-    example(HP.random(10, 20));
-  });
+	$('#circle-blue').circleProgress({
+		value: 0.90,
+		size: 160,
+		startAngle: 11,
+		fill: {
+			gradient: ["#30bae7"]
+		}
+	});
 
-  /**
-   * Just an example function
-   *   DELETE IT
-   * @param  {Number} n - random number between 10 and 20
-   */
-  function example(n) {
-    console.log(`Hello in ES6... I am ${n} - random number between 10 and 20`);
-  }
+	$('#circle-pinck').circleProgress({
+			value: 0.75,
+			size: 160,
+			startAngle: 11,
+			fill: {
+				gradient: ["#d74680"]
+			}
+	});
+
+	$('#circle-green').circleProgress({
+			value: 0.70,
+			size: 160,
+			startAngle: 11,
+			fill: {
+				gradient: ["#15c7a8"]
+			}
+	});
+
+	$('#circle-orange').circleProgress({
+			value: 0.85,
+			size: 160,
+			startAngle: 11,
+			fill: {
+				gradient: ["#eb7d4b"]
+			}
+	});
+
+	$(function(){
+		$('.portfolio-container').mixItUp();
+	});
+
+	$("#callback-form").validate({
+
+		rules:{
+			email: {required: true,
+							email: true
+			},
+
+			userName: {required: true,
+								 minlength: [6]
+			},
+			textarea: {required: true,
+									minlength: [6]
+			}
+		},
+		
+		messages: {
+			email: {
+				required: "Введите email",
+				email: "Поле должно содержать символ @ "
+			},
+			userName: {
+				required: "Введите имя",
+				minlength: "Поле дожно содержать не менее 6 символов"
+			},
+			textarea: {
+				required: "Напишите о себе",
+				minlength: "Поле дожно содержать не менее 6 символов"
+			}
+		}
+	});
 
 }(jQuery));

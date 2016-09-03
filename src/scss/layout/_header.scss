@@ -1,0 +1,23 @@
+//header
+.header{
+	background: #87509c;
+	padding: 42px 0 144px;
+	overflow: hidden;
+	.holder{
+		h1{
+			color: #fff;
+			font-size: 42px;
+			text-align: center;
+			@media (max-width: $screen-sm-max) {
+				font-size: 35px;
+				margin: 0 10px;
+				br{
+					display: none;
+				}
+			}
+			@media (max-width: $screen-xs-max) {
+				font-size: 23px;
+			}
+		}
+	}
+}

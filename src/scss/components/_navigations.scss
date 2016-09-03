@@ -1,0 +1,49 @@
+//navigations
+.navbar-custom{
+	border: none;
+	background: none;
+	margin-bottom: 117px;
+	.container-fluid{
+		max-width: 1044px;
+	}
+}
+.nav{
+	&.navbar-nav-custom{
+		float: right;
+		padding: 17px 0 0 0;
+		margin-right: -47px;
+		@media (max-width: $screen-md-max) {
+			margin-right: 0;
+		}
+		@media (max-width: $screen-sm-max) {
+			padding: none;
+			margin: 0;
+			text-align: center;
+		}
+		@media (max-width: $screen-xs-max) {
+			margin-top: 10px;
+			float: none;
+			background: darken(#87509c, 10%);
+		}
+		li{
+			margin-left: 14px;
+			@media (max-width: $screen-xs-max) {
+				margin: 0;
+			}
+		}
+		.active{
+			a{
+				background: #643a79 !important;
+			}
+		}
+		a{
+			color: #fff !important;
+			text-transform: uppercase;
+			padding: 7px 15px;
+			border-radius: 3px;
+			&:hover{
+				background: #643a79 !important;
+			}
+		}
+	}
+}

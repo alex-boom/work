@@ -1,0 +1,62 @@
+//forms
+.form-custom{
+	margin-top: 62px;
+	.panel-default{
+		margin: auto;
+		border: none;
+	}
+	.panel-body{
+		padding: 5px;
+		background: #3c5499;
+	}
+	.form-group{
+		display: inline-block;
+		width: 100%;
+		margin-bottom: 28px;
+		.form-control{
+			padding: 21px;
+			font-size: 19px;
+			height: 55px;
+			background-color: #273a71;
+			border: 2px solid #273a71;
+			color: #fff;
+		}
+		.form-control[name="textarea"]{
+			height: 200px;
+		}
+		.btn-custom{
+			margin-top: 25px;
+			background: #30bae7;
+			@include animate(background);
+			&:hover{
+				background: darken(#30bae7, 10%)
+			}
+		}
+	}
+	input.error,
+	select.error,
+	textarea.error{
+		border: 1px solid red !important;
+	}
+	label.error{
+		display: inline-block;
+		font-size: 12px;
+		color: red;
+	}
+}
+//progress-bar
+.metric-bar{
+	margin-top: 73px;
+	position: relative;
+	span{
+	position: absolute;
+	display: block;
+	top: 50%;left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 50px;
+	color: #3c4761;
+	}
+	.circle{
+		margin: 0 auto;
+	}
+}

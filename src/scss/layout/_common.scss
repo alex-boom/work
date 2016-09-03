@@ -1,0 +1,26 @@
+//common
+.block-content{
+	p{
+		font-size: 18px;
+		letter-spacing: 0.5px;
+	}
+	.heading{
+		margin-bottom: 19px;
+		h2{
+			font-size: 40px;
+			letter-spacing: 4px;
+			@media (max-width: $screen-xs-max) {
+				font-size: 32px;
+				margin: 0 10px;
+			}
+		}
+		&:after{
+			content: '';
+			display: block;
+			border-bottom: 4px solid #14a58c;
+			margin: 0 auto;
+			width: 87px;
+			padding-bottom: 4px;
+		}
+	}
+}
