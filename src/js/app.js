@@ -1,4 +1,4 @@
-import HP from './helpers';
+// import HP from './helpers';
 
 (function ($) {
 
@@ -71,6 +71,21 @@ import HP from './helpers';
 				minlength: "Поле дожно содержать не менее 6 символов"
 			}
 		}
+	});
+
+	$("#callback-form").submit(function() {
+		$.ajax({
+			type: "POST",
+			url: "/mail.php",
+			data: $(this).serialize()
+		}).done(function() {
+			alert("Спасибо за заявку!");
+			setTimeout(function() {
+				
+				$(".forms").trigger("reset");
+			}, 1000);
+		});
+		return false;
 	});
 
 }(jQuery));
