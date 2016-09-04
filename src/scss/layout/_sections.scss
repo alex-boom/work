@@ -6,9 +6,25 @@
 	color: #fff;
 	.product-item{
 		margin-top: 72px;
+		&:hover{
+			.holder{
+				transform: translateY(-5px);
+			}
+			.img-svg{
+				path{
+					opacity: .7;
+				}
+			}
+		}
+	.img-svg{
+		path{
+			@include animate(opacity);
+		}
+	}
 		.holder{
-			height: 134px;
+			min-height: 134px;
 			margin-bottom: 47px;
+			@include animate(transform);
 		}
 		h3{
 			text-transform: uppercase;
