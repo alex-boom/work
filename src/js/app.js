@@ -70,22 +70,31 @@
 				required: "Напишите о себе",
 				minlength: "Поле дожно содержать не менее 6 символов"
 			}
+		},
+
+		submitHandler: function() {
+			$.ajax({
+				type: "POST",
+				url: "./mail.php",
+				data: $("#callback-form").serialize(),
+				success: function(data) {
+					$('.message-send').dialog('open');;
+					},
+				// error: function(data) {
+				// 	$(".message-error").html("<h2>Error!</h2>");
+				// 	}
+			})
 		}
 	});
 
-	$("#callback-form").submit(function() {
-		$.ajax({
-			type: "POST",
-			url: "/mail.php",
-			data: $(this).serialize()
-		}).done(function() {
-			alert("Спасибо за заявку!");
-			setTimeout(function() {
-				
-				$(".forms").trigger("reset");
-			}, 1000);
-		});
-		return false;
+	$('.message-send').dialog({
+		modal: true,
+		autoOpen: false,
+		show: 'slideDown',
+		hide: {
+				delay: 1000,
+				easing: 'easeInQuad'
+		}
 	});
 
 }(jQuery));

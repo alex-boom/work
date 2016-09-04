@@ -30,3 +30,13 @@
 		}
 	}
 }
+.ui-dialog .ui-dialog-titlebar-close:before{
+	content: "";
+	position: absolute;
+	background-image: url(images/ui-icons_444444_256x240.png);
+	left: 0;
+	top: 0;
+	width: 16px;
+	height: 16px;
+	background-position: -96px 112px;
+}

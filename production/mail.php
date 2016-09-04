@@ -5,7 +5,7 @@ $recepient = "dudka.aleksandr2013@ya.ru";
 $sitename  = "Cuda";
 $subject   = "Новая заявка с сайта \"$sitename\"";
 
-$name = trim($_POST["name"]);
+$name = trim($_POST["userName"]);
 $mail = trim($_POST["email"]);
 $textarea = trim($_POST["textarea"]);
 
