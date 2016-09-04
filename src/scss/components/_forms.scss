@@ -27,6 +27,7 @@
 		.btn-custom{
 			margin-top: 25px;
 			background: #30bae7;
+			border: none;
 			@include animate(background);
 			&:hover{
 				background: darken(#30bae7, 10%)

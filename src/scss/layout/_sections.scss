@@ -1,6 +1,6 @@
 //sections
 .section-product{
-	padding: 91px 0 130px;
+	padding: 91px 0 126px;
 	background: #17c2a4;
 	text-align: center;
 	color: #fff;
@@ -27,7 +27,7 @@
 }
 .section-person{
 	background: #e7f1f8;
-	padding: 92px 0 129px;
+	padding: 92px 0 125px;
 	text-align: center;
 	color: #3c4761;
 	.heading{
@@ -148,15 +148,19 @@
 		.mix{
 			display: none;
 		}
-		h4{
+		.descr{
 			margin: 29px 0 62px;
 			text-transform: uppercase;
 			font-size: 19px;
+			font-weight: bold;
 		}
 	}
 	.btn-custom{
-		margin-top: 30px;
+		margin-top: 14px;
 		background-color: #17c2a4;
+		&:hover{
+		background-color: darken(#17c2a4, 7%);
+		}
 	}
 }
 .section-about{
@@ -204,7 +208,7 @@
 	}
 }
 .section-contact{
-	padding: 90px 0 75px;
+	padding: 90px 0 77px;
 	text-align: center;
 	background: #3c5499;
 	color: #fff;
