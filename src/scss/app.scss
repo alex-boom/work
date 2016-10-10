@@ -31,6 +31,12 @@ $media-expressions: (
 	background: #000;
 	color: #fff;
 	font-weight: bold;
+	animation: mymove-heading 8s infinite;
+	@keyframes mymove-heading {
+		0% {box-shadow: 0px 0px 0px 0px rgba(255,255,255,0.4);}
+		50% {box-shadow: 0px 0px 29px 0px rgba(255,255,255,0.7);}
+		100% {box-shadow: 0px 0px 0px 0px rgba(255,255,255,0.4);}
+	}
 }
 .overley{
 	position: absolute;
@@ -245,38 +251,39 @@ $media-expressions: (
 	}
 	.box-right-btn{
 		margin-top: -40px;
+		perspective: 400px;
 	}
 	.btn-right{
-		opacity: .9;
+		opacity: 0;
 		display: block;
 		width: 109px;
 		height: 113px;
-		box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.45);
-		transition: all .3s;
+		box-shadow: 0px 0px 9px 3px rgba(0,0,0,0.45);
+		transition: all .8s;
+		transform: rotateY(90deg);
 		&:hover{
-			box-shadow: 0px 0px 15px 8px rgba(0,0,0,0.45);
-			transform: scale(1.05);
+			transform: translateY(-5px) !important;
+		}
+		&.on{
+			transform: rotateY(0deg);
+			opacity: 0.9;
 		}
 		img{
 			display: block;
 			margin: auto;
-			padding: 20px;
-			opacity: 0;
+			padding: 15px;
+
 			transition: all .8s;
-			transform: translateY(-100%);
 			&:hover{
 				opacity: .9;
 			}
 			@media (max-width: $screen-md-max) {
 				margin-top: 40px;
-				padding: 3px;
-			}
-			&.on{
-				transform: translateY(0);
-				opacity: 1;
 			}
 			&.edit{
-				margin-left: 10px;
+				position: relative;
+				width: 115%;
+				top: -16px;right: 1px;
 			}
 		}
 	}
@@ -441,15 +448,20 @@ $media-expressions: (
 		font-family: Play,sans-serif;
 		position: relative;
 		overflow: hidden;
-		transition: all .3s; 
+		transition: all .9s;
+		opacity: 0;
 		&:hover{
-			transform: scale(1.1);
+			transform: scale(1) !important;
 			.descr{
 				display: block;
 			}
 			.overley{
 				opacity: .5;
 			}
+		}
+		&.on{
+			transform: scale(1.15);
+			opacity: 1;
 		}
 		.overley{
 			opacity: 0;
@@ -542,7 +554,6 @@ $media-expressions: (
 			width: 190px;
 			padding: 10px;
 			color:  #44678d;
-			// font-family: Play,sans-serif;
 			letter-spacing: -1px;
 			@media (max-width: $screen-sm-max) {
 				transform: translate(0, 100%);
@@ -655,13 +666,16 @@ $media-expressions: (
 			transform: translateX(50%);
 		}
 		.fa{
-			font-size: 53px;
+			font-size: 50px;
 			color: white;
 			display: block;
 			background: black;
+			border-radius: 4px;
 			margin-top: 5px;
 			text-align: center;
-			padding: 3px;
+			width: 58px;
+			height: 62px;
+			line-height: 62px;
 			@include animate(opacity);
 			@include animate(transform);
 			&:hover{
@@ -686,9 +700,14 @@ $media-expressions: (
 				&:before{
 					content: "ХФ";
 					font-weight: bold;
+					font-size: 42px;
 					font-family: sans-serif;
-					letter-spacing: -8px;
-					margin-left: -5px;
+					letter-spacing: -5px;
+					margin-left: -3px;
+					vertical-align: top;
+					@media (max-width: $screen-sm-max) {
+						font-size: 31px;
+					}
 				}
 			}
 		}
@@ -1104,8 +1123,23 @@ $media-expressions: (
 
 //footer
 .footer{
+	.row{
+		overflow: hidden;
+	}
 	h4{
+		position: relative;
+		white-space: nowrap;
 		font-size: 24px;
 		font-family: 'Play', sans-serif;
+		border: 0;
+		display: inline-block;
+		animation: mymove-foot 35s infinite linear;
+		@keyframes mymove-foot {
+			0% {right: -43%;}
+			100% {right: 110%;}
+		}
+		@media (max-width: $screen-xs-max) {
+			animation: mymove-foot 14s infinite linear;
+		}
 	}
 }

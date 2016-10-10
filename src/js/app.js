@@ -72,18 +72,29 @@ import HP from './helpers';
 		$('.line').animated("fadeInDown");
 
 		$(".button-custom").waypoint(function() {
-		$(".btn-right img").each(function(index) {
-			var ths = $(this);
-			setInterval(function() {
-				ths.addClass("on");
-			}, 300*index);
-		});
+			$(".btn-right").each(function(index) {
+				var ths = $(this);
+				setInterval(function() {
+					ths.addClass("on");
+				}, 300*index);
+			});
 		}, {
 			offset : "80%"
 		});
 
 		$(".point").waypoint(function() {
 		$(".block-bottom .item").each(function(index) {
+			var ths = $(this);
+			setInterval(function() {
+				ths.addClass("on");
+			}, 300*index);
+		});
+		}, {
+			offset : "20%"
+		});
+
+		$(".section-gallery").waypoint(function() {
+		$(".item-gallery").each(function(index) {
 			var ths = $(this);
 			setInterval(function() {
 				ths.addClass("on");
