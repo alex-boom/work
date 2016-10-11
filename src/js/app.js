@@ -53,10 +53,10 @@ import HP from './helpers';
 		//menu-active, hover
 
 		//animate CSS
-		$.fn.animated = function(inEffect) {
-			$(this).each(function() {
+		$.fn.animated = function (inEffect) {
+			$(this).each(function () {
 				var ths = $(this);
-				ths.css("opacity", "0").addClass("animated").waypoint(function(dir) {
+				ths.css("opacity", "0").addClass("animated").waypoint(function (dir) {
 					if (dir === "down") {
 						ths.addClass(inEffect).css("opacity", "1");
 					};
@@ -71,37 +71,37 @@ import HP from './helpers';
 		$('.right-box img').animated("fadeInRight");
 		$('.line').animated("fadeInDown");
 
-		$(".button-custom").waypoint(function() {
-			$(".btn-right").each(function(index) {
+		$(".button-custom").waypoint(function () {
+			$(".btn-right").each(function (index) {
 				var ths = $(this);
-				setInterval(function() {
+				setInterval(function () {
 					ths.addClass("on");
-				}, 300*index);
+				}, 400 * index);
 			});
 		}, {
-			offset : "80%"
+			offset: "80%"
 		});
 
-		$(".point").waypoint(function() {
-		$(".block-bottom .item").each(function(index) {
-			var ths = $(this);
-			setInterval(function() {
-				ths.addClass("on");
-			}, 300*index);
-		});
+		$(".items").waypoint(function () {
+			$(".block-bottom .item").each(function (index) {
+				var ths = $(this);
+				setInterval(function () {
+					ths.addClass("on");
+				}, 1000 * index);
+			});
 		}, {
-			offset : "20%"
+			offset: "3%"
 		});
 
 		$(".section-gallery").waypoint(function() {
-		$(".item-gallery").each(function(index) {
-			var ths = $(this);
-			setInterval(function() {
-				ths.addClass("on");
-			}, 300*index);
-		});
-		}, {
-			offset : "20%"
+			$(".item-gallery").each(function(index) {
+				var ths = $(this);
+				setInterval(function() {
+					ths.addClass("on");
+				}, 600*index);
+			});
+			}, {
+				offset : "140%"
 		});
 		//animate CSS
 
