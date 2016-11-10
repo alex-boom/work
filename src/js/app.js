@@ -22,6 +22,7 @@ import HP from './helpers';
 				$("header").removeClass("header-fixed");
 			}
 	});
+		
 		//button-down scroll
 		$(".fa-angle-down").click(function() {
 			var $sec = $('.section-top');
@@ -29,6 +30,7 @@ import HP from './helpers';
 			$sec.slideUp("slow");
 			$('.section-advertising').css("marginTop", "0");
 		});
+		//button-down scroll
 
 		//menu-scroll
 		$("#myNavbar ul li a").mPageScroll2id({

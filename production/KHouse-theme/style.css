@@ -1,0 +1,21 @@
+
+/*
+Theme Name: KHouse
+*/
+
+/*sections*/
+.section-advantages .items img{
+	width: 100%;
+	border-bottom: 5px solid #fff;
+}
+.section-advantages .items .descr-box img{
+	border-bottom: none;
+}
+
+/*gallery*/
+.slideshow-wrapper{
+	margin: 0 auto !important;
+}
+.gallery{
+	background: rgb(0, 0, 0);
+}
