@@ -1,0 +1,15 @@
+
+/*
+Theme Name: snail
+*/
+
+/*sections*/
+.section-payment .box-banner .banner{
+	top: 179px;
+}
+.section-payment .box-banner{
+	position: static;
+}
+.section-payment .parallax{
+	position: relative;
+}

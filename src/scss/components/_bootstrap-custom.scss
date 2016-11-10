@@ -1,0 +1,26 @@
+
+@import 'bower/bootstrap-sass/assets/stylesheets/bootstrap/variables';
+//== Container sizes
+$container-lg:      (1110px + $grid-gutter-width);
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+$font-family-sans-serif: 'Open Sans', Helvetica, Arial, sans-serif;
+$font-size-base:          18px;
+
+$font-size-h1:            55px;
+$font-size-h2:            48px;
+$font-size-h3:            36px;
+$font-size-h4:            24px;
+$headings-font-weight:    700;
+
+$link-color:             #39f;
+$link-hover-decoration: none;
+
+//== Buttons
+$btn-font-weight:                bold;
+$btn-info-color:                 #fff;
+
+//** Global text color on `<body>`.
+$text-color:            #fff;
