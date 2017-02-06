@@ -25,14 +25,18 @@
 			padding: 15px;
 			border-top: 1px solid $white;
 		}
+		a{
+			color: $medium-turquoise;
+		}
 	}
 	ul{
 		@extend %clearfix;
 		@extend %listreset;
 		li{
 			float: left;
-			padding: 41px 22px;
+			padding: 41px 23px;
 			margin-left: 9px;
+			transition: padding .6s;
 			&:hover{
 				background: $solitude;
 				box-shadow: inset 0px -3px 0px 0px $medium-turquoise;

@@ -1,6 +1,24 @@
 //header
 .header{
 	@extend %clearfix;
+	&.sticky {
+			position: fixed;
+			top: 0;left: 0;right: 0;
+			z-index: 9999;
+			background-color: #fff;
+			box-shadow: 1px 1px 5px rgba(0,0,0,.5);
+			.main-nav{
+				ul{
+					li{
+						padding: 12px 22px;
+					}
+				}
+			}
+			.logo{
+				padding-top: 0;
+				font-size: 35px;
+			}
+		}
 	.container{
 		overflow: visible;
 		@include media('<desktop-2'){
@@ -8,9 +26,17 @@
 		}
 	}
 	.logo{
-		padding: 31px 0 0 10px;
+		font-family: 'Lobster', cursive;
+		transition: all .6s;
+		display: inline-block;
+		color: #43c0c2;
+		font-size: 43px;
+		font-weight: 400;
+		text-align: left;
+		padding-top: 22px;
 		@include media('<tablet'){
-			padding: 18px 0 10px 26px;
+			font-size: 35px;
+			padding: 5px 0 0 10px !important;
 		}
 	}
 }

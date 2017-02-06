@@ -6,22 +6,22 @@
 	<title>Author</title>
 	<link media="all" rel="stylesheet" href="build/vendor.css">
 	<link media="all" rel="stylesheet" href="build/app.css">
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Lobster%7COpen+Sans" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 </head>
 <body>
 	<div id="wrapper">
 		<header class="header">
 			<div class="container">
-				<img class="logo" src="build/images/logo.png" alt="">
+				<div class="logo">Author</div>
 				<nav class="main-nav">
 					<ul>
-						<li class="active"><a href="#">Home</a></li>
-						<li><a href="#">Service</a></li>
-						<li><a href="#">Portfolio</a></li>
-						<li><a href="#">Team</a></li>
-						<li><a href="#">Blog</a></li>
-						<li><a href="#">Contact</a></li>
+						<li><a href="#">Home</a></li>
+						<li><a href="#servis">Service</a></li>
+						<li><a href="#portfolio">Portfolio</a></li>
+						<li><a href="#team">Team</a></li>
+						<li><a href="#blog">Blog</a></li>
+						<li><a href="#contact">Contact</a></li>
 					</ul>
 				</nav>
 				<div class="toggle-wrap">
@@ -35,62 +35,60 @@
 			<section class="section-slider">
 				<div class="owl-carousel">
 					<div class="slide">
-							<img src="build/images/slide1.jpg" alt="img descr">
-							<div class="holder">
-								<h1>This is a main heading</h1>
-								<p>Lorem ipsum is simply dummy text <br> of the printing</p>
-								<a class="btn-large" href="#">Learn More</a>
-							</div>
+						<div class="holder">
+							<h1>This is a main heading</h1>
+							<p>Lorem ipsum is simply dummy text <br> of the printing</p>
+							<a class="btn-large" href="#">Learn More</a>
+						</div>
 					</div>
 					<div class="slide">
-							<img src="build/images/slide1.jpg" alt="img descr">
-							<div class="holder">
-								<h1>This is a main heading</h1>
-								<p>Lorem ipsum is simply dummy text <br> of the printing</p>
-								<a class="btn-large" href="#">Learn More</a>
-							</div>
+						<div class="holder">
+							<h1>This is a main heading</h1>
+							<p>Lorem ipsum is simply dummy text <br> of the printing</p>
+							<a class="btn-large" href="#">Learn More</a>
+						</div>
 					</div>
 				</div>
 			</section>
-			<section class="section-product">
-			<div class="container">
-				<ul class="product">
-					<li>
-						<i class="fa fa-rocket" aria-hidden="true"></i>
-						<article>
-							<h3>Custom Designs</h3>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
-						</article>
-						<a href="#" class="btn-small">Read more</a>
-					</li>
-					<li>
-						<i class="fa fa-desktop" aria-hidden="true"></i>
-						<article>
-							<h3>Web Design</h3>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
-						</article>
-						<a href="#" class="btn-small">Read more</a>
-					</li>
-					<li>
-						<i class="fa fa-lightbulb-o" aria-hidden="true"></i>
-						<article>
-							<h3>Blog Pages</h3>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
-						</article>
-						<a href="#" class="btn-small">Read more</a>
-					</li>
-					<li>
-						<i class="fa fa-tablet" aria-hidden="true"></i>
-						<article>
-							<h3>Mobile friendly</h3>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
-						</article>
-						<a href="#" class="btn-small">Read more</a>
-					</li>
-				</ul>
-			</div>
+			<section id="servis" class="section-product">
+				<div class="container">
+					<ul class="product">
+						<li>
+							<i class="fa fa-rocket" aria-hidden="true"></i>
+							<article>
+								<h3>Custom Designs</h3>
+								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
+							</article>
+							<a href="#wrapper" class="btn-small">Read more</a>
+						</li>
+						<li>
+							<i class="fa fa-desktop" aria-hidden="true"></i>
+							<article>
+								<h3>Web Design</h3>
+								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
+							</article>
+							<a href="#" class="btn-small">Read more</a>
+						</li>
+						<li>
+							<i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+							<article>
+								<h3>Blog Pages</h3>
+								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
+							</article>
+							<a href="#" class="btn-small">Read more</a>
+						</li>
+						<li>
+							<i class="fa fa-tablet" aria-hidden="true"></i>
+							<article>
+								<h3>Mobile friendly</h3>
+								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
+							</article>
+							<a href="#" class="btn-small">Read more</a>
+						</li>
+					</ul>
+				</div>
 			</section>
-			<section class="section-portfolio">
+			<section id="portfolio" class="section-portfolio">
 				<div class="container">
 					<h2 class="entry-title">Portfolio</h2>
 					<ul class="holder-item">
@@ -104,7 +102,7 @@
 					<a href="#" class="btn-medium">See all works</a>
 				</div>
 			</section>
-			<section class="section-person">
+			<section id="team" class="section-person">
 				<div class="container">
 					<h2 class="entry-title">The Team</h2>
 					<ul class="person">
@@ -116,20 +114,20 @@
 						</li>
 						<li>
 							<i class="fa fa-plus"></i>
-							<h3>Adrian Thomas</h3>
+							<h3>Narate Ketram</h3>
+							<span>Creative Director</span>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
+						</li>
+						<li>
+							<i class="fa fa-plus"></i>
+							<h3>Fernando Comet</h3>
 							<span>CEO & Founder</span>
 							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
 						</li>
 						<li>
 							<i class="fa fa-plus"></i>
-							<h3>Adrian Thomas</h3>
-							<span>CEO & Founder</span>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
-						</li>
-						<li>
-							<i class="fa fa-plus"></i>
-							<h3>Adrian Thomas</h3>
-							<span>CEO & Founder</span>
+							<h3>Adedayo Saheed</h3>
+							<span>Creative Director</span>
 							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
 						</li>
 					</ul>
@@ -182,7 +180,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="section-content">
+			<section id="blog" class="section-content">
 					<div class="owl-carousel">
 						<div class="slide">
 							<h2 class="entry-title">What Clients Say</h2>
@@ -196,7 +194,7 @@
 						</div>
 					</div>
 			</section>
-			<section class="section-contact">
+			<section id="contact" class="section-contact">
 				<div class="container">
 					<h2 class="entry-title">Contact Us</h2>
 					<div class="holder-left">
@@ -217,9 +215,9 @@
 					</div>
 					<div class="holder-right">
 						<form class="form-information">
-							<input type="name" class="form-control" placeholder="Name" required>
+							<input type="text" class="form-control" placeholder="Name" required>
 							<input type="email" class="form-control" placeholder="Email" required>
-							<div class="textarea"><textarea type="text" id="textarea" cols="30" rows="10" placeholder="Message" required></textarea></div>
+							<div class="textarea"><textarea id="textarea" cols="30" rows="10" placeholder="Message" required></textarea></div>
 							<button class="btn-medium" type="submit">Send</button>
 						</form>
 					</div>
@@ -227,6 +225,7 @@
 			</section>
 		</main>
 	</div>
+	<script src="https://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU" type="text/javascript"> </script>
 	<script src="build/vendor.js"></script>
 	<script src="build/app.js"></script>
 	<script src="http://localhost:35729/livereload.js?snipver=1"></script>

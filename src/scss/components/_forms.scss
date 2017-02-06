@@ -18,6 +18,7 @@
 	.textarea{
 		padding-left: 6px;
 		margin-bottom: 33px;
+		color: black;
 		@include media('<desktop'){
 			padding-left: 0;
 		}
