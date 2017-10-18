@@ -27,8 +27,8 @@ bower/
 node_modules
 *.map
 .tmp
-.js
-.json
+*.js
+*.json
 tmp
 
 # wordpress configs and uploads
