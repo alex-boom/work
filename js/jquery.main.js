@@ -2,7 +2,7 @@
 jQuery(function() {
 	initMobileNav();
 	initCustomForms();
-	// initAccordion();
+	initAccordion();
 
 });
 
