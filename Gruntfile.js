@@ -34,7 +34,7 @@ var PathConfig = require('./grunt-settings.js');
     //   },
 
     //   dist: {
-    //     src: ['<%= config.cssDir %>*.css', 
+    //     src: ['<%= config.cssDir %>*.css',
     //           '<%= config.cssMainFileDir %><%= config.cssMainFileName %>.css',
     //           '!<%= config.cssDir %>bootstrap.css',
     //           '!<%= config.cssDir %>bootstrap.min.css',
@@ -170,13 +170,13 @@ var PathConfig = require('./grunt-settings.js');
       }
     },
 
-    imagemin: {                          
-      dynamic: {                         
+    imagemin: {
+      dynamic: {
         files: [{
-          expand: true,                  
-          cwd: '<%= config.imgSourceDir %>',                   
-          src: ['**/*.{jpg,gif}'],   
-          dest: '<%= config.imgDir %>'                  
+          expand: true,
+          cwd: '<%= config.imgSourceDir %>',
+          src: ['**/*.{jpg,gif}'],
+          dest: '<%= config.imgDir %>'
         }]
       }
     },
@@ -281,7 +281,7 @@ var PathConfig = require('./grunt-settings.js');
           message: 'SASS finished running', //required
         }
       },
-    }, 
+    },
 
     //copy files
     // copy: {
@@ -299,7 +299,7 @@ var PathConfig = require('./grunt-settings.js');
     //           '!css/**',
     //         ],
     //         dest: '<%= config.distDir %>'
-    //       } 
+    //       }
     //     ]
     //   },
     // },
@@ -307,7 +307,7 @@ var PathConfig = require('./grunt-settings.js');
     csscomb: {
       all: {
         expand: true,
-        src: ['<%= config.cssDir %>*.css', 
+        src: ['<%= config.cssDir %>*.css',
               '<%= config.cssMainFileDir %><%= config.cssMainFileName %>.css',
               '!<%= config.cssDir %>bootstrap.css',
               '!<%= config.cssDir %>ie.css',
@@ -369,7 +369,7 @@ var PathConfig = require('./grunt-settings.js');
   });
 
 // run task
-//dev 
+//dev
   //watch
   grunt.registerTask('w', ['watch']);
   //browser sync
@@ -380,13 +380,13 @@ var PathConfig = require('./grunt-settings.js');
 
   //create svg sprite
   grunt.registerTask('svgsprite', ['svgmin', 'svgstore', 'svg2string']);
-  
+
   grunt.registerTask('default', ['dev']);
 
   // upload to server
   grunt.registerTask('sftp', ['sftp-deploy']);
 
-//finally 
+//finally
   //css beautiful
   grunt.registerTask('cssbeauty', ['sass:dist', 'cmq:dist', 'postcss:dist', 'csscomb:dist']);
   //img minify

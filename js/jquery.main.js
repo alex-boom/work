@@ -2,7 +2,8 @@
 jQuery(function() {
 	initMobileNav();
 	initCustomForms();
-	initAccordion();
+	// initAccordion();
+
 });
 
 // mobile menu init
