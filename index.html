@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>flowershop</title>
+	<link href="https://fonts.googleapis.com/css?family=Marcellus+SC%7CRoboto:300,300i,400,500,700,700i,900%7COpen+Sans:300,400,600,600i,700" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link media="all" rel="stylesheet" href="style.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" defer></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-1.12.4.min.js" defer><\/script>')</script>
+	<script src="js/jquery.main.js" defer></script>
+</head>
+<body>
+	<div id="wrapper">
+		<header id="header">
+			<div class="container">
+				<div class="top-nav">
+					<ul class="nav-list">
+						<li class="active"><a href="#">home</a></li>
+						<li><a href="#">site map</a></li>
+						<li><a href="#">contact</a></li>
+					</ul>
+					<div class="holder-bar">
+						<ul class="switch-bar">
+							<li class="login-block logout">	<!-- if autorization true - remove class "logout" and add class "login" -->
+								<a href="#" class="drop-opener">
+									<span class="sig-in">
+										<span>sig-in</span>
+										<i class="fa fa-sign-in" aria-hidden="true"></i>
+									</span>
+									<span class="sign-out">
+										<span>sign-out</span>
+										<i class="fa fa-sign-out" aria-hidden="true"></i>
+									</span>
+								</a>
+								<div class="drop">
+									<form class="login-form" action="#">
+										<h4>Login</h4>
+										<div class="form-group">
+											<input class="form-control" type="text" placeholder="Name">
+										</div>
+										<div class="form-group">
+											<input class="form-control" type="text" placeholder="Password">
+										</div>
+										<button class="btn btn-primary" type="submit">submit</button>
+									</form>
+								</div>
+							</li>
+							<li class="value-select">
+								<select>
+									<option>UAH</option>
+									<option>USD</option>
+								</select>
+							</li>
+						</ul>
+						<form class="search-form" action="#">
+							<button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+							<input class="form-control" type="search" placeholder="Поиск">
+						</form>
+					</div>
+				</div>
+				<div class="inset-menu">
+					<a href="#" class="nav-opener">
+						<span>menu</span>
+					</a>
+					<div class="logo">
+						<a href="#"><img src="images/logp.png" alt="flowershop"></a>
+					</div>
+					<nav class="main-nav">
+						<ul class="navbar-nav">
+							<li class="active"><a href="#">home</a></li>
+							<li><a href="#">product</a></li>
+							<li><a href="#">catalog</a></li>
+							<li><a href="#">checkout</a></li>
+							<li><a href="#">login</a></li>
+							<li><a href="#">account</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<main id="main">
+			<div class="container">
+
+				<h1>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</h1>
+
+				<p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
+
+				<h2>Header Level 2</h2>
+
+				<ol>
+					<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+					<li>Aliquam tincidunt mauris eu risus.</li>
+				</ol>
+
+				<blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p></blockquote>
+
+				<h3>Header Level 3</h3>
+
+				<ul>
+					<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+					<li>Aliquam tincidunt mauris eu risus.</li>
+				</ul>
+
+				<pre><code>
+					#header h1 a {
+					display: block;
+					width: 300px;
+					height: 80px;
+				}
+			</code></pre>
+		</div>
+	</main>
+	<footer id="footer">
+		<div class="container">
+			<div class="row four-column">
+				<div class="col">
+					<ul class="footer-nav accordion">
+						<li>
+							<a  href="#" class="opener"><h3>Информация</h3></a>
+							<ul class="slide">
+								<li><a href="#">Скидки</a></li>
+								<li><a href="#">Новые товары</a></li>
+								<li><a href="#">Популярные товары</a></li>
+								<li><a href="#">Наши магазины</a></li>
+								<li><a href="#">Свяжитесь с нами</a></li>
+								<li><a href="#">Карта сайта</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="col">
+					<ul class="footer-nav accordion">
+						<li>
+							<a  href="#" class="opener"><h3>Моя учетная запись</h3></a>
+							<ul class="slide">
+								<li><a href="#">Мои заказы</a></li>
+								<li><a href="#">Мои возвраты</a></li>
+								<li><a href="#">Мои кредитные квитанции</a></li>
+								<li><a href="#">Мои адреса</a></li>
+								<li><a href="#">Моя информация</a></li>
+								<li><a href="#">Карта сайта</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="col">
+					<ul class="footer-nav accordion">
+						<li>
+							<a  href="#" class="opener"><h3>Категории</h3></a>
+							<ul class="slide">
+								<li><a href="#">Trees</a></li>
+								<li><a href="#">Occasion</a></li>
+								<li><a href="#">Color</a></li>
+								<li><a href="#">Flowers</a></li>
+								<li><a href="#">Window plants</a></li>
+								<li><a href="#">Bushes</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="col">
+					<ul class="footer-nav accordion">
+						<li>
+							<a  href="#" class="opener"><h3>Свяжитесь с нами</h3></a>
+							<ul class="slide">
+								<li><a href="#">Скидки</a></li>
+								<li><a href="#">Новые товары</a></li>
+								<li><a href="#">Популярные товары</a></li>
+								<li><a href="#">Наши магазины</a></li>
+								<li><a href="#">Свяжитесь с нами</a></li>
+								<li><a href="#">Карта сайта</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="bottom-footer">
+						<span>© 2017 <a class="_blank" title="prestashop" href="https://" target="_blank">Ecommerce software by Flowershop™</a></span>
+				</div>
+			</div>
+		</div>
+	</footer>
+</div>
+</body>
+</html>
