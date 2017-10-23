@@ -1,21 +1,21 @@
 $breakpoints: (
-  'xs-phone': 320px,
-  'phone': 480px,
-  'tablet': 768px,
-  'desktop': 1024px,
-  'widescreen': 1200px
-);
+	'xs-phone': 320px,
+	'phone': 480px,
+	'tablet': 768px,
+	'desktop': 1024px,
+	'widescreen': 1200px
+	);
 
 // keywords
 $media-expressions: (
-  'screen': 'screen',
-  'print': 'print',
-  'handheld': 'handheld',
-  'landscape': '(orientation: landscape)',
-  'portrait': '(orientation: portrait)',
-  'retina2x': '(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)',
-  'retina3x': '(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)'
-);
+	'screen': 'screen',
+	'print': 'print',
+	'handheld': 'handheld',
+	'landscape': '(orientation: landscape)',
+	'portrait': '(orientation: portrait)',
+	'retina2x': '(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)',
+	'retina3x': '(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)'
+	);
 
 // ligatured operators ≥ ≤
 
@@ -35,4 +35,99 @@ $media-expressions: (
 @import 'layout/common';
 @import 'layout/footer';
 
+//header
+#header {
 
+	a {
+		color: $gray-3;
+
+		&:hover {
+			color: $brand-primary;
+		}
+	}
+}
+
+.top-bar {
+	background-color: $gray-light;
+	align-items: center;
+	font-size: 12px;
+	text-transform: capitalize;
+
+	.container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+}
+
+.add-nav {
+	@extend %listreset;
+	padding: 0 3px;
+
+	a {
+		margin: 0 -3px;
+
+		&:last-child {
+
+			&:after {
+				display: none;
+			}
+		}
+
+		&:after {
+			content: "/";
+			padding: 0 6px;
+		}
+	}
+}
+
+.block-info {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
+	margin: 0 -15px;
+
+	.logo,
+	.mode-work,
+	.box-phone,
+	.fa {
+		padding: 0 15px;
+	}
+
+	.mode-work {
+		color: $gray-3;
+	}
+
+	.box-phone {
+		display: flex;
+		align-items: center;
+
+		.fa {
+			font-size: 35px;
+			color: $brand-primary;
+		}
+	}
+
+	.drop {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -15px;
+	}
+
+	.phone {
+		@extend %listreset;
+		padding: 0 15px;
+
+		a {
+			cursor: pointer;
+			pointer-events: auto;
+
+			&:hover {
+				color: $brand-primary;
+			}
+		}
+	}
+}
+//header

@@ -1,3 +1,32 @@
+// animate underline
+%underline {
+  position: relative;
+
+  .active &,
+  &:hover {
+
+    &:before {
+      left: 0;
+      right: 0;
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &:before {
+    @include animate(visibility left right);
+    content: "";
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    background-color: currentColor;
+    height: 1px;
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
 // list reset
 %listreset {
   margin: 0;
@@ -8,10 +37,10 @@
 // clearfix
 %clearfix {
  &:after {
-    content: '';
-    display: block;
-    clear: both;
-  }
+  content: '';
+  display: block;
+  clear: both;
+}
 }
 
 .clearfix {
@@ -35,13 +64,13 @@
   text-align: left;
   font-size: $base-font-size;
   line-height: $base-line-height;
- }
- &:after {
+}
+&:after {
   content: '';
   width: 100%;
   display: inline-block;
   vertical-align: top;
- }
+}
 }
 
 

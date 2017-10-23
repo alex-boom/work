@@ -1,0 +1,71 @@
+a {
+	@include animate(opacity color background);
+	text-decoration: none;
+}
+
+#wrapper {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+
+.container {
+	max-width: 1290px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -15px;
+
+	@include media('>=tablet') {
+		justify-content: center;
+	}
+
+	&.two-column {
+
+		.col {
+			width: 100%;
+
+			@include media('>=tablet') {
+				width: 50%;
+			}
+		}
+	}
+
+	&.three-column {
+
+		.col {
+			width: 100%;
+
+			@include media('>=tablet') {
+				width: 50%;
+			}
+
+			@include media('>=desktop') {
+				width: 33.33%;
+			}
+		}
+	}
+
+	&.four-column {
+
+		.col {
+			width: 100%;
+
+			@include media('>=tablet') {
+				width: 50%;
+			}
+
+			@include media('>=desktop') {
+				width: 25%;
+			}
+		}
+	}
+}
+
+.col {
+	padding: 0 15px;
+}
