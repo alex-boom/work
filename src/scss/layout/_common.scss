@@ -7,6 +7,17 @@ a {
 	position: relative;
 	width: 100%;
 	overflow: hidden;
+
+	&:before {
+		@include animate(background opacity);
+		content: "";
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba($black-lighten, .7);
+		opacity: 0;
+	}
 }
 
 .container {

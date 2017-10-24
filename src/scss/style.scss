@@ -36,7 +36,11 @@ $media-expressions: (
 @import 'layout/footer';
 
 //header
-#header {
+header {
+
+	@include media('>=tablet') {
+		border-bottom: 3px solid $brand-primary;
+	}
 
 	a {
 		color: $gray-3;
@@ -96,13 +100,32 @@ $media-expressions: (
 		padding: 0 15px;
 	}
 
+	.logo {
+		order: 2;
+
+		@include media('>=desktop') {
+			order: 1;
+		}
+	}
+
 	.mode-work {
+		display: none;
 		color: $gray-3;
+
+		@include media('>=desktop') {
+			display: block;
+			order: 2;
+		}
 	}
 
 	.box-phone {
 		display: flex;
 		align-items: center;
+		order: 1;
+
+		@include media('>=desktop') {
+			order: 3;
+		}
 
 		.fa {
 			font-size: 35px;
@@ -130,4 +153,272 @@ $media-expressions: (
 		}
 	}
 }
+
+//burger
+.nav-active {
+
+	#wrapper {
+
+		&:before {
+			position: fixed;
+			opacity: 1;
+			z-index: 1;
+		}
+
+		@include media('>=tablet') {
+
+			&:before {
+				display: none;
+			}
+		}
+	}
+
+	.main-nav {
+		visibility: visible;
+		left: 0;
+		z-index: 2;
+	}
+
+	.nav-opener {
+
+		span {
+			opacity: 0;
+		}
+		&:before,
+		&:after {
+			transform: rotate(-45deg);
+			top: 50%;
+			left: 0;
+			right: 0;
+		}
+		&:before {
+			transform: rotate(45deg);
+		}
+	}
+}
+
+.main-nav {
+	@include animate(visibility right left);
+	position: fixed;
+	width: 300px;
+	top: 0;
+	left: -300px;
+	bottom: 0;
+	background-color: $black-lighten;
+	height: 100vh;
+	overflow-y: auto;
+	visibility: hidden;
+
+	@include media('>=tablet') {
+		position: static;
+		width: 100%;
+		height: auto;
+		visibility: visible;
+		overflow: visible;
+	}
+}
+
+.navbar-nav {
+	@extend %clearfix;
+
+	@include media('>=tablet') {
+		background: transparent;
+	}
+}
+
+.nav-opener {
+	position: relative;
+	display: inline-block;
+	width: 35px;
+	height: 18px;
+	overflow-y: visible;
+	text-indent: -9999px;
+	margin: 0 15px;
+
+	@include media('>=tablet') {
+		display: none;
+	}
+
+	&:after,
+	&:before,
+	span {
+		content: '';
+		position: absolute;
+		left: 0;
+		right: 0;
+		height: 2px;
+		background: $brand-primary;
+		transition: all .3s;
+	}
+
+	&:before {
+		top: 0;
+	}
+	span {
+		top: 50%;
+	}
+	&:after {
+		top: 100%;
+	}
+}
+
+.nav-opener {
+
+	&.add {
+		position: absolute;
+		top: 0 ;
+		right: 0;
+
+		&:after,
+		&:before,
+		span {
+			background: $white;
+		}
+	}
+}
+//burger
+
+.main-nav {
+
+	@include media('>=tablet') {
+		background-color: $gray-light;
+
+	}
+}
+
+.navbar-nav {
+	@extend %listreset;
+
+	@include media('>=tablet') {
+		display: flex;
+		justify-content: center;
+		text-transform: uppercase;
+		font-weight: 700;
+		font-size: 12px;
+	}
+
+	> li {
+		position: relative;
+		padding: 0 10px;
+
+		@include media('>=tablet') {
+			padding: 0 25px;
+		}
+
+		&:first-child {
+
+			&:before {
+				display: none;
+			}
+		}
+
+		&:before {
+
+			@include media('>=tablet') {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 9px;
+				bottom: 9px;
+				width: 1px;
+				background-color: $gray-lighten;
+			}
+		}
+
+		&.active {
+
+			> a {
+
+				@include media('>=tablet') {
+					position: relative;
+					display: inline-block;
+					color:  $brand-primary;
+				}
+
+				&:before {
+
+					@include media('>=tablet') {
+						opacity: 1;
+					}
+				}
+			}
+		}
+
+		> a {
+			position: relative;
+			display: inline-block;
+
+			&:hover {
+				color:  $brand-primary;
+
+				&:before {
+					opacity: 1;
+				}
+			}
+
+			&:before {
+
+				@include media('>=tablet') {
+					@include animate(opacity);
+					@include triangle(12px, $brand-primary, up);
+					content: "";
+					position: absolute;
+					left: 50%;
+					bottom: 0;
+					transform: translateX(-50%);
+					opacity: 0;
+				}
+			}
+
+			@include media('>=tablet') {
+				color: $black;
+				padding: 15px 0;
+			}
+		}
+	}
+}
+
+.has-drop-down  {
+	position: relative;
+
+	&:hover {
+
+		.slide {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+	.slide {
+		@include animate(opacity visibility);
+		@extend %listreset;
+
+		@include media('>=tablet') {
+			position: absolute;
+			top: 100%;
+			left: 0;
+			margin-top: 3px;
+			background-color: #fff;
+			border: 1px solid $gray;
+			border-top: 0;
+			min-width: 220px;
+			padding: 5px;
+			font-size: 13px;
+			box-shadow: 0 5px 10px -8px;
+			text-transform: capitalize;
+			font-weight: 400;
+			opacity: 0;
+			visibility: hidden;
+		}
+
+		li {
+			padding: 8px;
+		}
+
+		a {
+			color: $black-light;
+		}
+	}
+}
+
 //header
