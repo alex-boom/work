@@ -70,11 +70,11 @@ function initMobileNav() {
 		menuDrop: '.main-nav'
 	});
 
-	jQuery('.login-block').mobileNav({
+	jQuery('.box-phone').mobileNav({
 		hideOnClickOutside: true,
-		menuActiveClass: 'drop-active',
-		menuOpener: '.drop-opener',
-		menuDrop: '.drop'
+		menuActiveClass: 'active-drop',
+		menuOpener: '.opener-phone',
+		menuDrop: '.box-phone'
 	});
 }
 
