@@ -66,11 +66,10 @@ header {
 .add-nav {
 	@extend %listreset;
 	padding: 0 15px;
-	margin: 0 -12px;
+	margin: 0 -15px;
 	font-size: 13px;
 
 	a {
-		margin: 0 -3px;
 
 		&:last-child {
 
@@ -227,6 +226,7 @@ header {
 		display: flex;
 		flex-wrap: wrap;
 		padding: 5px;
+		z-index: 2;
 
 		@include media('<tablet') {
 			width: 220px;
