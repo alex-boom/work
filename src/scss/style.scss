@@ -280,7 +280,7 @@ header {
 		&:before {
 			position: fixed;
 			opacity: 1;
-			z-index: 1;
+			z-index: 3;
 		}
 
 		@include media('>=tablet') {
@@ -294,7 +294,7 @@ header {
 	.main-nav {
 		visibility: visible;
 		left: 0;
-		z-index: 2;
+		z-index: 3;
 	}
 
 	.nav-opener {
