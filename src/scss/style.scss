@@ -125,7 +125,9 @@ header {
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-between;
-	font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
+	// font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
+	font-family: $base-font-sans-serif-second;
+	font-size: 13px;
 	margin: 0 -15px;
 	padding: 10px 0;
 
@@ -157,6 +159,7 @@ header {
 	.mode-work {
 		display: none;
 		color: $gray-3;
+		line-height: 24px;
 
 		@include media('>=desktop') {
 			display: block;
@@ -171,6 +174,10 @@ header {
 			position: absolute;
 			top: 11px;
 			right: 0;
+		}
+
+		@include media('>=tablet') {
+			padding-right: 0;
 		}
 
 		&:before {
@@ -197,6 +204,10 @@ header {
 
 		.opener-phone {
 			z-index: 2;
+
+			@include media('>=tablet') {
+				display: none;
+			}
 		}
 
 		.fa {
@@ -218,7 +229,7 @@ header {
 		padding: 5px;
 
 		@include media('<tablet') {
-			width: 175px;
+			width: 220px;
 			position: absolute;
 			margin-top: 7px;
 			top: 100%;
@@ -227,6 +238,7 @@ header {
 			visibility: hidden;
 			opacity: 0;
 			border: 1px solid $gray;
+			box-shadow: 0 6px 12px rgba(0,0,0,.175);
 		}
 	}
 
@@ -235,9 +247,12 @@ header {
 		padding: 0 15px;
 
 		li {
+			display: flex;
+			align-items: center;
+			margin-bottom: 15px;
 
-			@include media('<tablet') {
-				margin-bottom: 5px;
+			@include media('>=tablet') {
+				margin-bottom: 10px;
 			}
 		}
 
@@ -247,6 +262,11 @@ header {
 
 			&:hover {
 				color: $brand-primary;
+			}
+
+			img {
+				padding-right: 5px;
+				margin: 0 0 -3px 0;
 			}
 		}
 	}
@@ -380,13 +400,13 @@ header {
 
 	@include media('>=tablet') {
 		background-color: $gray-light;
-
 	}
 }
 
 .navbar-nav {
 	@extend %listreset;
-	font-size: 15px;
+	font-size: 14px;
+	letter-spacing: .5px;
 	font-weight: 700;
 	text-transform: uppercase;
 	padding: 50px 0;
@@ -394,7 +414,7 @@ header {
 	@include media('>=tablet') {
 		display: flex;
 		justify-content: center;
-		font-size: 12px;
+		font-size: 13px;
 		padding: 0;
 	}
 
@@ -436,7 +456,6 @@ header {
 
 				background-color: $brand-primary;
 
-
 				@include media('>=tablet') {
 					color:  $brand-primary;
 					position: relative;
@@ -467,7 +486,7 @@ header {
 				margin: 0;
 			}
 
-			&:hover {
+			&.hover {
 				background-color: $brand-primary;
 
 				@include media('>=tablet') {
@@ -500,7 +519,7 @@ header {
 .has-drop-down  {
 	position: relative;
 
-	&:hover {
+	&.hover {
 
 		.slide {
 			opacity: 1;
@@ -542,6 +561,7 @@ header {
 			@include media('<tablet') {
 				content: "+";
 				opacity: 1;
+				font-size: 20px;
 			}
 
 		}
@@ -572,7 +592,7 @@ header {
 			min-width: 180px;
 			padding: 5px 15px;
 			font-size: 13px;
-			box-shadow: 0 5px 10px -8px;
+			box-shadow: 0 6px 12px rgba(0,0,0,.175);
 			text-transform: capitalize;
 			font-weight: 400;
 			opacity: 0;
@@ -592,8 +612,12 @@ header {
 				border-bottom: 1px solid lighten($black-lighten, 10%);
 			}
 
+			&:last-child {
+				border: none;
+			}
+
 			&.active,
-			&:hover {
+			&.hover {
 				background-color: darken($brand-primary, 15%);
 
 				@include media('>=tablet') {
@@ -601,7 +625,10 @@ header {
 				}
 
 				a {
-					color: $brand-primary;
+
+					@include media('>=tablet') {
+						color: $brand-primary;
+					}
 				}
 			}
 

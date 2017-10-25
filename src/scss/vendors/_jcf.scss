@@ -30,7 +30,7 @@
     -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.7071067811865483, M12=0.7071067811865467, M21=-0.7071067811865467, M22=0.7071067811865483, SizingMethod='auto expand')";
 }
 
- :root .jcf-checkbox span {
+:root .jcf-checkbox span {
     margin: -4px 0 0 -5px;
 }
 
@@ -593,3 +593,8 @@ body>.jcf-select-drop.jcf-drop-flipped {
 // .jcf-focus * {
 //     border-color: #f00 !important;
 // }
+
+.jcf-select-drop .jcf-select-drop-content {
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    border: 1px solid #e5e5e5;
+}

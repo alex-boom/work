@@ -5,7 +5,6 @@
 $gray-light: #f8f8f8;
 $gray-lighten: #ddd;
 $gray: #e5e5e5;
-$gray-2: #e5e5e5;
 $gray-3: #717171;
 $black: #000;
 $black-light: #222;
@@ -17,6 +16,8 @@ $green: #5bb300;
 $brand-primary: $green;
 
 $base-font-sans-serif: 'Raleway', 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
+$base-font-sans-serif-second: 'Saira', 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
+$base-font-sans-serif-three: 'Roboto', 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
 $base-font-serif: 'Times New Roman', 'Times', 'Baskerville', 'Georgia', serif;
 
 // Body
@@ -24,7 +25,7 @@ $base-text-color: $black !default;
 $base-background-color: $white !default;
 $base-font-size: 14px !default;
 $base-line-height: 1.2 !default;
-$base-font-family: $base-font-sans-serif !default;
+$base-font-family: $base-font-sans-serif-three !default;
 
 $vertical-rhythm: ($base-line-height * 1em);
 
