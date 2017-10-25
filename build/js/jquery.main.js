@@ -38,7 +38,7 @@ function initAccordion() {
 					opener: '.opener',
 					slider: '.slide',
 					animSpeed: 300,
-					allowClickWhenExpanded: true
+					// allowClickWhenExpanded: true
 				});
 			},
 			off: function() {
