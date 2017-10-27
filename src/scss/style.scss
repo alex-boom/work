@@ -38,6 +38,7 @@ $media-expressions: (
 //header
 header {
 	border-bottom: 3px solid $brand-primary;
+	background-color: $white;
 
 	a {
 		color: $gray-3;
@@ -124,7 +125,6 @@ header {
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-between;
-	// font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
 	font-family: $base-font-sans-serif-second;
 	font-size: 13px;
 	margin: 0 -15px;
@@ -649,3 +649,276 @@ header {
 }
 
 //header
+
+//common
+a {
+	@include animate(opacity color background);
+	text-decoration: none;
+}
+
+button {
+
+	&:focus {
+		outline: none;
+	}
+}
+
+#wrapper {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	background-color: $gray-light;
+
+	&:before {
+		@include animate(background opacity);
+		content: "";
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba($black-lighten, .7);
+		opacity: 0;
+	}
+}
+
+.container {
+	max-width: 1290px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -15px;
+
+	@include media('>=tablet') {
+		justify-content: center;
+	}
+
+	&.two-column {
+
+		.col {
+			width: 100%;
+
+			@include media('>=tablet') {
+				width: 50%;
+			}
+		}
+	}
+
+	&.three-column {
+
+		.col {
+			width: 100%;
+
+			@include media('>=tablet') {
+				width: 50%;
+			}
+
+			@include media('>=desktop') {
+				width: 33.33%;
+			}
+		}
+	}
+
+	&.four-column {
+
+		.col {
+			width: 100%;
+
+			@include media('>=tablet') {
+				width: 50%;
+			}
+
+			@include media('>=desktop') {
+				width: 25%;
+			}
+		}
+	}
+}
+
+.col {
+	padding: 0 15px;
+}
+
+.btn {
+	@include animate(opacity background color);
+	display: inline-block;
+	min-width: 110px;
+	text-align: center;
+	padding: 8px 10px;
+	text-transform: uppercase;
+	border: 1px solid $gray;
+	color: $black-lighten;
+	font-size: 12px;
+	line-height: 14px;
+	letter-spacing: 1px;
+	font-weight: 500;
+
+	&.btn-primary {
+
+		&:hover {
+			background-color: $brand-primary;
+			color: $white;
+		}
+	}
+}
+
+.block-category {
+	overflow: hidden;
+	padding: 20px 15px;
+
+	@include media('>=tablet') {
+		padding: 80px 15px;
+	}
+
+	.col {
+		position: relative;
+		display: flex;
+		justify-content: center;
+
+		&:first-child {
+
+			&:before {
+				left: 0;
+			}
+		}
+
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			height: 80%;
+			width: 1px;
+			background-color: $gray;
+		}
+
+		&:before {
+			left: -1px;
+		}
+
+		&:after {
+			right: 0;
+		}
+
+		.line-second {
+			position: absolute;
+			left: 50%;
+			bottom: 0;
+			transform: translateX(-50%);
+			width: 80%;
+			height: 1px;
+			background-color: $gray;
+		}
+	}
+}
+
+.category-item {
+	width: 100%;
+	position: relative;
+	text-align: center;
+	padding-bottom: 90px;
+	margin-bottom: 20px;
+	color: $black;
+
+	&:first-child {
+
+		&:before {
+			left: -15px;
+		}
+	}
+
+	&:hover {
+
+		&:before,
+		&:after {
+			transform: translate(0);
+			opacity: 1;
+		}
+
+		.box-img {
+			transform: scale(1.1);
+		}
+
+		.line {
+			opacity: 1;
+			background-color: $brand-primary;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		.btn {
+			color: $white;
+			background-color: $brand-primary;
+		}
+	}
+
+	&:before,
+	&:after {
+		@include animate(transform opacity);
+		content: "";
+		position: absolute;
+		top: 0;
+		height: 86%;
+		width: 1px;
+		background-color: $brand-primary;
+		opacity: 0;
+		z-index: 2;
+	}
+
+	&:before {
+		left: -16px;
+		transform: translateY(-100%);
+	}
+
+	&:after {
+		right: -15px;
+		transform: translateY(100%);
+	}
+
+	.line {
+		@include animate(transform opacity left);
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		transform: translateX(-100%);
+		width: 85%;
+		height: 1px;
+		background-color: $brand-primary;
+		opacity: 0;
+		z-index: 2;
+	}
+
+	.box-img {
+		@include animate(transform);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 85px;
+		margin: 0 auto;
+		margin-bottom: 20px;
+	}
+
+	h2 {
+		font-weight: 400;
+	}
+
+	.btn {
+		position: absolute;
+		bottom: 35px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+}
+
+
+
+
+
+
+
+
+
+//common
