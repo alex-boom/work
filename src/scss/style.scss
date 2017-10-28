@@ -37,8 +37,21 @@ $media-expressions: (
 
 //header
 header {
+	position: relative;
+	z-index: 1;
 	border-bottom: 3px solid $brand-primary;
 	background-color: $white;
+
+	&:before {
+		@include animate(background opacity);
+		content: "";
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba($black-lighten, .7);
+		opacity: 0;
+	}
 
 	a {
 		color: $gray-3;
@@ -50,11 +63,13 @@ header {
 }
 
 .top-bar {
+	position: relative;
 	background-color: $gray-light;
 	align-items: center;
 	font-size: 12px;
 	text-transform: capitalize;
 	padding: 5px 0;
+	z-index: 0;
 
 	.container {
 		display: flex;
@@ -138,20 +153,53 @@ header {
 	}
 
 	.logo {
-
-		@include media('<400px') {
-			transform: translateX(-33px);
-			margin: 0 auto;
-			width: 215px;
-		}
+		font-family: $base-font-sans-serif;
+		font-size: 36px;
 
 		@include media('<phone') {
-			width: 250px;
+			font-size: 24px;
 		}
 
 		@include media('<tablet') {
 			margin: 0 auto;
-			transform: translateX(-47px);
+			transform: translateX(-36px);
+		}
+
+		img {
+			float: left;
+
+			@include media('<phone') {
+				width: 34px;
+			}
+		}
+
+		.text-logo {
+			display: block;
+			overflow: hidden;
+			color: #000;
+			padding-left: 15px;
+
+			@include media('<phone') {
+				padding-left: 5px;
+			}
+		}
+
+		.title {
+			display: block;
+			text-transform: capitalize;
+		}
+
+		.slogan {
+			display: block;
+			text-transform: uppercase;
+			font-size: 14px;
+			letter-spacing: 3px;
+			font-family: $base-font-sans-serif-three;
+			padding-left: 2px;
+
+			@include media('<phone') {
+				font-size: 9px;
+			}
 		}
 	}
 
@@ -275,7 +323,7 @@ header {
 //burger
 .nav-active {
 
-	#wrapper {
+	#header {
 
 		&:before {
 			position: fixed;
@@ -450,7 +498,8 @@ header {
 			}
 		}
 
-		&.active {
+		&.active,
+		&.hover {
 
 			> a {
 
@@ -531,7 +580,10 @@ header {
 
 		.opener {
 			&:before {
-				opacity: 0;
+
+				@include media('<tablet') {
+					opacity: 0;
+				}
 			}
 
 			&:after {
@@ -657,6 +709,7 @@ a {
 }
 
 button {
+	background-color: transparent;
 
 	&:focus {
 		outline: none;
@@ -668,17 +721,6 @@ button {
 	width: 100%;
 	overflow: hidden;
 	background-color: $gray-light;
-
-	&:before {
-		@include animate(background opacity);
-		content: "";
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background-color: rgba($black-lighten, .7);
-		opacity: 0;
-	}
 }
 
 .container {
@@ -911,6 +953,12 @@ button {
 		left: 50%;
 		transform: translateX(-50%);
 	}
+}
+
+.test {
+	height: 500px;
+	background-color: #fff;
+	border: 1px solid $gray;
 }
 
 
