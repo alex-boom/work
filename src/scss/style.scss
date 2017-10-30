@@ -22,6 +22,7 @@ $media-expressions: (
 @import 'vendors/include-media';
 @import 'vendors/normalize';
 @import 'vendors/jcf';
+@import 'vendors/slick-slider';
 
 @import 'base/variables';
 @import 'base/functions';
@@ -703,6 +704,34 @@ header {
 //header
 
 //common
+%underline {
+	position: relative;
+
+	.active &,
+	&:hover {
+
+		&:before {
+			left: 0;
+			right: 0;
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+
+	&:before {
+		@include animate(visibility left right);
+		content: "";
+		position: absolute;
+		left: 50%;
+		right: 50%;
+		bottom: 0;
+		background-color: currentColor;
+		height: 1px;
+		visibility: hidden;
+		opacity: 0;
+	}
+}
+
 a {
 	@include animate(opacity color background);
 	text-decoration: none;
@@ -714,6 +743,13 @@ button {
 	&:focus {
 		outline: none;
 	}
+}
+
+mark {
+	font-weight: bold;
+	@extend %listreset;
+	color: $brand-primary;
+	background-color: transparent;
 }
 
 #wrapper {
@@ -791,12 +827,16 @@ button {
 	text-align: center;
 	padding: 8px 10px;
 	text-transform: uppercase;
-	border: 1px solid $gray;
+	border: 1px solid darken($gray, 10%);
 	color: $black-lighten;
 	font-size: 12px;
 	line-height: 14px;
 	letter-spacing: 1px;
 	font-weight: 500;
+
+	&:hover {
+		border-color: transparent;
+	}
 
 	&.btn-primary {
 
@@ -807,8 +847,12 @@ button {
 	}
 }
 
+.holder-title {
+	border-bottom: 1px solid $gray;
+	text-transform: uppercase;
+}
+
 .block-category {
-	overflow: hidden;
 	padding: 20px 15px;
 
 	@include media('>=tablet') {
@@ -819,6 +863,7 @@ button {
 		position: relative;
 		display: flex;
 		justify-content: center;
+		overflow: hidden;
 
 		&:first-child {
 
@@ -894,6 +939,7 @@ button {
 		.btn {
 			color: $white;
 			background-color: $brand-primary;
+			border-color: transparent;
 		}
 	}
 
@@ -961,6 +1007,318 @@ button {
 	border: 1px solid $gray;
 }
 
+//tab to open close
+.open-close {
+	position: relative;
+	font-size: 16px;
+
+	@include media('<tablet') {
+		margin-bottom: 45px;
+	}
+
+	&.active {
+
+		.slide {
+			border-color: #979797;
+		}
+
+		.opener {
+
+			&:after {
+				transform: rotate(-180deg);
+			}
+		}
+	}
+
+	.opener {
+		display: block;
+		border: 1px solid #979797;
+		padding: 7px 15px;
+		padding-right: 30px;
+		text-decoration: none;
+		color: $black;
+
+		&:after {
+			@include animate(transform);
+			@include triangle(12px, $gray-3, down);
+			content: "";
+			position: absolute;
+			top: 12px;
+			right: 15px;
+		}
+
+		@include media('>=tablet') {
+			display: none;
+			padding: 0;
+		}
+	}
+
+	.slide {
+
+		@include media('<tablet') {
+
+			@include animate(border, .2s);
+			position: absolute;
+			z-index: 1;
+			top: 98%;
+			left: 0;
+			right: 0;
+			background-color: $white;
+			border: 1px solid transparent;
+			border-top: none;
+		}
+
+		@include media('>=tablet') {
+			display:block !important;
+			position: static !important;
+			padding: 0 !important;
+			height: auto !important;
+		}
+	}
+}
+//tab to open close
+
+//style tabs
+.tab-content {
+
+	.tab-hidden {
+		display: block !important;
+		left: -9999px !important;
+		position: absolute !important;
+		top: -9999px !important;
+	}
+}
+
+//syyle tabs
+
+.section {
+	background-color: $white;
+	border: 1px solid $gray;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	margin-bottom: 40px;
+
+	@include media('>=tablet') {
+		padding-top: 60px;
+		padding-bottom: 60px;
+		margin-bottom: 20px;
+	}
+}
+
+.slick-slide,
+div {
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.section-slider {
+	background-color: $white;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border: 1px solid $gray;
+	margin-bottom: 20px;
+
+	@include media('>=tablet') {
+		margin-bottom: 40px;
+	}
+
+	.holder-title {
+		padding-left: 15px;
+		padding-right: 15px;
+
+		@include media('>=tablet') {
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+	}
+}
+
+.five-column-slider {
+	padding-left: 30px;
+	padding-right: 30px;
+
+	.fa {
+		@include animate(color);
+		cursor: pointer;
+		font-size: 60px;
+		color: $gray;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+
+		&:hover {
+			color: darken($gray, 8%);
+		}
+
+		&.fa-angle-left {
+			left: 10px;
+		}
+
+		&.fa-angle-right {
+			right: 10px;
+		}
+	}
+}
+
+.prise-item {
+	position: relative;
+	padding: 15px 15px 70px;
+	text-align: center;
+	color: $black;
+
+	&:focus {
+		outline: none;
+	}
+
+	&:hover {
+
+		img {
+			transform: scale(1.03);
+		}
+
+		.btn {
+			background-color: $brand-primary;
+			color: $white;
+			border-color: transparent;
+		}
+	}
+
+	.box-img {
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 20px;
+
+		img {
+			@include animate(transform);
+			width: auto;
+			height: 200px;
+		}
+	}
+
+	.content,
+	.description,
+	.prise-box {
+		display: block;
+	}
+
+	.description {
+		@extend .ellipsis;
+		margin-bottom: 15px;
+		font-style: italic;
+	}
+
+	.prise-box {
+		font-weight: bold;
+	}
+
+	.btn {
+		position: absolute;
+		left: 50%;
+		bottom: 25px;
+		transform: translateX(-50%);
+	}
+}
+
+.block-tabs {
+	position: relative;
+
+	.holder-title {
+
+		@include media('<tablet') {
+			padding-top: 60px;
+		}
+	}
+
+	.open-close {
+		position: absolute;
+		top: 25px;
+		left: 15px;
+		right: 15px;
+		font-size: 11px;
+		text-transform: uppercase;
+
+		@include media('>=tablet') {
+			width: auto;
+			left: auto;
+		}
+
+		.tabset {
+			@extend %listreset;
+			text-transform: capitalize;
+			text-transform: uppercase;
+			font-size: 11px;
+			letter-spacing: 1px;
+
+			@include media('>=tablet') {
+				display: flex;
+				flex-wrap: wrap;
+			}
+
+			li {
+				position: relative;
+				padding: 7px 15px;
+
+				@include media('>=tablet') {
+					padding: 0 15px;
+				}
+
+				&:before {
+
+					@include media('>=tablet') {
+						content: "";
+						position: absolute;
+						left: 0;
+						top: 0px;
+						bottom: 0px;
+						width: 1px;
+						background-color: $gray;
+					}
+				}
+
+				&:first-child {
+
+					&:before {
+						display: none;
+					}
+				}
+
+				.active {
+
+					@include media('>=tablet') {
+						color: $green;
+					}
+				}
+			}
+
+			a {
+				@extend %underline;
+				color: $black;
+
+				@include media('<tablet') {
+
+					&:before {
+						display: none;
+					}
+				}
+
+				@include media('>=tablet') {
+					position: relative;
+				}
+
+				&:hover {
+
+					@include media('>=tablet') {
+						color: $green;
+					}
+				}
+			}
+		}
+	}
+}
 
 
 
