@@ -1,51 +1,54 @@
 // page init
 jQuery(function() {
 	initSlickCarousel();
-	initTabs();
 	initOpenClose();
 	initTouchNav();
 	initAccordion();
 	initDropDownClasses();
 	initMobileNav();
 	initCustomForms();
+	initValueSelect();
+
+	setTimeout( function() {
+		initTabs();
+	}, 100)
+
 });
+
 
 // slick init
 function initSlickCarousel() {
 
-	// jQuery('ul.tabset').on('toggled', function (event, tab) {
-	// 	jQuery('.slick-slider').slick('setPosition', 0);
-	// });
-
 	jQuery('.five-column-slider').slick({
-		infinite: false,
-		speed: 300,
-		slidesToShow: 5,
+		infinite: true,
+		speed: 500,
+		slidesToShow: 1,
 		slidesToScroll: 1,
 		prevArrow: '<i class="fa fa-angle-left" aria-hidden="true"></i>',
 		nextArrow: '<i class="fa fa-angle-right" aria-hidden="true"></i>',
-		// autoplay: true,
+		mobileFirst : true,
 		responsive: [
 		{
 			breakpoint: 1250,
 			settings: {
-				slidesToShow: 3,
-				slidesToScroll: 3,
+				slidesToShow: 5,
+				slidesToScroll: 1,
+				// autoplay: true,
 				infinite: true,
 			}
 		},
 		{
 			breakpoint: 768,
 			settings: {
-				slidesToShow: 2,
-				slidesToScroll: 2
+				slidesToShow: 3,
+				slidesToScroll: 3
 			}
 		},
 		{
 			breakpoint: 480,
 			settings: {
-				slidesToShow: 1,
-				slidesToScroll: 1
+				slidesToShow: 2,
+				slidesToScroll: 2
 			}
 		}
 		]
@@ -58,7 +61,8 @@ function initSlickCarousel() {
 // content tabs init
 function initTabs() {
 	jQuery('.tabset').tabset({
-		tabLinks: 'a'
+		tabLinks: 'a',
+		addToParent: true
 	});
 }
 
@@ -100,6 +104,38 @@ function initOpenClose() {
 			}
 		}
 	});
+}
+
+// open-close init
+function initValueSelect() {
+
+	jQuery('.value-select').openClose({
+		activeClass: 'active',
+		opener: '.opener',
+		slider: '.slide',
+		animSpeed: 200,
+		effect: 'slide',
+		onInit: function(self) {
+
+			var links = self.slider.find('.select-list li a');
+
+			links.each(function(){
+				var link = jQuery(this);
+
+				if (link.parent().hasClass('active')) {
+					self.opener.html(link.html());
+				}
+
+				link.on('click', function(event) {
+					event.preventDefault();
+
+					self.opener.html(link.html());
+					self.hideSlide();
+				});
+			});
+		}
+	});
+
 }
 
 // handle dropdowns on mobile devices
@@ -169,7 +205,7 @@ function initMobileNav() {
 		hideOnClickOutside: true,
 		menuActiveClass: 'active-drop',
 		menuOpener: '.opener-phone',
-		menuDrop: '.box-phone'
+		menuDrop: '.drop'
 	});
 }
 

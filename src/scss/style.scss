@@ -70,7 +70,7 @@ header {
 	font-size: 12px;
 	text-transform: capitalize;
 	padding: 5px 0;
-	z-index: 0;
+	z-index: 3;
 
 	.container {
 		display: flex;
@@ -102,37 +102,54 @@ header {
 	}
 }
 
-.course {
+.value-select {
+	display: block;
+	position: relative;
+	padding: 5px 15px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-weight: 500;
+	margin-right: 55px;
 
-	@include media('<tablet') {
-		padding-right: 50px;
+	@include media('>=tablet') {
+		margin-right: 0;
 	}
 
-	.jcf-select {
-		display: inline-block;
-		vertical-align: top;
-		position: relative;
-		border: none;
-		background-color: $gray-light;
-		min-width: 50px;
-		height: 26px;
-		margin: 0;
-		z-index: 2;
+	.opener {
+
+		&:before {
+			@include triangle(10px, $gray-3, down);
+			content: "";
+			position: absolute;
+			top: 50%;
+			right: 0;
+			transform: translateY(-50%);
+			z-index: 5;
+		}
 	}
 
-	.jcf-select .jcf-select-opener {
-		@include triangle(10px, $gray-3, down);
+	.select-list {
+		@extend %listreset;
 		position: absolute;
-		background: none;
-		top: 50%;
+		top: 100%;
+		margin-top: 4px;
+		left: 0;
 		right: 0;
-		transform: translateY(-50%);
-		z-index: 1;
-	}
+		background-color: $white;
+		box-shadow: 0 6px 12px rgba(0,0,0,.175);
+		border: 1px solid $gray;
 
-	.jcf-select .jcf-select-text {
-		margin-right: 13px;
-		color: $gray-3;
+		li {
+			@include animate(background);
+			text-align: center;
+			position: relative;
+			padding: 5px;
+			border: 1px solid $gray;
+
+			&:hover {
+				background-color: $gray;
+			}
+		}
 	}
 }
 
@@ -220,8 +237,10 @@ header {
 
 		@include media('<tablet') {
 			position: absolute;
-			top: 11px;
+			top: 10px;
 			right: 0;
+			z-index: 4;
+			padding: 0 15px 0 0;
 		}
 
 		@include media('>=tablet') {
@@ -244,9 +263,14 @@ header {
 		&.active-drop {
 
 			.drop {
+				position: fixed;
 				visibility: visible;
 				opacity: 1;
 				background-color: $white;
+
+				@include media('<tablet') {
+					justify-content: center;
+				}
 			}
 		}
 
@@ -274,15 +298,18 @@ header {
 	.drop {
 		display: flex;
 		flex-wrap: wrap;
-		padding: 5px;
-		z-index: 2;
+		padding: 15px 15px 5px;
+		z-index: 10;
+
+		@include media('<phone') {
+			top: 98px;
+		}
 
 		@include media('<tablet') {
-			width: 220px;
 			position: absolute;
-			margin-top: 7px;
-			top: 100%;
+			top: 116px;
 			right: 0;
+			left: 0;
 			margin: 0 -15px;
 			visibility: hidden;
 			opacity: 0;
@@ -343,7 +370,7 @@ header {
 	.main-nav {
 		visibility: visible;
 		left: 0;
-		z-index: 3;
+		z-index: 4;
 	}
 
 	.nav-opener {
@@ -1286,10 +1313,13 @@ div {
 					}
 				}
 
-				.active {
+				&.active {
 
 					@include media('>=tablet') {
-						color: $green;
+
+						a {
+							color: $green;
+						}
 					}
 				}
 			}
