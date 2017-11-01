@@ -23,6 +23,7 @@ $media-expressions: (
 @import 'vendors/normalize';
 @import 'vendors/jcf';
 @import 'vendors/slick-slider';
+@import 'vendors/animate';
 
 @import 'base/variables';
 @import 'base/functions';
@@ -70,7 +71,10 @@ header {
 	font-size: 12px;
 	text-transform: capitalize;
 	padding: 5px 0;
-	z-index: 3;
+
+	@include media('>=tablet') {
+		z-index: 3;
+	}
 
 	.container {
 		display: flex;
@@ -163,6 +167,11 @@ header {
 	margin: 0 -15px;
 	padding: 10px 0;
 
+	@include media('>=tablet') {
+		position: relative;
+		z-index: 0;
+	}
+
 	.logo,
 	.mode-work,
 	.box-phone,
@@ -176,6 +185,8 @@ header {
 
 		@include media('<phone') {
 			font-size: 24px;
+			position: relative;
+			z-index: -1;
 		}
 
 		@include media('<tablet') {
@@ -239,7 +250,6 @@ header {
 			position: absolute;
 			top: 10px;
 			right: 0;
-			z-index: 4;
 			padding: 0 15px 0 0;
 		}
 
@@ -256,7 +266,6 @@ header {
 				top: 50%;
 				right: -43px;
 				transform: translateY(-50%);
-				z-index: 1;
 			}
 		}
 
@@ -299,7 +308,6 @@ header {
 		display: flex;
 		flex-wrap: wrap;
 		padding: 15px 15px 5px;
-		z-index: 10;
 
 		@include media('<phone') {
 			top: 98px;
@@ -759,6 +767,20 @@ header {
 	}
 }
 
+h1 {
+	font-weight: 800;
+	text-transform: uppercase;
+	line-height: 1.5;
+
+	@include media('<phone') {
+		font-size: 29px;
+	}
+
+	@include media('<tablet') {
+		font-size: 35px;
+	}
+}
+
 a {
 	@include animate(opacity color background);
 	text-decoration: none;
@@ -1165,27 +1187,32 @@ div {
 .five-column-slider {
 	padding-left: 30px;
 	padding-right: 30px;
+}
 
-	.fa {
-		@include animate(color);
-		cursor: pointer;
+.slick-arrow {
+	@include animate(color);
+	cursor: pointer;
+	font-size: 40px;
+	color: $gray;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 2;
+
+	@include media('>=tablet') {
 		font-size: 60px;
-		color: $gray;
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
+	}
 
-		&:hover {
-			color: darken($gray, 8%);
-		}
+	&:hover {
+		color: darken($gray, 8%);
+	}
 
-		&.fa-angle-left {
-			left: 10px;
-		}
+	&.fa-angle-left {
+		left: 10px;
+	}
 
-		&.fa-angle-right {
-			right: 10px;
-		}
+	&.fa-angle-right {
+		right: 10px;
 	}
 }
 
@@ -1345,6 +1372,105 @@ div {
 						color: $green;
 					}
 				}
+			}
+		}
+	}
+}
+
+.slider-single {
+	position: relative;
+	padding: 40px 0;
+
+	.slick-arrow {
+		@include animate(opacity);
+		opacity: .3;
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	.item-box {
+		position: relative;
+		display: flex;
+		align-items: center;
+		background-size: cover;
+		min-height: 350px;
+		background-position: center;
+		z-index: 0;
+		padding: 40px;
+		color: $white;
+		text-align: center;
+
+		@include media('>=tablet') {
+			min-height: 550px;
+			padding: 40px 70px;
+			text-align: left;
+		}
+
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(0,0,0, .4);
+			z-index: -1;
+		}
+	}
+
+	.content-box {
+		display: block;
+		width: 100%;
+
+		@include media('>=desktop') {
+			width: 50%;
+		}
+
+		h1 {
+			margin-bottom: 10px;
+		}
+
+		p {
+			margin-bottom: 30px;
+		}
+
+		.btn {
+			color: $white;
+			border: 1px solid $white;
+		}
+
+		.sutitle {
+			position: relative;
+			display: inline-block;
+			padding: 10px 0;
+			border: 1px solid;
+			border-width: 1px 0 1px 0;
+			text-transform: uppercase;
+			letter-spacing: 7px;
+			font-size: 12px;
+			font-weight: 300;
+			margin-bottom: 20px;
+
+			&:before {
+				content: "";
+				position: absolute;
+				top: -3px;
+				left: 0;
+				right: 0;
+				height: 1px;
+				background-color: $white;
+			}
+
+			&:after {
+				content: "";
+				position: absolute;
+				bottom: -3px;
+				left: 0;
+				right: 0;
+				height: 1px;
+				background-color: $white;
 			}
 		}
 	}
