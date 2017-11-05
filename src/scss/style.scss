@@ -182,6 +182,7 @@ header {
 	.logo {
 		font-family: $base-font-sans-serif;
 		font-size: 36px;
+		line-height: 1.25;
 
 		@include media('<phone') {
 			font-size: 24px;
