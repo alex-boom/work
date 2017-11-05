@@ -237,6 +237,12 @@ function initAccordion() {
 			}
 		}
 	});
+
+	jQuery('.accordion-category').slideAccordion({
+		opener: '.opener',
+		slider: '.slide',
+		animSpeed: 300,
+	});
 }
 
 // add classes if item has dropdown
@@ -3914,226 +3920,226 @@ TouchNav.prototype = {
 /*
  * jQuery form validation plugin
  */
-;(function($) {
-	'use strict';
+ ;(function($) {
+ 	'use strict';
 
-	var FormValidation = (function() {
-		var Validator = function($field, $fields) {
-			this.$field = $field;
-			this.$fields = $fields;
-		};
+ 	var FormValidation = (function() {
+ 		var Validator = function($field, $fields) {
+ 			this.$field = $field;
+ 			this.$fields = $fields;
+ 		};
 
-		Validator.prototype = {
-			reg: {
-				email: '^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$',
-				number: '^[0-9]+$'
-			},
+ 		Validator.prototype = {
+ 			reg: {
+ 				email: '^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$',
+ 				number: '^[0-9]+$'
+ 			},
 
-			checkField: function() {
-				return {
-					state: this.run(),
-					$fields: this.$field.add(this.additionalFields)
-				}
-			},
+ 			checkField: function() {
+ 				return {
+ 					state: this.run(),
+ 					$fields: this.$field.add(this.additionalFields)
+ 				}
+ 			},
 
-			run: function() {
-				var fieldType;
+ 			run: function() {
+ 				var fieldType;
 
-				switch (this.$field.get(0).tagName.toUpperCase()) {
-					case 'SELECT':
-						fieldType = 'select';
-						break;
+ 				switch (this.$field.get(0).tagName.toUpperCase()) {
+ 					case 'SELECT':
+ 					fieldType = 'select';
+ 					break;
 
-					case 'TEXTAREA':
-						fieldType = 'text';
-						break;
+ 					case 'TEXTAREA':
+ 					fieldType = 'text';
+ 					break;
 
-					default:
-						fieldType = this.$field.data('type') || this.$field.attr('type');
-				}
+ 					default:
+ 					fieldType = this.$field.data('type') || this.$field.attr('type');
+ 				}
 
-				var functionName = 'check_' + fieldType;
-				var state = true;
+ 				var functionName = 'check_' + fieldType;
+ 				var state = true;
 
-				if ($.isFunction(this[functionName])) {
-					state = this[functionName]();
+ 				if ($.isFunction(this[functionName])) {
+ 					state = this[functionName]();
 
-					if (state && this.$field.data('confirm')) {
-						state = this.check_confirm();
-					}
-				}
+ 					if (state && this.$field.data('confirm')) {
+ 						state = this.check_confirm();
+ 					}
+ 				}
 
-				return state;
-			},
+ 				return state;
+ 			},
 
-			check_email: function() {
-				var value = this.getValue();
-				var required = this.$field.data('required');
-				var requiredOrValue = required || value.length;
+ 			check_email: function() {
+ 				var value = this.getValue();
+ 				var required = this.$field.data('required');
+ 				var requiredOrValue = required || value.length;
 
-				if ((requiredOrValue && !this.check_regexp(value, this.reg.email))) {
-					return false;
-				}
+ 				if ((requiredOrValue && !this.check_regexp(value, this.reg.email))) {
+ 					return false;
+ 				}
 
-				return requiredOrValue ? true : null;
-			},
+ 				return requiredOrValue ? true : null;
+ 			},
 
-			check_number: function() {
-				var value = this.getValue();
-				var required = this.$field.data('required');
-				var isNumber = this.check_regexp(value, this.reg.number);
-				var requiredOrValue = required || value.length;
+ 			check_number: function() {
+ 				var value = this.getValue();
+ 				var required = this.$field.data('required');
+ 				var isNumber = this.check_regexp(value, this.reg.number);
+ 				var requiredOrValue = required || value.length;
 
-				if (requiredOrValue && !isNumber) {
-					return false;
-				}
+ 				if (requiredOrValue && !isNumber) {
+ 					return false;
+ 				}
 
-				var min = this.$field.data('min');
-				var max = this.$field.data('max');
-				value = +value;
+ 				var min = this.$field.data('min');
+ 				var max = this.$field.data('max');
+ 				value = +value;
 
-				if ((min && (value < min || !isNumber)) || (max && (value > max || !isNumber))) {
-					return false;
-				}
+ 				if ((min && (value < min || !isNumber)) || (max && (value > max || !isNumber))) {
+ 					return false;
+ 				}
 
-				return (requiredOrValue || min || max) ? true : null;
-			},
+ 				return (requiredOrValue || min || max) ? true : null;
+ 			},
 
-			check_password: function() {
-				return this.check_text();
-			},
+ 			check_password: function() {
+ 				return this.check_text();
+ 			},
 
-			check_text: function() {
-				var value = this.getValue();
-				var required = this.$field.data('required');
+ 			check_text: function() {
+ 				var value = this.getValue();
+ 				var required = this.$field.data('required');
 
-				if (this.$field.data('required') && !value.length) {
-					return false;
-				}
+ 				if (this.$field.data('required') && !value.length) {
+ 					return false;
+ 				}
 
-				var min = +this.$field.data('min');
-				var max = +this.$field.data('max');
+ 				var min = +this.$field.data('min');
+ 				var max = +this.$field.data('max');
 
-				if ((min && value.length < min) || (max && value.length > max)) {
-					return false;
-				}
+ 				if ((min && value.length < min) || (max && value.length > max)) {
+ 					return false;
+ 				}
 
-				var regExp = this.$field.data('regexp');
+ 				var regExp = this.$field.data('regexp');
 
-				if (regExp && !this.check_regexp(value, regExp)) {
-					return false;
-				}
+ 				if (regExp && !this.check_regexp(value, regExp)) {
+ 					return false;
+ 				}
 
-				return (required || min || max || regExp) ? true : null;
-			},
+ 				return (required || min || max || regExp) ? true : null;
+ 			},
 
-			check_confirm: function() {
-				var value = this.getValue();
-				var $confirmFields = this.$fields.filter('[data-confirm="' + this.$field.data('confirm') + '"]');
-				var confirmState = true;
+ 			check_confirm: function() {
+ 				var value = this.getValue();
+ 				var $confirmFields = this.$fields.filter('[data-confirm="' + this.$field.data('confirm') + '"]');
+ 				var confirmState = true;
 
-				for (var i = $confirmFields.length - 1; i >= 0; i--) {
-					if ($confirmFields.eq(i).val() !== value || !value.length) {
-						confirmState = false;
-						break;
-					}
-				}
+ 				for (var i = $confirmFields.length - 1; i >= 0; i--) {
+ 					if ($confirmFields.eq(i).val() !== value || !value.length) {
+ 						confirmState = false;
+ 						break;
+ 					}
+ 				}
 
-				this.additionalFields = $confirmFields;
+ 				this.additionalFields = $confirmFields;
 
-				return confirmState;
-			},
+ 				return confirmState;
+ 			},
 
-			check_select: function() {
-				var required = this.$field.data('required');
+ 			check_select: function() {
+ 				var required = this.$field.data('required');
 
-				if (required && this.$field.get(0).selectedIndex === 0) {
-					return false;
-				}
+ 				if (required && this.$field.get(0).selectedIndex === 0) {
+ 					return false;
+ 				}
 
-				return required ? true : null;
-			},
+ 				return required ? true : null;
+ 			},
 
-			check_radio: function() {
-				var $fields = this.$fields.filter('[name="' + this.$field.attr('name') + '"]');
-				var required = this.$field.data('required');
+ 			check_radio: function() {
+ 				var $fields = this.$fields.filter('[name="' + this.$field.attr('name') + '"]');
+ 				var required = this.$field.data('required');
 
-				if (required && !$fields.filter(':checked').length) {
-					return false;
-				}
+ 				if (required && !$fields.filter(':checked').length) {
+ 					return false;
+ 				}
 
-				this.additionalFields = $fields;
+ 				this.additionalFields = $fields;
 
-				return required ? true : null;
-			},
+ 				return required ? true : null;
+ 			},
 
-			check_checkbox: function() {
-				var required = this.$field.data('required');
+ 			check_checkbox: function() {
+ 				var required = this.$field.data('required');
 
-				if (required && !this.$field.prop('checked')) {
-					return false;
-				}
+ 				if (required && !this.$field.prop('checked')) {
+ 					return false;
+ 				}
 
-				return required ? true : null;
-			},
+ 				return required ? true : null;
+ 			},
 
-			check_at_least_one: function() {
-				var $fields = this.$fields.filter('[data-name="' + this.$field.data('name') + '"]');
+ 			check_at_least_one: function() {
+ 				var $fields = this.$fields.filter('[data-name="' + this.$field.data('name') + '"]');
 
-				if (!$fields.filter(':checked').length) {
-					return false;
-				}
+ 				if (!$fields.filter(':checked').length) {
+ 					return false;
+ 				}
 
-				this.additionalFields = $fields;
+ 				this.additionalFields = $fields;
 
-				return true;
-			},
+ 				return true;
+ 			},
 
-			check_regexp: function(val, exp) {
-				return new RegExp(exp).test(val);
-			},
+ 			check_regexp: function(val, exp) {
+ 				return new RegExp(exp).test(val);
+ 			},
 
-			getValue: function() {
-				if (this.$field.data('trim')) {
-					this.$field.val($.trim(this.$field.val()));
-				}
+ 			getValue: function() {
+ 				if (this.$field.data('trim')) {
+ 					this.$field.val($.trim(this.$field.val()));
+ 				}
 
-				return this.$field.val();
-			}
-		};
+ 				return this.$field.val();
+ 			}
+ 		};
 
-		var publicClass = function(form, options) {
-			this.$form = $(form).attr('novalidate', 'novalidate');
-			this.options = options;
-		};
+ 		var publicClass = function(form, options) {
+ 			this.$form = $(form).attr('novalidate', 'novalidate');
+ 			this.options = options;
+ 		};
 
-		publicClass.prototype = {
-			buildSelector: function(input) {
-				return ':input:not(' + this.options.skipDefaultFields + (this.options.skipFields ? ',' + this.options.skipFields : '') + ')';
-			},
+ 		publicClass.prototype = {
+ 			buildSelector: function(input) {
+ 				return ':input:not(' + this.options.skipDefaultFields + (this.options.skipFields ? ',' + this.options.skipFields : '') + ')';
+ 			},
 
-			init: function() {
-				this.fieldsSelector = this.buildSelector(':input');
+ 			init: function() {
+ 				this.fieldsSelector = this.buildSelector(':input');
 
-				this.$form
-					.on('submit', this.submitHandler.bind(this))
-					.on('keyup blur', this.fieldsSelector, this.changeHandler.bind(this))
-					.on('change', this.buildSelector('select'), this.changeHandler.bind(this))
-					.on('focus', this.fieldsSelector, this.focusHandler.bind(this));
-			},
+ 				this.$form
+ 				.on('submit', this.submitHandler.bind(this))
+ 				.on('keyup blur', this.fieldsSelector, this.changeHandler.bind(this))
+ 				.on('change', this.buildSelector('select'), this.changeHandler.bind(this))
+ 				.on('focus', this.fieldsSelector, this.focusHandler.bind(this));
+ 			},
 
-			submitHandler: function(e) {
-				var self = this;
-				var $fields = this.getFormFields();
+ 			submitHandler: function(e) {
+ 				var self = this;
+ 				var $fields = this.getFormFields();
 
-				this.getClassTarget($fields)
-					.removeClass(this.options.errorClass + ' ' + this.options.successClass);
+ 				this.getClassTarget($fields)
+ 				.removeClass(this.options.errorClass + ' ' + this.options.successClass);
 
-				this.setFormState(true);
+ 				this.setFormState(true);
 
-				$fields.each(function(i, input) {
-					var $field = $(input);
-					var $classTarget = self.getClassTarget($field);
+ 				$fields.each(function(i, input) {
+ 					var $field = $(input);
+ 					var $classTarget = self.getClassTarget($field);
 
 					// continue iteration if $field has error class already
 					if ($classTarget.hasClass(self.options.errorClass)) {
@@ -4143,88 +4149,88 @@ TouchNav.prototype = {
 					self.setState(new Validator($field, $fields).checkField());
 				});
 
-				return this.checkSuccess($fields, e);
-			},
+ 				return this.checkSuccess($fields, e);
+ 			},
 
-			checkSuccess: function($fields, e) {
-				var self = this;
-				var success = this.getClassTarget($fields || this.getFormFields())
-								  .filter('.' + this.options.errorClass).length === 0;
+ 			checkSuccess: function($fields, e) {
+ 				var self = this;
+ 				var success = this.getClassTarget($fields || this.getFormFields())
+ 				.filter('.' + this.options.errorClass).length === 0;
 
-				if (e && success && this.options.successSendClass) {
-					e.preventDefault();
+ 				if (e && success && this.options.successSendClass) {
+ 					e.preventDefault();
 
-					$.ajax({
-						url: this.$form.removeClass(this.options.successSendClass).attr('action') || '/',
-						type: this.$form.attr('method') || 'POST',
-						data: this.$form.serialize(),
-						success: function() {
-							self.$form.addClass(self.options.successSendClass);
-						}
-					});
-				}
+ 					$.ajax({
+ 						url: this.$form.removeClass(this.options.successSendClass).attr('action') || '/',
+ 						type: this.$form.attr('method') || 'POST',
+ 						data: this.$form.serialize(),
+ 						success: function() {
+ 							self.$form.addClass(self.options.successSendClass);
+ 						}
+ 					});
+ 				}
 
-				this.setFormState(success);
+ 				this.setFormState(success);
 
-				return success;
-			},
+ 				return success;
+ 			},
 
-			changeHandler: function(e) {
-				var $field = $(e.target);
+ 			changeHandler: function(e) {
+ 				var $field = $(e.target);
 
-				if ($field.data('interactive')) {
-					this.setState(new Validator($field, this.getFormFields()).checkField());
-				}
+ 				if ($field.data('interactive')) {
+ 					this.setState(new Validator($field, this.getFormFields()).checkField());
+ 				}
 
-				this.checkSuccess();
-			},
+ 				this.checkSuccess();
+ 			},
 
-			focusHandler: function(e) {
-				var $field = $(e.target);
+ 			focusHandler: function(e) {
+ 				var $field = $(e.target);
 
-				this.getClassTarget($field)
-					.removeClass(this.options.errorClass + ' ' + this.options.successClass);
+ 				this.getClassTarget($field)
+ 				.removeClass(this.options.errorClass + ' ' + this.options.successClass);
 
-				this.checkSuccess();
-			},
+ 				this.checkSuccess();
+ 			},
 
-			setState: function(result) {
-				this.getClassTarget(result.$fields)
-					.toggleClass(this.options.errorClass, result.state !== null && !result.state)
-					.toggleClass(this.options.successClass, result.state !== null && this.options.successClass && !!result.state);
-			},
+ 			setState: function(result) {
+ 				this.getClassTarget(result.$fields)
+ 				.toggleClass(this.options.errorClass, result.state !== null && !result.state)
+ 				.toggleClass(this.options.successClass, result.state !== null && this.options.successClass && !!result.state);
+ 			},
 
-			setFormState: function(state) {
-				if (this.options.errorFormClass) {
-					this.$form.toggleClass(this.options.errorFormClass, !state);
-				}
-			},
+ 			setFormState: function(state) {
+ 				if (this.options.errorFormClass) {
+ 					this.$form.toggleClass(this.options.errorFormClass, !state);
+ 				}
+ 			},
 
-			getClassTarget: function($input) {
-				return (this.options.addClassToParent ? $input.closest(this.options.addClassToParent) : $input);
-			},
+ 			getClassTarget: function($input) {
+ 				return (this.options.addClassToParent ? $input.closest(this.options.addClassToParent) : $input);
+ 			},
 
-			getFormFields: function() {
-				return this.$form.find(this.fieldsSelector);
-			}
-		};
+ 			getFormFields: function() {
+ 				return this.$form.find(this.fieldsSelector);
+ 			}
+ 		};
 
-		return publicClass;
-	}());
+ 		return publicClass;
+ 	}());
 
-	$.fn.formValidation = function(options) {
-		options = $.extend({}, {
-			errorClass: 'input-error',
-			successClass: '',
-			errorFormClass: '',
-			addClassToParent: '',
-			skipDefaultFields: ':button, :submit, :image, :hidden, :reset',
-			skipFields: '',
-			successSendClass: ''
-		}, options);
+$.fn.formValidation = function(options) {
+	options = $.extend({}, {
+		errorClass: 'input-error',
+		successClass: '',
+		errorFormClass: '',
+		addClassToParent: '',
+		skipDefaultFields: ':button, :submit, :image, :hidden, :reset',
+		skipFields: '',
+		successSendClass: ''
+	}, options);
 
-		return this.each(function() {
-			new FormValidation(this, options).init();
-		});
-	};
+	return this.each(function() {
+		new FormValidation(this, options).init();
+	});
+};
 }(jQuery));

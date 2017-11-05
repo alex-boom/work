@@ -248,7 +248,7 @@ header {
 
 		@include media('<tablet') {
 			position: absolute;
-			top: 10px;
+			top: 12px;
 			right: 0;
 			padding: 0 15px 0 0;
 		}
@@ -1054,6 +1054,11 @@ mark {
 	background-color: $gray-light;
 }
 
+#main {
+	position: relative;
+	z-index: 0;
+}
+
 .container {
 	max-width: 1290px;
 	padding: 0 15px;
@@ -1110,7 +1115,7 @@ mark {
 		.col {
 			width: 100%;
 
-			@include media('>=tablet') {
+			@include media('>=phone') {
 				width: 50%;
 			}
 
@@ -1123,6 +1128,40 @@ mark {
 
 .col {
 	padding: 0 15px;
+}
+
+.breadcrumbs {
+	@extend %listreset;
+	display: flex;
+	flex-wrap: wrap;
+	font-size: 12px;
+	text-transform: capitalize;
+	color: $brand-primary;
+	padding: 15px 0;
+	margin: 0 -10px;
+
+	li {
+		position: relative;
+		padding: 0 10px;
+
+		&:before {
+			content: "/";
+			position: absolute;
+			top: 0;
+			right: -2px;
+		}
+
+		&:last-child {
+
+			&:before {
+				display: none;
+			}
+		}
+	}
+
+	a {
+		color: $dark-gray;
+	}
 }
 
 .btn {
@@ -1153,8 +1192,24 @@ mark {
 }
 
 .holder-title {
-	border-bottom: 1px solid $gray;
 	text-transform: uppercase;
+	position: relative;
+	padding-bottom: 1px;
+	margin-bottom: 5px;
+
+	@include media('>=tablet') {
+		margin-bottom: 15px;
+	}
+
+	&:before {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 1px;
+		background-color: $gray;
+	}
 }
 
 .block-category {
@@ -1453,11 +1508,10 @@ mark {
 .section {
 	background-color: $white;
 	border: 1px solid $gray;
-	padding: 30px 15px;
+	padding: 15px;
 	margin-bottom: 40px;
 
 	@include media('>=tablet') {
-		padding: 60px 15px;
 		margin-bottom: 20px;
 	}
 }
@@ -1479,6 +1533,11 @@ div {
 
 	@include media('>=tablet') {
 		margin-bottom: 40px;
+	}
+
+	.prise-item {
+		padding-left: 15px;
+		padding-right: 15px;
 	}
 
 	.holder-title {
@@ -1525,8 +1584,9 @@ div {
 }
 
 .prise-item {
+	display: block;
 	position: relative;
-	padding: 15px 15px 70px;
+	padding-bottom: 70px;
 	text-align: center;
 	color: $black;
 
@@ -1537,7 +1597,7 @@ div {
 	&:hover {
 
 		img {
-			transform: scale(1.03);
+			transform: scale(1.1);
 		}
 
 		.btn {
@@ -1548,10 +1608,10 @@ div {
 	}
 
 	.box-img {
-		overflow: hidden;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		margin-top: 15px;
 		margin-bottom: 20px;
 
 		img {
@@ -1602,6 +1662,7 @@ div {
 		right: 15px;
 		font-size: 11px;
 		text-transform: uppercase;
+		z-index: 2;
 
 		@include media('>=tablet') {
 			width: auto;
@@ -1960,6 +2021,143 @@ div {
 
 		@include media('>=phone') {
 			max-width: 350px;
+		}
+	}
+}
+
+.holder-content {
+	display: flex;
+	flex-wrap: wrap;
+
+	@include media('>=tablet') {
+		flex-direction: row-reverse;
+		justify-content: space-between;
+	}
+
+	.holder-title {
+
+		&:before {
+			left: -15px;
+			right: -15px;
+		}
+	}
+}
+
+.sidebar {
+	width: 100%;
+
+	@include media('>=tablet') {
+		width: 285px;
+		padding-right: 30px;
+	}
+}
+
+.main-category {
+	flex-basis: 0;
+	flex-grow: 1;
+	max-width: 100%;
+
+	.holder-title {
+
+		@include media('>=tablet') {
+			padding-left: 30px;
+		}
+	}
+
+	.prise-item {
+
+		@include media('>=tablet') {
+			margin-bottom: 25px;
+		}
+	}
+}
+
+.accordion-category {
+	@extend %listreset;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 1px;
+	font-size: 13px;
+
+	> li {
+		padding: 3px;
+
+		&.active {
+
+			.opener  {
+				color: $brand-primary;
+
+				&:before {
+					opacity: 0;
+				}
+
+				&:after {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	.opener {
+		position: relative;
+		display: block;
+		color: rgba($black, .7);
+
+		&:before,
+		&:after {
+			@include animate(content);
+			position: absolute;
+			right: 10px;
+			top: 50%;
+			transform: translateY(-50%);
+			font-weight: 300;
+			font-family: 'FontAwesome';
+			font-size: 12px;
+		}
+
+		&:before {
+			content: "\f067";
+			opacity: 1;
+		}
+
+		&:after {
+			content: "\f068";
+			opacity: 0;
+		}
+	}
+
+	.slide {
+		@extend %listreset;
+		padding-left: 10px;
+		font-weight: 300;
+		text-transform: capitalize;
+		line-height: 23px;
+
+
+		li {
+
+			&.active,
+			&:hover {
+				a {
+					color: $brand-primary;
+				}
+			}
+		}
+
+		a {
+			display: block;
+			position: relative;
+			color: $dark-gray;
+			padding-left: 10px;
+
+			&:before {
+				content: "\f105";
+				font-family: 'FontAwesome';
+				position: absolute;
+				left: 0;
+				top: 45%;
+				transform: translateY(-50%);
+			}
 		}
 	}
 }
