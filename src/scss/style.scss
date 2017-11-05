@@ -1614,11 +1614,12 @@ div {
 		justify-content: center;
 		margin-top: 15px;
 		margin-bottom: 20px;
+		height: 200px;
 
 		img {
 			@include animate(transform);
 			width: auto;
-			height: 200px;
+			max-height: 200px;
 		}
 	}
 
