@@ -1,14 +1,15 @@
 // page init
 jQuery(function() {
+	// initPreloader();
+	initDropDownClasses();
+	initTouchNav();
+	initMobileNav();
 	initFormValidation();
 	initCustomForms();
 	initStickyBlock();
 	initSlickCarousel();
 	initOpenClose();
-	initTouchNav();
 	initAccordion();
-	initDropDownClasses();
-	initMobileNav();
 	new WOW().init();
 
 	setTimeout( function() {
@@ -16,6 +17,13 @@ jQuery(function() {
 	}, 500)
 });
 
+// preloader init
+function initPreloader () {
+	jQuery(window).load(function() {
+		jQuery('#wrapper').append('<div id="before-load"><i class="fa fa-spinner fa-spin"></i></div>');
+		jQuery('#before-load').find('i').fadeOut().end().delay(400).fadeOut('slow');
+	});
+}
 
 // form validation init
 function initFormValidation() {
@@ -51,7 +59,7 @@ function initSlickCarousel() {
 	jQuery('.slider-single').slick({
 		prevArrow: '<i class="fa fa-angle-left" aria-hidden="true"></i>',
 		nextArrow: '<i class="fa fa-angle-right" aria-hidden="true"></i>',
-		// autoplay: true,
+		autoplay: true,
 	});
 
 	jQuery('.five-column-slider').slick({
@@ -73,17 +81,24 @@ function initSlickCarousel() {
 			}
 		},
 		{
+			breakpoint: 1024,
+			settings: {
+				slidesToShow: 4,
+				slidesToScroll: 1
+			}
+		},
+		{
 			breakpoint: 768,
 			settings: {
 				slidesToShow: 3,
-				slidesToScroll: 3
+				slidesToScroll: 1
 			}
 		},
 		{
 			breakpoint: 480,
 			settings: {
 				slidesToShow: 2,
-				slidesToScroll: 2
+				slidesToScroll: 1
 			}
 		}
 		]

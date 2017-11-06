@@ -119,6 +119,13 @@ header {
 		margin-right: 0;
 	}
 
+	&.active {
+
+		.select-list {
+			opacity: 1;
+		}
+	}
+
 	.opener {
 
 		&:before {
@@ -132,16 +139,21 @@ header {
 		}
 	}
 
-	.select-list {
-		@extend %listreset;
+	.slide {
 		position: absolute;
 		top: 100%;
 		margin-top: 4px;
 		left: 0;
 		right: 0;
+	}
+
+	.select-list {
+		@include animate(opacity);
+		@extend %listreset;
 		background-color: $white;
 		box-shadow: 0 6px 12px rgba(0,0,0,.175);
 		border: 1px solid $gray;
+		opacity: 0;
 
 		li {
 			@include animate(background);
@@ -311,12 +323,12 @@ header {
 		padding: 15px 15px 5px;
 
 		@include media('<phone') {
-			top: 114px;
+			top: 103px;
 		}
 
 		@include media('<tablet') {
 			position: absolute;
-			top: 141px;
+			top: 124px;
 			right: 0;
 			left: 0;
 			margin: 0 -15px;
@@ -379,7 +391,7 @@ header {
 	.main-nav {
 		visibility: visible;
 		left: 0;
-		z-index: 4;
+		z-index: 5;
 	}
 
 	.nav-opener {
@@ -558,6 +570,30 @@ header {
 			}
 		}
 
+		&.hover {
+
+			.slide {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+
+		&.active {
+
+			.opener {
+				&:before {
+
+					@include media('<tablet') {
+						opacity: 0;
+					}
+				}
+
+				&:after {
+					opacity: 1;
+				}
+			}
+		}
+
 		> a {
 			@include animate(background color);
 			position: relative;
@@ -599,139 +635,109 @@ header {
 				}
 			}
 		}
-	}
-}
-
-.has-drop-down  {
-	position: relative;
-
-	&.hover {
-
-		.slide {
-			opacity: 1;
-			visibility: visible;
-		}
-	}
-
-	&.active {
 
 		.opener {
+			position: relative;
+
+			&:before,
+			&:after {
+
+				@include media('<tablet') {
+					font-size: 30px;
+					position: absolute;
+					right: 10px;
+					top: 50%;
+					transform: translateY(-50%);
+					font-weight: 500;
+				}
+			}
+
 			&:before {
 
 				@include media('<tablet') {
-					opacity: 0;
+					content: "+";
+					opacity: 1;
+					font-size: 20px;
 				}
 			}
 
 			&:after {
-				opacity: 1;
-			}
-		}
-	}
 
-	.opener {
-		position: relative;
-
-		&:before,
-		&:after {
-
-			@include media('<tablet') {
-				font-size: 30px;
-				position: absolute;
-				right: 10px;
-				top: 50%;
-				transform: translateY(-50%);
-				font-weight: 500;
+				@include media('<tablet') {
+					content: "-";
+					opacity: 0;
+				}
 			}
 		}
 
-		&:before {
-
-			@include media('<tablet') {
-				content: "+";
-				opacity: 1;
-				font-size: 20px;
-			}
-
-		}
-
-		&:after {
-
-			@include media('<tablet') {
-				content: "-";
-				opacity: 0;
-			}
-
-		}
-	}
-
-	.slide {
-		@include animate(opacity visibility);
-		@extend %listreset;
-		background-color: $black-lighten;
-
-		@include media('>=tablet') {
-			position: absolute;
-			top: 100%;
-			left: 0;
-			margin-top: 3px;
-			background-color: $white;
-			border: 1px solid $gray;
-			border-top: 0;
-			min-width: 180px;
-			padding: 5px 15px;
-			font-size: 13px;
-			box-shadow: 0 6px 12px rgba(0,0,0,.175);
-			text-transform: capitalize;
-			font-weight: 400;
-			opacity: 0;
-			visibility: hidden;
-			margin-bottom: 5px;
+		.slide {
+			@include animate(opacity visibility);
+			@extend %listreset;
+			background-color: $black-lighten;
 
 			@include media('>=tablet') {
+				position: absolute;
+				top: 100%;
+				left: 0;
+				margin-top: 3px;
+				background-color: $white;
+				border: 1px solid $gray;
+				border-top: 0;
+				min-width: 180px;
+				padding: 5px 15px;
 				font-size: 13px;
-			}
-		}
-
-		li {
-			@include animate(background);
-
-			@include media('<tablet') {
-				padding: 8px 30px;
-				border-bottom: 1px solid lighten($black-lighten, 10%);
-			}
-
-			&:last-child {
-				border: none;
-			}
-
-			&.active,
-			&.hover {
-				background-color: darken($brand-primary, 15%);
+				box-shadow: 0 6px 12px rgba(0,0,0,.175);
+				text-transform: capitalize;
+				font-weight: 400;
+				opacity: 0;
+				visibility: hidden;
+				margin-bottom: 5px;
 
 				@include media('>=tablet') {
-					background: transparent;
+					font-size: 13px;
+				}
+			}
+
+			li {
+				@include animate(background);
+
+				@include media('<tablet') {
+					padding: 8px 30px;
+					border-bottom: 1px solid lighten($black-lighten, 10%);
 				}
 
-				a {
+				&:last-child {
+					border: none;
+				}
+
+				&.active,
+				&.hover {
+					background-color: darken($brand-primary, 15%);
 
 					@include media('>=tablet') {
-						color: $brand-primary;
+						background: transparent;
 					}
+
+					a {
+
+						@include media('>=tablet') {
+							color: $brand-primary;
+						}
+					}
+				}
+
+				@include media('>=tablet') {
+					border-bottom: 1px solid $gray;
+					padding: 8px 0;
 				}
 			}
 
-			@include media('>=tablet') {
-				border-bottom: 1px solid $gray;
-				padding: 8px 0;
-			}
-		}
+			a {
+				color: $white;
 
-		a {
-			color: $white;
-
-			@include media('>=tablet') {
-				color: $black-light;
+				@include media('>=tablet') {
+					color: $black-light;
+				}
 			}
 		}
 	}
@@ -1216,8 +1222,13 @@ mark {
 .block-category {
 	padding: 20px 15px;
 
-	@include media('>=tablet') {
-		padding: 80px 15px;
+	.row {
+		width: 90%;
+		margin: auto;
+
+		@include media('>=tablet') {
+			width: 99%;
+		}
 	}
 
 	.col {
@@ -1237,7 +1248,7 @@ mark {
 		&:after {
 			content: "";
 			position: absolute;
-			top: 0;
+			top: 25px;
 			height: 80%;
 			width: 1px;
 			background-color: $gray;
@@ -1267,8 +1278,9 @@ mark {
 	width: 100%;
 	position: relative;
 	text-align: center;
+	padding-top: 10px;
 	padding-bottom: 70px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	color: $black;
 
 	@include media('>=tablet') {
@@ -1313,7 +1325,7 @@ mark {
 		@include animate(transform opacity);
 		content: "";
 		position: absolute;
-		top: 0;
+		top: 25px;
 		height: 86%;
 		width: 1px;
 		background-color: $brand-primary;
@@ -1502,7 +1514,7 @@ mark {
 	font-weight: 300;
 
 	@include media('>=tablet') {
-		font-size: 16px;
+		font-size: 15px;
 	}
 }
 
@@ -1510,10 +1522,10 @@ mark {
 	background-color: $white;
 	border: 1px solid $gray;
 	padding: 15px;
-	margin-bottom: 40px;
+	margin: 20px 0;
 
 	@include media('>=tablet') {
-		margin-bottom: 20px;
+		margin: 40px 0;
 	}
 }
 
@@ -2015,6 +2027,14 @@ div {
 
 		@include media('>=phone') {
 			flex-basis: 0;
+		}
+	}
+
+	.holder-post {
+
+		h2 {
+			text-align: center;
+			font-size: 24px;
 		}
 	}
 
