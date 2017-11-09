@@ -71,7 +71,8 @@ header {
 	font-size: 12px;
 	text-transform: capitalize;
 	padding: 5px 0;
-	height: 39px;
+	height: 40px;
+	border-bottom: 1px solid $gray;
 
 	@include media('>=tablet') {
 		z-index: 3;
@@ -113,7 +114,8 @@ header {
 	padding: 5px 15px;
 	letter-spacing: 1px;
 	text-transform: uppercase;
-	font-weight: 500;
+	font-weight: bold;
+	font-size: 11px;
 	margin-right: 55px;
 
 	@include media('>=tablet') {
@@ -141,11 +143,16 @@ header {
 	}
 
 	.slide {
-		position: absolute;
-		top: 100%;
-		margin-top: 4px;
+		position: fixed;
+		top: 104px;
 		left: 0;
 		right: 0;
+
+		@include media('>=tablet') {
+			position: absolute;
+			top: 100%;
+			margin-top: 3px;
+		}
 	}
 
 	.select-list {
@@ -237,7 +244,7 @@ header {
 			text-transform: uppercase;
 			font-size: 14px;
 			letter-spacing: 3px;
-			font-family: $base-font-sans-serif-three;
+			font-family: $base-font-serif-second;
 			padding-left: 2px;
 
 			@include media('<phone') {
@@ -482,7 +489,7 @@ header {
 
 	&.add {
 		position: absolute;
-		top: 13px ;
+		top: 15px ;
 		right: 0;
 
 		&:after,
@@ -497,7 +504,20 @@ header {
 .main-nav {
 
 	@include media('>=tablet') {
+		border-top: 1px solid $gray;
 		background-color: $gray-light;
+	}
+
+	.fixed-position {
+
+		.container {
+			background-color: $white;
+			width: 100% !important;
+			max-width: 100%;
+			left: 0 !important;
+			border-bottom: 3px solid $brand-primary;
+			box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+		}
 	}
 }
 
@@ -601,11 +621,12 @@ header {
 			display: block;
 			color: $white;
 			padding: 8px 15px;
+			padding-right: 30px;
 
 			@include media('>=tablet') {
 				display: inline-block;
 				color: $black;
-				padding: 15px 0;
+				padding: 10px 0;
 				margin: 0;
 			}
 
@@ -644,9 +665,10 @@ header {
 			&:after {
 
 				@include media('<tablet') {
-					font-size: 30px;
+					font-family: 'FontAwesome';
+					font-size: 15px;
 					position: absolute;
-					right: 10px;
+					right: 15px;
 					top: 50%;
 					transform: translateY(-50%);
 					font-weight: 500;
@@ -656,16 +678,15 @@ header {
 			&:before {
 
 				@include media('<tablet') {
-					content: "+";
+					content: "\f067";
 					opacity: 1;
-					font-size: 20px;
 				}
 			}
 
 			&:after {
 
 				@include media('<tablet') {
-					content: "-";
+					content: "\f068";
 					opacity: 0;
 				}
 			}
@@ -824,7 +845,7 @@ select {
 	}
 
 	.jcf-select-text {
-		font-size: 16px;
+		font-size: 18px;
 
 		span {
 			@include hide-text;
@@ -901,7 +922,7 @@ select {
 	width: 100%;
 	color: $dark-gray;
 	padding: 16px 15px 12px !important;
-	font-size: 16px;
+	font-size: 18px;
 	line-height: 20px;
 	font-weight: 500;
 	border: 1px solid #dedede;
@@ -1045,19 +1066,7 @@ form {
 		&:last-child {
 			display: flex;
 			align-items: center;
-			justify-content: space-between;
-			margin-top: -15px;
-			padding-top: 30px;
-
-			&:before {
-				content: "";
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				height: 1px;
-				background-color: #dedede;
-			}
+			justify-content: center;
 		}
 
 		&.full-width {
@@ -1130,6 +1139,14 @@ h1 {
 	@include media('>=tablet') {
 		font-size: 36px;
 	}
+
+	.archive & {
+		font-size: 22px;
+
+		@include media('>=tablet') {
+			font-size: 26px;
+		}
+	}
 }
 
 h2 {
@@ -1138,6 +1155,10 @@ h2 {
 
 	@include media('>=tablet') {
 		font-size: 26px;
+	}
+
+	.archive & {
+		font-size: 18px;
 	}
 }
 
@@ -1229,7 +1250,7 @@ mark {
 		.col {
 			width: 100%;
 
-			@include media('>=phone') {
+			@include media('>=550px') {
 				width: 50%;
 			}
 
@@ -1468,14 +1489,17 @@ mark {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 60px;
-		height: auto;
+		height: 70px;
 		margin: 0 auto;
-		margin-bottom: 20px;
+		margin-bottom: 10px;
 
 		@include media('>=tablet') {
-			width: auto;
 			height: 85px;
+		}
+
+		img {
+			width: auto;
+			max-height: 100%
 		}
 	}
 
@@ -1629,10 +1653,12 @@ mark {
 	background-color: $white;
 	border: 1px solid $gray;
 	padding: 15px;
-	margin: 20px 0;
+	// margin: 20px 0;
+	margin-bottom: 20px;
 
 	@include media('>=tablet') {
-		margin: 40px 0;
+		// margin: 40px 0;
+		margin-bottom: 40px;
 	}
 }
 
@@ -1733,12 +1759,16 @@ div {
 		justify-content: center;
 		margin-top: 15px;
 		margin-bottom: 20px;
-		height: 200px;
+		height: 150px;
+
+		@include media('>=phone') {
+			height: 200px;
+		}
 
 		img {
 			@include animate(transform);
 			width: auto;
-			max-height: 200px;
+			max-height: 100%;
 		}
 	}
 
@@ -1869,7 +1899,13 @@ div {
 
 .slider-single {
 	position: relative;
-	padding: 5px 0;
+	margin-top: 40px;
+	margin-bottom: 20px;
+	margin: 20px 0;
+
+	@include media('>=tablet') {
+		margin: 40px 0;
+	}
 
 	.slick-arrow {
 		@include animate(opacity);
@@ -1905,7 +1941,7 @@ div {
 			left: 0;
 			right: 0;
 			bottom: 0;
-			background-color: rgba(0,0,0, .4);
+			background-color: rgba(0,0,0, .2);
 			z-index: -1;
 		}
 	}
@@ -2175,7 +2211,6 @@ div {
 
 .sidebar {
 	width: 100%;
-	margin-top: 25px;
 
 	@include media('>=tablet') {
 		width: 285px;
@@ -2183,7 +2218,7 @@ div {
 	}
 
 	.section {
-		margin: 15px 0;
+		margin-bottom: 15px;
 	}
 }
 
@@ -2246,7 +2281,7 @@ div {
 		&:after {
 			@include animate(content);
 			position: absolute;
-			right: 10px;
+			right: 0;
 			top: 50%;
 			transform: translateY(-50%);
 			font-weight: 300;
@@ -2302,3 +2337,89 @@ div {
 }
 
 //common
+
+//footer
+
+#footer {
+	border-top: 3px solid $brand-primary;
+	background-color: $white;
+	padding: 30px 0;
+
+	.row {
+		align-items: center;
+	}
+
+	.col {
+		width: 100%;
+		padding: 0 15px;
+
+		@include media('>=tablet') {
+			flex-basis: 0;
+			flex-grow: 1;
+			max-width: 100%;
+		}
+	}
+}
+
+.sosial-list {
+	@extend %listreset;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	font-size: 18px;
+	margin:  0 -5px;
+	padding-bottom: 10px;
+	justify-content: center;
+
+	@include media('>=tablet') {
+		padding-bottom: 0;
+		justify-content: flex-start;
+	}
+
+	li {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 4px;
+		background-color: green;
+		margin: 0 5px;
+		width: 35px;
+		height: 35px;
+
+		a {
+			color: $white;
+		}
+
+		.fa-yandex {
+			display: block;
+			background: url(images/icon-yandex.svg);
+			background-repeat: no-repeat;
+			background-size: cover;
+			width: 17px;
+			height: 17px;
+		}
+	}
+}
+
+.address-list {
+	@extend %listreset;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	margin: 0 -10px;
+
+	@include media('>=tablet') {
+		justify-content: flex-end;
+	}
+
+	li {
+		padding: 0 10px;
+	}
+
+	a {
+		color: $black;
+	}
+}
+
+//footer

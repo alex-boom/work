@@ -20,14 +20,14 @@ $base-font-sans-serif: 'Raleway', 'Arial', 'Helvetica Neue', 'Helvetica', sans-s
 $base-font-serif: 'Times New Roman', 'Times', 'Baskerville', 'Georgia', serif;
 $base-font-serif-second: 'Lora','Times New Roman', 'Times', 'Baskerville', 'Georgia', serif;
 $base-font-sans-serif-second: 'Saira', 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
-$base-font-sans-serif-three: 'Roboto', 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
+// $base-font-sans-serif-three: 'Roboto', 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
 
 // Body
 $base-text-color: $black !default;
 $base-background-color: $white !default;
 $base-font-size: 14px !default;
 $base-line-height: 1.6;
-$base-font-family: $base-font-sans-serif-three !default;
+$base-font-family: $base-font-serif-second;
 
 $vertical-rhythm: ($base-line-height * 1em);
 
