@@ -1165,7 +1165,17 @@ h2 {
 a {
 	@include animate(opacity color background);
 	text-decoration: none;
+
+	&.phone {
+		cursor: pointer !important;
+		pointer-events: auto !important;
+
+		&:hover {
+			color: $brand-primary;
+		}
+	}
 }
+
 
 button {
 	background-color: transparent;
@@ -1200,13 +1210,33 @@ mark {
 	margin: 0 auto;
 }
 
-.bg-section {
+.bg-pattern {
 	background-size: 80%;
 	background-position: top right;
 	background-repeat: no-repeat;
+	background-image: url(images/bg-pattern.svg);
 
 	@include media('>=tablet') {
 		background-size: 30%;
+	}
+}
+
+.bg-pattern-2 {
+	background-repeat: no-repeat;
+	background-image: url(images/bg-pattern-2.svg);
+	background-size: 51%;
+	background-position: top right;
+
+	@include media('>=phone') {
+		background-size: 35%;
+	}
+
+	@include media('>=tablet') {
+		background-size: 13%;
+	}
+
+	@include media('>=widescreen') {
+		background-size: 5%;
 	}
 }
 
@@ -1308,10 +1338,10 @@ mark {
 	text-transform: uppercase;
 	border: 1px solid darken($gray, 10%);
 	color: $black-lighten;
-	font-size: 12px;
+	font-size: 11px;
 	line-height: 14px;
 	letter-spacing: 1px;
-	font-weight: 500;
+	font-weight: 600;
 
 	&:hover {
 		border-color: transparent;
@@ -1785,7 +1815,8 @@ div {
 	}
 
 	.prise-box {
-		font-weight: bold;
+		font-weight: 600;
+		font-family: $base-font-sans-serif-second;
 	}
 
 	.btn {
@@ -2068,8 +2099,8 @@ div {
 	background-repeat: no-repeat;
 	background-position: top right;
 
-	@include media('>=tablet') {
-		padding: 60px 0;
+	@include media('<tablet') {
+		background-image: url(images/bg-banner.png);
 	}
 }
 
@@ -2184,6 +2215,10 @@ div {
 
 	.box-img {
 		text-align: center;
+
+		@include media('<650px') {
+			display: none;
+		}
 
 		@include media('>=phone') {
 			max-width: 350px;
@@ -2336,55 +2371,30 @@ div {
 	}
 }
 
-//common
-
-//footer
-
-#footer {
-	border-top: 3px solid $brand-primary;
-	background-color: $white;
-	padding: 30px 0;
-
-	.row {
-		align-items: center;
-	}
-
-	.col {
-		width: 100%;
-		padding: 0 15px;
-
-		@include media('>=tablet') {
-			flex-basis: 0;
-			flex-grow: 1;
-			max-width: 100%;
-		}
-	}
-}
-
-.sosial-list {
+.social-list {
 	@extend %listreset;
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 	align-items: center;
 	font-size: 18px;
 	margin:  0 -5px;
-	padding-bottom: 10px;
-	justify-content: center;
-
-	@include media('>=tablet') {
-		padding-bottom: 0;
-		justify-content: flex-start;
-	}
+	padding: 20px 0;
 
 	li {
+		@include animate(box-shadow background);
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		border-radius: 4px;
-		background-color: green;
+		background-color: $brand-primary;
 		margin: 0 5px;
 		width: 35px;
 		height: 35px;
+
+		&:hover {
+			box-shadow: 0px 0px 5px 1px rgba(0,0,0, .5);
+		}
 
 		a {
 			color: $white;
@@ -2401,24 +2411,112 @@ div {
 	}
 }
 
+//common
+
+//footer
+
+#footer {
+	border-top: 3px solid $brand-primary;
+	background-color: $white;
+	padding: 30px 0 15px;
+
+	.row {
+		align-items: center;
+	}
+
+	.col {
+		width: 100%;
+		padding: 0 15px;
+		text-align: center;
+		margin-bottom: 15px;
+
+		@include media('>=widescreen') {
+			flex-basis: 0;
+			flex-grow: 1;
+			max-width: 100%;
+		}
+
+		&:last-child {
+
+			@include media('>=widescreen') {
+				flex-grow: 2;
+			}
+		}
+	}
+}
+
 .address-list {
 	@extend %listreset;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
 	align-items: center;
+	justify-content: flex-start;
+	max-width: 320px;
 	margin: 0 -10px;
+	text-align: left;
 
-	@include media('>=tablet') {
+	@include media('>=375px') {
+		margin: 0 auto;
+	}
+
+	@include media('>=desktop') {
+		justify-content: center;
+		margin: 0 -10px;
+		max-width: 100%;
+	}
+
+	@include media('>=widescreen') {
 		justify-content: flex-end;
 	}
 
 	li {
 		padding: 0 10px;
+		width: 100%;
+		margin-bottom: 5px;
+
+		@include media('>=desktop') {
+			width: auto;
+		}
 	}
 
 	a {
+		@extend %underline;
 		color: $black;
+
+		&:hover {
+			color: $brand-primary;
+		}
+	}
+
+	.fa {
+		display: inline-block;
+		vertical-align: middle;
+		text-align: center;
+		width: 31px;
+		height: 30px;
+		line-height: 31px;
+		border-radius: 50%;
+		color: $white;
+		background: $brand-primary;
+		font-size: 19px;
+		margin-right: 5px;
+
+		&.fa-envelope-o {
+			font-size: 16px;
+			line-height: 28px;
+		}
+	}
+}
+
+.copyright {
+
+	a {
+		@extend %underline;
+		color: $black;
+
+		&:hover {
+			color: $brand-primary;
+		}
 	}
 }
 
