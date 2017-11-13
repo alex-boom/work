@@ -1374,7 +1374,7 @@ mark {
 				width: 50%;
 			}
 
-			@include media('>=desktop') {
+			@include media('>=widescreen') {
 				width: 25%;
 			}
 		}
@@ -1773,11 +1773,9 @@ mark {
 	background-color: $white;
 	border: 1px solid $gray;
 	padding: 15px;
-	// margin: 20px 0;
 	margin-bottom: 20px;
 
 	@include media('>=tablet') {
-		// margin: 40px 0;
 		margin-bottom: 40px;
 	}
 }
@@ -1801,7 +1799,7 @@ div {
 		margin-bottom: 40px;
 	}
 
-	.prise-item {
+	.price-item {
 		padding-left: 15px;
 		padding-right: 15px;
 	}
@@ -1818,8 +1816,17 @@ div {
 }
 
 .five-column-slider {
-	padding-left: 30px;
-	padding-right: 30px;
+
+	.slick-list {
+		padding: 3px 8px;
+	}
+
+	.price-item {
+
+		.box-img {
+			height: 200px;
+		}
+	}
 }
 
 .slick-arrow {
@@ -1849,27 +1856,37 @@ div {
 	}
 }
 
-.prise-item {
-	display: block;
+.price-item {
+	@include animate(box-shadow);
+	width: 100%;
 	position: relative;
-	padding-bottom: 70px;
 	text-align: center;
 	color: $black;
+	overflow: hidden;
+	padding: 15px 0 40px;
+
+	@include media('>=desktop') {
+		padding: 15px 0 70px;
+	}
 
 	&:focus {
 		outline: none;
 	}
 
 	&:hover {
+		box-shadow: 0 0 5px rgba($black, .2);
+
+		.title {
+			font-weight: 600
+		}
 
 		img {
 			transform: scale(1.1);
 		}
 
-		.btn {
-			background-color: $brand-primary;
-			color: $white;
-			border-color: transparent;
+		.hidden-box {
+			opacity: 1;
+			transform: translateX(0);
 		}
 	}
 
@@ -1879,9 +1896,13 @@ div {
 		justify-content: center;
 		margin-top: 15px;
 		margin-bottom: 20px;
-		height: 150px;
+		height: 140px;
 
-		@include media('>=phone') {
+		@include media('>=tablet') {
+			height: 170px;
+		}
+
+		@include media('>=widescreen') {
 			height: 200px;
 		}
 
@@ -1889,31 +1910,57 @@ div {
 			@include animate(transform);
 			width: auto;
 			max-height: 100%;
+			max-width: 170px;
 		}
 	}
 
-	.content,
-	.description,
-	.prise-box {
+	.title {
+		position: relative;
 		display: block;
-	}
-
-	.description {
-		@extend .ellipsis;
-		margin-bottom: 15px;
+		color: $brand-primary;
+		text-transform: capitalize;
 		font-style: italic;
+		font-size: 18px;
+		line-height: 20px;
+		padding-bottom: 5px;
+
+		&:before {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 50px;
+			height: 1px;
+			background-color: $brand-primary;
+		}
 	}
 
-	.prise-box {
+	.price {
 		font-weight: 600;
 		font-family: $base-font-sans-serif-second;
 	}
 
-	.btn {
+	.hidden-box {
+		@include animate(opacity transform);
 		position: absolute;
-		left: 50%;
-		bottom: 25px;
-		transform: translateX(-50%);
+		left: 0;
+		right: 0;
+		bottom: 0;
+		min-height: 80px;
+		transform: translateX(100%);
+		background-color: $white;
+		opacity: 0;
+		padding: 15px 10px;
+
+		@include media('>=tablet') {
+			min-height: 120px;
+		}
+	}
+
+	.description {
+		margin-bottom: 15px;
+		font-style: italic;
 	}
 }
 
@@ -2321,7 +2368,6 @@ div {
 	flex-wrap: wrap;
 
 	@include media('>=tablet') {
-		flex-direction: row-reverse;
 		justify-content: space-between;
 	}
 
@@ -2347,22 +2393,41 @@ div {
 	}
 }
 
-.main-category {
+.content-holder {
 	flex-basis: 0;
 	flex-grow: 1;
 	max-width: 100%;
+}
+
+.main-category {
+	position: relative;
 
 	.holder-title {
+		padding-bottom: 15px;
 
 		@include media('>=tablet') {
+			padding-right: 127px;
 			padding-left: 30px;
+			padding-bottom: 1px;
 		}
 	}
 
-	.prise-item {
+	.col {
+		display: flex;
+		justify-content: center;
+	}
+
+	.category-product-count {
+		position: absolute;
+		left: 15px;
+		top: 40px;
+		font-size: 10px;
 
 		@include media('>=tablet') {
-			margin-bottom: 25px;
+			font-size: 16px;
+			right: 20px;
+			left: auto;
+			top: 20px;
 		}
 	}
 }
@@ -2497,6 +2562,37 @@ div {
 			background-size: cover;
 			width: 17px;
 			height: 17px;
+		}
+	}
+}
+
+.content-holder {
+
+	.box-article {
+
+		@include media('>=tablet') {
+			padding: 40px 20px;
+		}
+
+		.title-underline {
+			text-align: center;
+
+			@include media('>=tablet') {
+				margin-bottom: 25px;
+			}
+
+			&:before {
+				content: "";
+				left: 50%;
+				transform: translateX(-50%);
+			}
+		}
+
+		p {
+
+			@include media('>=tablet') {
+				margin-bottom: 20px;
+			}
 		}
 	}
 }
