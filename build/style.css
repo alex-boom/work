@@ -4554,45 +4554,6 @@ select {
 
 /* basic styles for the form page */
 
-.form-group {
-  margin-bottom: 15px;
-}
-
-.form-group.date {
-  position: relative;
-}
-
-.form-group.date:before {
-  content: "";
-  position: absolute;
-  top: 5px;
-  right: 4px;
-  width: 38px;
-  height: 38px;
-  background-color: #5bb300;
-  pointer-events: none;
-}
-
-.form-group.date:after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 14px;
-  -ms-transform: translateY(-50%);
-      transform: translateY(-50%);
-  font-family: 'FontAwesome';
-  font-size: 16px !important;
-  content: "\f078";
-  font-size: 10px;
-  color: #fff;
-  pointer-events: none;
-}
-
-.form-group.date .datepicker {
-  padding-right: 45px !important;
-  cursor: pointer;
-}
-
 .form-control {
   width: 100%;
   color: #404040;
@@ -4809,6 +4770,7 @@ form {
 }
 
 .block-tabs .open-close .tabset a,
+.block-buy .description,
 .address-list a,
 .copyright a {
   position: relative;
@@ -4816,11 +4778,14 @@ form {
 
 .active .block-tabs .open-close .tabset a:before,
 .block-tabs .open-close .tabset .active a:before,
+.active .block-buy .description:before,
+.block-buy .active .description:before,
 .active .address-list a:before,
 .address-list .active a:before,
 .active .copyright a:before,
 .copyright .active a:before,
 .block-tabs .open-close .tabset a:hover:before,
+.block-buy .description:hover:before,
 .address-list a:hover:before,
 .copyright a:hover:before {
   left: 0;
@@ -4830,6 +4795,7 @@ form {
 }
 
 .block-tabs .open-close .tabset a:before,
+.block-buy .description:before,
 .address-list a:before,
 .copyright a:before {
   transition: visibility 0.3s ease-in-out, left 0.3s ease-in-out, right 0.3s ease-in-out;
@@ -4906,6 +4872,31 @@ mark {
   max-width: 1290px;
   padding: 0 15px;
   margin: 0 auto;
+}
+
+.inner {
+  position: relative;
+  width: 100%;
+  max-width: 800px !important;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  padding: 0 20px;
+  margin: 0 auto 55px;
+}
+
+.inner .btn-group {
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  -ms-transform: translateX(-50%);
+      transform: translateX(-50%);
+  margin-top: 20px;
+}
+
+.inner .btn-group button {
+  margin: 0 2px;
 }
 
 .bg-pattern {
@@ -5269,6 +5260,26 @@ mark {
   margin-bottom: 20px;
 }
 
+.full-height {
+  white-space: nowrap;
+  text-align: center;
+}
+
+.full-height:after {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
+  min-height: 100vh;
+}
+
+.full-height > * {
+  white-space: normal;
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 99%;
+}
+
 .slick-slide:focus,
 div:focus {
   outline: none;
@@ -5298,6 +5309,11 @@ div:focus {
 
 .five-column-slider .price-item .box-img {
   height: 200px;
+}
+
+.price {
+  font-weight: 600;
+  font-family: "Saira", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
 }
 
 .slick-arrow {
@@ -5347,8 +5363,8 @@ div:focus {
 }
 
 .price-item:hover img {
-  -ms-transform: scale(1.1);
-      transform: scale(1.1);
+  -ms-transform: scale(0.8) translateY(-20%);
+      transform: scale(0.8) translateY(-20%);
 }
 
 .price-item:hover .hidden-box {
@@ -5399,11 +5415,6 @@ div:focus {
   background-color: #5bb300;
 }
 
-.price-item .price {
-  font-weight: 600;
-  font-family: "Saira", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
-}
-
 .price-item .hidden-box {
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
   position: absolute;
@@ -5416,11 +5427,13 @@ div:focus {
   background-color: #fff;
   opacity: 0;
   padding: 15px 10px;
+  box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.1);
 }
 
 .price-item .description {
   margin-bottom: 15px;
   font-style: italic;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
 }
 
 .block-tabs {
@@ -5847,6 +5860,148 @@ div:focus {
   left: 50%;
   -ms-transform: translateX(-50%);
       transform: translateX(-50%);
+}
+
+.item-visual {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: center;
+      align-items: center;
+  color: #000;
+  border-bottom: 1px solid #e5e5e5;
+  min-height: 100px;
+  padding: 5px 0;
+}
+
+.item-visual:hover .title {
+  color: #5bb300;
+}
+
+.item-visual .box-img {
+  width: 80px;
+  padding-right: 10px;
+}
+
+.item-visual .title {
+  transition: color 0.3s ease-in-out;
+}
+
+.item-visual .price {
+  display: block;
+  margin-top: 5px;
+}
+
+.item-visual .content {
+  -ms-flex-preferred-size: 0;
+      flex-basis: 0;
+  -ms-flex-positive: 1;
+      flex-grow: 1;
+  max-width: 100%;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.block-buy .row {
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: center;
+      align-items: center;
+  margin-bottom: 10px;
+}
+
+.block-buy .row:last-child {
+  margin-bottom: 0;
+}
+
+.block-buy .holder-title {
+  padding: 10px 0;
+  text-align: center;
+}
+
+.block-buy .holder-title:before {
+  left: -20px;
+  right: -20px;
+}
+
+.block-buy .holder-title h3 {
+  margin-bottom: 0;
+}
+
+.block-buy .content-box {
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #e5e5e5;
+}
+
+.block-buy .content-box .row {
+  position: relative;
+}
+
+.block-buy .content-box .row:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  right: 15px;
+  height: 1px;
+  background-color: #e5e5e5;
+}
+
+.block-buy .content-box .row:last-child:before {
+  display: none;
+}
+
+.block-buy .box-img {
+  width: 80px;
+  padding: 0 15px;
+}
+
+.block-buy .content {
+  -ms-flex-preferred-size: 0;
+      flex-basis: 0;
+  -ms-flex-positive: 1;
+      flex-grow: 1;
+  max-width: 100%;
+  padding: 0 15px;
+}
+
+.block-buy .description {
+  text-decoration: none;
+  color: #000;
+}
+
+.block-buy .description:hover {
+  color: #5bb300;
+}
+
+.block-buy .close {
+  cursor: pointer;
+  color: #cccccc;
+  font-size: 20px;
+  -ms-transform: translateY(-10px);
+      transform: translateY(-10px);
+}
+
+.block-buy .bottom-box {
+  text-align: left;
+  padding: 10px 0;
+}
+
+.block-buy .bottom-box .price {
+  font-size: 18px;
+  padding-left: 6px;
+}
+
+.block-buy .bottom-box .value {
+  font-size: 16px;
+}
+
+.form-buy {
+  padding: 0;
 }
 
 #footer {
@@ -6342,6 +6497,10 @@ div:focus {
   .content-holder .box-article p {
     margin-bottom: 20px;
   }
+
+  .block-buy .bottom-box .price {
+    font-size: 22px;
+  }
 }
 
 @media (min-width: 768px) and (min-width: 768px) {
@@ -6360,7 +6519,7 @@ div:focus {
   }
 
   .price-item {
-    padding: 15px 0 70px;
+    padding: 15px 0 30px;
   }
 
   .slider-single .content-box {

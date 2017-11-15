@@ -954,44 +954,6 @@ select {
 
 
 /* basic styles for the form page */
-.form-group {
-	margin-bottom: 15px;
-
-	&.date {
-		position: relative;
-
-		&:before {
-			content: "";
-			position: absolute;
-			top: 5px;
-			right: 4px;
-			width: 38px;
-			height: 38px;
-			background-color: $brand-primary;
-			pointer-events: none;
-		}
-
-		&:after {
-			content: "";
-			position: absolute;
-			top: 50%;
-			right: 14px;
-			transform: translateY(-50%);
-			font-family: 'FontAwesome';
-			font-size: 16px !important;
-			content: "\f078";
-			font-size: 10px;
-			color: $white;
-			pointer-events: none;
-		}
-
-		.datepicker {
-			padding-right: 45px !important;
-			cursor: pointer;
-		}
-	}
-}
-
 .form-control {
 	width: 100%;
 	color: $dark-gray;
@@ -1298,6 +1260,29 @@ mark {
 	max-width: 1290px;
 	padding: 0 15px;
 	margin: 0 auto;
+}
+
+.inner {
+	position: relative;
+	width: 100%;
+	max-width: 800px !important;
+	box-shadow: 0 0 15px rgba($black, .2);
+	background-color: $white;
+	padding: 0 20px;
+	margin: 0 auto 55px;
+
+	.btn-group {
+		display: flex;
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+		margin-top: 20px;
+
+		button {
+			margin: 0 2px;
+		}
+	}
 }
 
 .bg-pattern {
@@ -1780,6 +1765,10 @@ mark {
 	}
 }
 
+.full-height {
+	@include v-align(100vh);
+}
+
 .slick-slide,
 div {
 
@@ -1829,6 +1818,11 @@ div {
 	}
 }
 
+.price {
+	font-weight: 600;
+	font-family: $base-font-sans-serif-second;
+}
+
 .slick-arrow {
 	@include animate(color);
 	cursor: pointer;
@@ -1866,7 +1860,7 @@ div {
 	padding: 15px 0 40px;
 
 	@include media('>=desktop') {
-		padding: 15px 0 70px;
+		padding: 15px 0 30px;
 	}
 
 	&:focus {
@@ -1881,7 +1875,7 @@ div {
 		}
 
 		img {
-			transform: scale(1.1);
+			transform: scale(.8) translateY(-20%);
 		}
 
 		.hidden-box {
@@ -1936,11 +1930,6 @@ div {
 		}
 	}
 
-	.price {
-		font-weight: 600;
-		font-family: $base-font-sans-serif-second;
-	}
-
 	.hidden-box {
 		@include animate(opacity transform);
 		position: absolute;
@@ -1952,6 +1941,7 @@ div {
 		background-color: $white;
 		opacity: 0;
 		padding: 15px 10px;
+		box-shadow: 0 0 5px 0px rgba($black, .1);
 
 		@include media('>=tablet') {
 			min-height: 120px;
@@ -1961,6 +1951,7 @@ div {
 	.description {
 		margin-bottom: 15px;
 		font-style: italic;
+		text-shadow: 0 0 1px rgba($black, .2);
 	}
 }
 
@@ -2595,6 +2586,152 @@ div {
 			}
 		}
 	}
+}
+
+.item-visual {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	color: $black;
+	border-bottom: 1px solid $gray;
+	min-height: 100px;
+	padding: 5px 0;
+
+	&:hover {
+
+		.title {
+			color: $brand-primary;
+		}
+	}
+
+	.box-img {
+		width: 80px;
+		padding-right: 10px;
+	}
+
+	.title {
+		@include animate(color);
+	}
+
+	.price {
+		display: block;
+		margin-top: 5px;
+	}
+
+	.content {
+		flex-basis: 0;
+		flex-grow: 1;
+		max-width: 100%;
+		font-size: 12px;
+		line-height: 16px;
+	}
+}
+
+.block-buy {
+
+	.row {
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 10px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.holder-title{
+		padding: 10px 0;
+		text-align: center;
+
+		&:before {
+			left: -20px;
+			right: -20px;
+		}
+
+		h3 {
+			margin-bottom: 0;
+		}
+	}
+
+	.content-box {
+		background-color: $white;
+		padding: 10px;
+		border: 1px solid $gray;
+
+		.row {
+			position: relative;
+
+			&:before {
+				content: "";
+				position: absolute;
+				bottom: 0;
+				left: 15px;
+				right: 15px;
+				height: 1px;
+				background-color: #e5e5e5;
+			}
+
+			&:last-child {
+
+				&:before {
+					display: none;
+				}
+			}
+		}
+	}
+
+	.box-img {
+		width: 80px;
+		padding: 0 15px;
+	}
+
+	.content {
+		flex-basis: 0;
+		flex-grow: 1;
+		max-width: 100%;
+		padding: 0 15px;
+	}
+
+	.description {
+		@extend %underline;
+		text-decoration: none;
+		color: $black;
+
+		&:hover {
+			color: $brand-primary;
+		}
+	}
+
+	.close {
+		cursor: pointer;
+		color:darken($gray, 10%);
+		font-size: 20px;
+		transform: translateY(-10px);
+	}
+
+	.bottom-box {
+		text-align: left;
+		padding: 10px 0;
+
+
+		.price {
+			font-size: 18px;
+			padding-left: 6px;
+
+			@include media('>=tablet') {
+				font-size: 22px;
+			}
+		}
+
+		.value {
+			font-size: 16px;
+		}
+	}
+}
+
+.form-buy {
+	padding: 0;
 }
 
 //common
