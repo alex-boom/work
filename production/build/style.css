@@ -4262,13 +4262,14 @@ header a:hover {
   opacity: 1;
 }
 
-.navbar-nav > li .opener {
+.navbar-nav > li .has-drop-down-a {
   position: relative;
 }
 
 .navbar-nav > li .slide {
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
   background-color: #333;
+  font-size: 11px;
 }
 
 .navbar-nav > li .slide li {
@@ -4542,6 +4543,7 @@ select {
 .jcf-number {
   font-family: "Saira", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
   margin: 0 10px;
+  font-style: normal;
 }
 
 .jcf-number input {
@@ -4612,6 +4614,10 @@ select {
   -ms-transform: translate(-50%, -45%);
       transform: translate(-50%, -45%);
   margin: 0;
+}
+
+.jcf-number .jcf-disabled {
+  background-color: transparent !important;
 }
 
 /* basic styles for the form page */
@@ -5995,6 +6001,7 @@ div:focus {
   background-color: #fff;
   padding: 10px;
   border: 1px solid #e5e5e5;
+  margin-bottom: 15px;
 }
 
 .block-buy .content-box .row {
@@ -6345,6 +6352,7 @@ div:focus {
     opacity: 0;
     visibility: hidden;
     margin-bottom: 5px;
+    font-size: 13px;
   }
 
   .navbar-nav > li .slide li.active,
@@ -6576,12 +6584,6 @@ div:focus {
   }
 }
 
-@media (min-width: 768px) and (min-width: 768px) {
-  .navbar-nav > li .slide {
-    font-size: 13px;
-  }
-}
-
 @media (min-width: 1024px) {
   .block-info .mode-work {
     display: block;
@@ -6726,8 +6728,8 @@ div:focus {
     opacity: 0;
   }
 
-  .navbar-nav > li .opener:before,
-  .navbar-nav > li .opener:after {
+  .navbar-nav > li .has-drop-down-a:before,
+  .navbar-nav > li .has-drop-down-a:after {
     font-family: 'FontAwesome';
     font-size: 15px;
     position: absolute;
@@ -6738,12 +6740,12 @@ div:focus {
     font-weight: 500;
   }
 
-  .navbar-nav > li .opener:before {
+  .navbar-nav > li .has-drop-down-a:before {
     content: "\f067";
     opacity: 1;
   }
 
-  .navbar-nav > li .opener:after {
+  .navbar-nav > li .has-drop-down-a:after {
     content: "\f068";
     opacity: 0;
   }

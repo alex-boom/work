@@ -309,8 +309,8 @@ function initDropDownClasses() {
 		var drop = item.find('ul');
 		var link = item.find('a').eq(0);
 		if (drop.length) {
-			item.addClass('has-drop-down');
-			// if (link.length) link.addClass('has-drop-down-a');
+			// item.addClass('has-drop-down');
+			if (link.length) link.addClass('has-drop-down-a');
 		}
 	});
 }

@@ -659,7 +659,7 @@ header {
 			}
 		}
 
-		.opener {
+		.has-drop-down-a  {
 			position: relative;
 
 			&:before,
@@ -697,6 +697,7 @@ header {
 			@include animate(opacity visibility);
 			@extend %listreset;
 			background-color: $black-lighten;
+			font-size: 11px;
 
 			@include media('>=tablet') {
 				position: absolute;
@@ -715,10 +716,7 @@ header {
 				opacity: 0;
 				visibility: hidden;
 				margin-bottom: 5px;
-
-				@include media('>=tablet') {
-					font-size: 13px;
-				}
+				font-size: 13px;
 			}
 
 			li {
@@ -956,6 +954,7 @@ select {
 .jcf-number {
 	font-family: $base-font-sans-serif-second;
 	margin: 0 10px;
+	font-style: normal;
 
 	input {
 		max-width: 90px;
@@ -1026,6 +1025,10 @@ select {
 			transform: translate(-50%, -45%);
 			margin: 0;
 		}
+	}
+
+	.jcf-disabled {
+		background-color: transparent !important;
 	}
 }
 
@@ -2725,6 +2728,7 @@ div {
 		background-color: $white;
 		padding: 10px;
 		border: 1px solid $gray;
+		margin-bottom: 15px;
 
 		.row {
 			position: relative;
