@@ -1346,6 +1346,10 @@ mark {
 	padding: 0 20px;
 	margin: 0 auto 55px;
 
+	form {
+		max-width: 100%
+	}
+
 	.btn-group {
 		display: flex;
 		position: absolute;

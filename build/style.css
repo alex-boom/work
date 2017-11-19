@@ -4951,6 +4951,10 @@ mark {
   margin: 0 auto 55px;
 }
 
+.inner form {
+  max-width: 100%;
+}
+
 .inner .btn-group {
   display: -ms-flexbox;
   display: flex;
