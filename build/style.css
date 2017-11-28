@@ -5826,14 +5826,17 @@ div:focus {
   opacity: 1;
 }
 
-.accordion-category .opener {
-  position: relative;
+.accordion-category > li > a {
   display: block;
   color: rgba(0, 0, 0, 0.7);
 }
 
-.accordion-category .opener:before,
-.accordion-category .opener:after {
+.accordion-category .has-drop-down-a {
+  position: relative;
+}
+
+.accordion-category .has-drop-down-a:before,
+.accordion-category .has-drop-down-a:after {
   transition: content 0.3s ease-in-out;
   position: absolute;
   right: 0;
@@ -5845,12 +5848,12 @@ div:focus {
   font-size: 12px;
 }
 
-.accordion-category .opener:before {
+.accordion-category .has-drop-down-a:before {
   content: "\f067";
   opacity: 1;
 }
 
-.accordion-category .opener:after {
+.accordion-category .has-drop-down-a:after {
   content: "\f068";
   opacity: 0;
 }

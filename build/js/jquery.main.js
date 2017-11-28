@@ -1,6 +1,5 @@
 // page init
 jQuery(function() {
-	checked ();
 	footerAtBottom();
 	initDatepicker();
 	initStickyScrollBlock();
@@ -9,6 +8,7 @@ jQuery(function() {
 	initMobileNav();
 	initFormValidation();
 	initCustomForms();
+	checked();
 	initStickyBlock();
 	initSlickCarousel();
 	initOpenClose();
@@ -23,7 +23,7 @@ jQuery(function() {
 //init checked
 function checked (){
 	var select = jQuery('#order-menu li.active');
-	select.find('input').attr("checked", "checked");
+	select.find('.jcf-checkbox').removeClass('jcf-unchecked').addClass('jcf-checked');
 }
 
 //init footer at bottom
@@ -312,6 +312,16 @@ function initAccordion() {
 // add classes if item has dropdown
 function initDropDownClasses() {
 	jQuery('.navbar-nav li').each(function() {
+		var item = jQuery(this);
+		var drop = item.find('ul');
+		var link = item.find('a').eq(0);
+		if (drop.length) {
+			// item.addClass('has-drop-down');
+			if (link.length) link.addClass('has-drop-down-a');
+		}
+	});
+
+	jQuery('.accordion-category li').each(function() {
 		var item = jQuery(this);
 		var drop = item.find('ul');
 		var link = item.find('a').eq(0);

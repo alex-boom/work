@@ -2526,7 +2526,7 @@ div {
 				display: block;
 			}
 
-			.opener  {
+			.opener {
 				color: $brand-primary;
 
 				&:before {
@@ -2538,12 +2538,15 @@ div {
 				}
 			}
 		}
+
+		> a {
+			display: block;
+			color: rgba($black, .7);
+		}
 	}
 
-	.opener {
+	.has-drop-down-a {
 		position: relative;
-		display: block;
-		color: rgba($black, .7);
 
 		&:before,
 		&:after {
@@ -2926,6 +2929,8 @@ div {
 			a {
 				color: $white;
 			}
+
+
 		}
 	}
 
