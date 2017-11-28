@@ -1,5 +1,6 @@
 // page init
 jQuery(function() {
+	checked ();
 	footerAtBottom();
 	initDatepicker();
 	initStickyScrollBlock();
@@ -19,7 +20,13 @@ jQuery(function() {
 	}, 500)
 });
 
-////init footer at bottom
+//init checked
+function checked (){
+	var select = jQuery('#order-menu li.active');
+	select.find('input').attr("checked", "checked");
+}
+
+//init footer at bottom
 function footerAtBottom () {
 
 	$(window).bind("load", function() {

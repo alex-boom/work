@@ -1346,8 +1346,16 @@ mark {
 	padding: 0 20px;
 	margin: 0 auto 55px;
 
+	.holder-title {
+		padding: 10px 0;
+
+		* {
+			margin-bottom: 0;
+		}
+	}
+
 	form {
-		max-width: 100%
+		max-width: 100% !important;
 	}
 
 	.btn-group {
@@ -1846,6 +1854,11 @@ mark {
 
 .full-height {
 	@include v-align(60vh);
+	margin-top: 20px;
+
+	@include media('>=tablet') {
+		margin-top: 40px;
+	}
 }
 
 .slick-slide,
@@ -2703,6 +2716,7 @@ div {
 }
 
 .block-buy {
+	padding: 0 0 10px;
 
 	.row {
 		justify-content: space-between;
@@ -2821,13 +2835,43 @@ div {
 	}
 
 	.bottom-box {
-		text-align: right;
 		padding: 10px 0;
+		display: flex;
+		flex-wrap: wrap;
 
+		.item {
+			width: 100%;
+			text-align: right;
+			margin-bottom: 5px;
+
+			@include media('>=tablet') {
+				flex-basis: 0;
+				flex-grow: 1;
+				max-width: 100%;
+				text-align: left;
+			}
+
+			.text {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: flex-end;
+			}
+
+			input {
+				text-align: center;
+				padding: 5px;
+				max-width: 105px;
+				font-weight: bold;
+				font-family: $base-font-sans-serif-second;
+				margin: 5px 0;
+				font-size: 13px;
+			}
+		}
 
 		.price {
 			font-size: 18px;
 			padding-left: 6px;
+			white-space: nowrap;
 
 			@include media('>=tablet') {
 				font-size: 22px;
@@ -2842,6 +2886,74 @@ div {
 
 .form-buy {
 	padding: 0;
+}
+
+.text-right {
+	text-align: right !important;
+}
+
+#order-menu {
+	@extend %listreset;
+	display: flex;
+	flex-wrap: wrap;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+	font-size: 11px;
+	text-transform: uppercase;
+	font-weight: bold;
+	margin: 20px auto;
+
+	@include media('>=tablet') {
+		font-size: 13px;
+	}
+
+	li {
+		position: relative;
+		width: 100%;
+		padding: 5px 30px 5px 5px;
+		background-color: $white;
+		border: 1px solid $gray;
+		margin: -1px;
+
+		@include media('>=tablet') {
+			flex-basis: 0;
+			flex-grow: 1;
+			max-width: 100%;
+		}
+
+		&.active {
+			background-color: $brand-primary;
+
+			a {
+				color: $white;
+			}
+		}
+	}
+
+	a {
+		color: $black;
+	}
+
+	.jcf-checkbox {
+		position: absolute;
+		top: 50%;
+		right: 5px;
+		transform: translateY(-50%);
+		cursor: default;
+		pointer-events: none;
+	}
+}
+
+.explanation {
+	font-size: 10px;
+	color: $brand-primary;
+
+	@include media('>=tablet') {
+		text-align: right;
+	}
+
+	p {
+		margin-bottom: 0;
+	}
 }
 
 //common
