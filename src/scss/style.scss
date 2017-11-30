@@ -820,6 +820,22 @@ button[type="submit"] {
 	}
 }
 
+.form-group {
+	margin-bottom: 8px;
+}
+
+.form-label {
+	text-align: left;
+	display: block;
+	margin-bottom: 10px;
+
+	@include media('>=desktop') {
+		display: inline-block;
+		text-align: center;
+		margin-bottom: auto;
+	}
+}
+
 .ui-datepicker-prev,
 .ui-datepicker-next {
 	position: relative;
@@ -950,6 +966,11 @@ select {
 	}
 }
 
+label[for*="chk"] {
+	display: inline-block;
+	vertical-align: middle;
+}
+
 //input number
 .jcf-number {
 	font-family: $base-font-sans-serif-second;
@@ -1044,7 +1065,7 @@ select {
 	border: 1px solid #dedede;
 
 	@include placeholder {
-		color: #e6e6e6;
+		color: #aaa !important;
 	}
 }
 
@@ -1056,6 +1077,11 @@ select {
 
 .input-caption {
 	display: block;
+	margin-right: 4px;
+
+	&.inline {
+		display: inline-block;
+	}
 }
 
 form {
@@ -1137,7 +1163,7 @@ form {
 	}
 
 	.input-caption {
-		font-size: 10px;
+		font-size: 11px;
 	}
 
 	.form-group {
@@ -1176,6 +1202,14 @@ form {
 		font-size: 11px;
 		letter-spacing: 0;
 		line-height: 14px;
+	}
+
+	button[type="submit"].step-btn {
+		padding: 10px 10px 7px;
+		min-width: 110px;
+		letter-spacing: 1;
+		line-height: 15px;
+		line-height: 15px;
 	}
 }
 
@@ -1340,7 +1374,7 @@ mark {
 .inner {
 	position: relative;
 	width: 100%;
-	max-width: 800px !important;
+	max-width: 900px !important;
 	box-shadow: 0 0 15px rgba($black, .2);
 	background-color: $white;
 	padding: 0 20px;
@@ -2961,6 +2995,80 @@ div {
 	}
 }
 
+.express-delivery {
+	display: none;
+	padding: 30px 0;
+
+	&.active {
+		display: block;
+	}
+
+	.col {
+		width: 100%;
+
+		@include media('>=tablet') {
+			width: 50%;
+		}
+	}
+}
+
+.single-delivery {
+	display: none;
+	margin: 0 auto;
+
+	@include media('>=desktop') {
+		max-width: 400px;
+	}
+
+	&.active {
+		display: block;
+	}
+}
+
+#formStepFour {
+
+	.form-group {
+		margin-bottom: 15px;
+	}
+
+	.title-underline {
+		padding-bottom: 7px;
+	}
+
+	.btn {
+		margin: 15px 0;
+	}
+}
+
+.list-content {
+	@extend %listreset;
+	text-align: left;
+	margin: 0 -15px;
+	padding: 0 15px;
+
+	li {
+		position: relative;
+		padding: 0 15px;
+		margin-bottom: 15px;
+
+		&:before {
+			content: "";
+			position: absolute;
+			top: 9px;
+			left: 0;
+			width: 6px;
+			height: 6px;
+			border-radius: 50%;
+			background-color: $brand-primary;
+		}
+
+		strong {
+			font-weight: 600;
+			font-family: $base-font-sans-serif-second;
+		}
+	}
+}
+
 //common
 
 //footer
@@ -2969,6 +3077,7 @@ div {
 	border-top: 3px solid $brand-primary;
 	background-color: $white;
 	padding: 30px 0 15px;
+	font-size: 12px;
 
 	.row {
 		align-items: center;
@@ -3020,9 +3129,14 @@ div {
 	}
 
 	li {
-		padding: 0 10px;
+		position: relative;
+		padding: 0 10px 0 25px;
 		width: 100%;
-		margin-bottom: 5px;
+		margin-bottom: 15px;
+
+		@include media('>=tablet') {
+			margin-bottom: 8px;
+		}
 
 		@include media('>=desktop') {
 			width: auto;
@@ -3039,16 +3153,16 @@ div {
 	}
 
 	.fa {
-		display: inline-block;
-		vertical-align: middle;
-		text-align: center;
-		width: 31px;
-		height: 30px;
-		line-height: 31px;
-		border-radius: 50%;
-		color: $white;
-		background: $brand-primary;
-		font-size: 19px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 25px;
+		position: absolute;
+		top: 49%;
+		left: 0;
+		transform: translateY(-50%);
+		color: $brand-primary;
+		font-size: 22px;
 		margin-right: 5px;
 
 		&.fa-envelope-o {
@@ -3059,6 +3173,7 @@ div {
 }
 
 .copyright {
+	margin-bottom: 8px;
 
 	a {
 		@extend %underline;
