@@ -4470,7 +4470,7 @@ select {
   width: 100%;
   height: auto;
   color: #404040;
-  padding: 12px 9px 8px;
+  padding: 7px 15px;
   line-height: 20px;
   font-weight: 500;
   border: 1px solid #dedede;
@@ -4478,10 +4478,6 @@ select {
 
 .jcf-select:focus {
   border-color: transparent;
-}
-
-.jcf-select .jcf-select-text {
-  font-size: 18px;
 }
 
 .jcf-select .jcf-select-text span {
@@ -4494,8 +4490,8 @@ select {
   transition: background 0.3s ease-in-out;
   top: 4px;
   right: 4px;
-  width: 38px;
-  height: 38px;
+  width: 32px;
+  height: 32px;
   background-color: #5bb300;
   color: white;
   border: none;
@@ -4515,11 +4511,6 @@ select {
 
 .jcf-select .jcf-select-opener:hover {
   background-color: #5bb300;
-}
-
-.jcf-list .jcf-list-content {
-  font-size: 16px;
-  line-height: 18px;
 }
 
 .jcf-select-drop .jcf-select-drop-content {
@@ -4562,6 +4553,7 @@ label[for*="chk"] {
 }
 
 .jcf-number {
+  font-size: 14px;
   font-family: "Saira", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
   margin: 0 10px;
   font-style: normal;
@@ -4646,8 +4638,8 @@ label[for*="chk"] {
 .form-control {
   width: 100%;
   color: #404040;
-  padding: 13px 15px 13px;
-  font-size: 18px;
+  padding: 10px 15px;
+  font-size: 14px;
   line-height: 20px;
   font-weight: 500;
   border: 1px solid #dedede;
@@ -4674,9 +4666,33 @@ label[for*="chk"] {
   color: #aaa !important;
 }
 
+.form-control.datepicker {
+  font-family: "Saira", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
+}
+
+.form-control.datepicker::-webkit-input-placeholder {
+  font-family: "Lora", "Times New Roman", "Times", "Baskerville", "Georgia", serif;
+}
+
+.form-control.datepicker::-moz-placeholder {
+  opacity: 1;
+  font-family: "Lora", "Times New Roman", "Times", "Baskerville", "Georgia", serif;
+}
+
+.form-control.datepicker:-moz-placeholder {
+  font-family: "Lora", "Times New Roman", "Times", "Baskerville", "Georgia", serif;
+}
+
+.form-control.datepicker:-ms-input-placeholder {
+  font-family: "Lora", "Times New Roman", "Times", "Baskerville", "Georgia", serif;
+}
+
+.form-control.datepicker.placeholder {
+  font-family: "Lora", "Times New Roman", "Times", "Baskerville", "Georgia", serif;
+}
+
 .caption,
 .input-caption {
-  font-size: 12px;
   font-weight: 500;
 }
 
@@ -4685,16 +4701,20 @@ label[for*="chk"] {
   margin-right: 4px;
 }
 
-.input-caption.inline {
-  display: inline-block;
+.d-block {
+  display: block;
 }
 
 form {
   padding: 30px 0;
 }
 
+.form-min {
+  font-size: 13px;
+}
+
 .form-min .jcf-list .jcf-list-content {
-  font-size: 12px;
+  font-size: 13px;
   line-height: 14px;
 }
 
@@ -4715,7 +4735,6 @@ form {
 
 .form-min .radio-caption {
   margin-right: 10px;
-  font-size: 13px;
 }
 
 .form-min .jcf-select {
@@ -4759,10 +4778,6 @@ form {
   font-size: 13px;
 }
 
-.form-min .input-caption {
-  font-size: 11px;
-}
-
 .form-min .form-group {
   margin-bottom: 8px;
 }
@@ -4801,7 +4816,7 @@ form {
 .form-min button[type="submit"].step-btn {
   padding: 10px 10px 7px;
   min-width: 110px;
-  letter-spacing: 1;
+  letter-spacing: 1px;
   line-height: 15px;
   line-height: 15px;
 }
@@ -5862,6 +5877,7 @@ div:focus {
 .accordion-category > li > a {
   display: block;
   color: rgba(0, 0, 0, 0.7);
+  padding-right: 20px;
 }
 
 .accordion-category .has-drop-down-a {
@@ -6273,6 +6289,20 @@ div:focus {
   font-family: "Saira", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
 }
 
+form.max-width {
+  max-width: 460px !important;
+  margin: 0 auto;
+}
+
+.max-width {
+  max-width: 460px !important;
+  margin: 0 auto;
+}
+
+.inline {
+  display: inline-block !important;
+}
+
 #footer {
   border-top: 3px solid #5bb300;
   background-color: #fff;
@@ -6364,7 +6394,6 @@ div:focus {
 
 @media (min-width: 480px) {
   .jcf-number input {
-    font-size: 18px;
     max-width: 110px;
   }
 
@@ -6841,6 +6870,10 @@ div:focus {
     display: inline-block;
     text-align: center;
     margin-bottom: auto;
+  }
+
+  .radio-caption {
+    display: block;
   }
 
   .row.three-column .col {
