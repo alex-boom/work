@@ -20,6 +20,7 @@ jQuery(function() {
 	}, 500)
 });
 
+
 //init checked
 function checked (){
 	var select = jQuery('#order-menu li.active');
@@ -135,6 +136,22 @@ function initStickyBlock() {
 
 // slick init
 function initSlickCarousel() {
+
+	jQuery('.slider-for').slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		arrows: false,
+		fade: true,
+		asNavFor: '.slider-nav'
+	});
+	jQuery('.slider-nav').slick({
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		asNavFor: '.slider-for',
+		arrows: false,
+		dots: false,
+		focusOnSelect: true
+	});
 
 	jQuery('.slider-single').slick({
 		prevArrow: '<i class="fa fa-angle-left" aria-hidden="true"></i>',

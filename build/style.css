@@ -4888,6 +4888,7 @@ form {
 
 .block-tabs .open-close .tabset a,
 .product-box .description,
+.info-product .list-content a,
 .address-list a,
 .copyright a {
   position: relative;
@@ -4897,12 +4898,15 @@ form {
 .block-tabs .open-close .tabset .active a:before,
 .active .product-box .description:before,
 .product-box .active .description:before,
+.active .info-product .list-content a:before,
+.info-product .list-content .active a:before,
 .active .address-list a:before,
 .address-list .active a:before,
 .active .copyright a:before,
 .copyright .active a:before,
 .block-tabs .open-close .tabset a:hover:before,
 .product-box .description:hover:before,
+.info-product .list-content a:hover:before,
 .address-list a:hover:before,
 .copyright a:hover:before {
   left: 0;
@@ -4913,6 +4917,7 @@ form {
 
 .block-tabs .open-close .tabset a:before,
 .product-box .description:before,
+.info-product .list-content a:before,
 .address-list a:before,
 .copyright a:before {
   transition: visibility 0.3s ease-in-out, left 0.3s ease-in-out, right 0.3s ease-in-out;
@@ -6318,6 +6323,142 @@ form.max-width {
   white-space: nowrap;
 }
 
+.product-slider {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.slider-for .slider {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  height: 200px;
+}
+
+.slider-for .slider img {
+  transition: transform 0.3s ease-in-out;
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.slider-nav {
+  margin: 0 -15px;
+  width: 230px;
+  margin: 0 auto;
+}
+
+.slider-nav .img-nav {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  height: 90px;
+  padding: 0 15px;
+}
+
+.slider-nav .img-nav img {
+  transition: transform 0.3s ease-in-out;
+  width: auto;
+  max-width: 55px;
+  max-height: 100%;
+}
+
+.info-product {
+  position: relative;
+  padding-top: 40px;
+}
+
+.info-product h1 {
+  font-size: 23px;
+}
+
+.info-product form {
+  max-width: 100%;
+  padding: 0 0 10px;
+}
+
+.info-product button[type="submit"] {
+  margin: 15px 0;
+}
+
+.info-product .list-content a {
+  color: #000;
+}
+
+.info-product .title-underline {
+  display: inline-block;
+}
+
+.info-product .pagination {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.info-product .pagination .navigation-single {
+  width: 80px;
+  height: 57px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: end;
+      justify-content: flex-end;
+}
+
+.info-product .pagination a {
+  font-size: 0;
+}
+
+.info-product .pagination .next,
+.info-product .pagination .prev {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  width: 30px;
+  height: 30px;
+  background-color: #5bb300;
+  font-family: FontAwesome;
+  font-size: 25px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 4px;
+}
+
+.info-product .pagination .next:before,
+.info-product .pagination .prev:before {
+  content: "\f105";
+  -ms-transform: translateX(1px);
+      transform: translateX(1px);
+}
+
+.info-product .pagination .next:hover,
+.info-product .pagination .prev:hover {
+  color: #fff;
+}
+
+.info-product .pagination .next:before {
+  content: "\f104";
+  -ms-transform: translateX(-1px);
+      transform: translateX(-1px);
+}
+
+.information .title-underline {
+  text-align: center;
+}
+
+.information .title-underline:before {
+  left: 50%;
+  -ms-transform: translateX(-50%);
+      transform: translateX(-50%);
+}
+
 #footer {
   border-top: 3px solid #5bb300;
   background-color: #fff;
@@ -6874,6 +7015,15 @@ form.max-width {
     display: inline-block;
   }
 
+  .product-slider {
+    width: 70%;
+    padding-top: 60px;
+  }
+
+  .slider-for .slider {
+    height: 295px;
+  }
+
   .address-list li {
     margin-bottom: 8px;
   }
@@ -7062,6 +7212,10 @@ form.max-width {
   .navbar-nav > li .slide li {
     padding: 8px 30px;
     border-bottom: 1px solid #4d4d4d;
+  }
+
+  .bg-pattern.media-pattern {
+    background-image: none;
   }
 
   .category-item h2 {

@@ -1420,6 +1420,13 @@ mark {
 	@include media('>=tablet') {
 		background-size: 30%;
 	}
+
+	&.media-pattern {
+
+		@include media('<tablet') {
+			background-image: none;
+		}
+	}
 }
 
 .bg-pattern-2 {
@@ -3103,6 +3110,149 @@ form.max-width {
 		white-space: nowrap;
 	}
 }
+
+.product-slider {
+	width: 90%;
+	margin: 0 auto;
+
+	@include media('>=tablet') {
+		width: 70%;
+		padding-top: 60px;
+	}
+}
+
+.slider-for {
+
+	.slider {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 200px;
+
+		@include media('>=tablet') {
+			height: 295px;
+		}
+
+		img {
+			@include animate(transform);
+			width: auto;
+			max-width: 100%;
+			max-height: 100%;
+		}
+	}
+}
+
+.slider-nav {
+	margin: 0 -15px;
+	width: 230px;
+	margin: 0 auto;
+
+	.img-nav {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 90px;
+		padding: 0 15px;
+
+		img {
+			@include animate(transform);
+			width: auto;
+			max-width: 55px;
+			max-height: 100%;
+		}
+	}
+}
+
+.info-product {
+	position: relative;
+	padding-top: 40px;
+
+	h1 {
+		font-size: 23px;
+	}
+
+	form {
+		max-width: 100%;
+		padding: 0 0 10px;
+	}
+
+	button[type="submit"] {
+		margin: 15px 0;
+	}
+
+	.list-content {
+
+		a {
+			@extend %underline;
+			color: $black;
+		}
+	}
+
+	.title-underline {
+		display: inline-block;
+	}
+
+	.pagination {
+		position: absolute;
+		top: 0;
+		right: 0;
+
+		.navigation-single {
+			width: 80px;
+			height: 57px;
+			display: flex;
+			justify-content: flex-end;
+		}
+
+		a {
+			font-size: 0;
+		}
+
+		.next,
+		.prev {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 30px;
+			height: 30px;
+			background-color: $brand-primary;
+			font-family: FontAwesome;
+			font-size: 25px;
+			color: rgba($white, .7);
+			margin: 0 4px;
+
+			&:before {
+				content: "\f105";
+				transform: translateX(1px);
+			}
+
+			&:hover {
+				color: $white;
+			}
+		}
+
+		.next {
+
+			&:before {
+				content: "\f104";
+				transform: translateX(-1px);
+			}
+		}
+	}
+}
+
+.information {
+
+	.title-underline {
+		text-align: center;
+
+		&:before {
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+}
+
 
 //common
 
