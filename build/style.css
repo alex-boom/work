@@ -6414,10 +6414,6 @@ form.max-width {
       justify-content: flex-end;
 }
 
-.info-product .pagination a {
-  font-size: 0;
-}
-
 .info-product .pagination .next,
 .info-product .pagination .prev {
   display: -ms-flexbox;
