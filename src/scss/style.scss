@@ -3124,20 +3124,27 @@ form.max-width {
 .slider-for {
 
 	.slider {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		height: 200px;
 
-		@include media('>=tablet') {
-			height: 295px;
-		}
+		a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 200px;
 
-		img {
-			@include animate(transform);
-			width: auto;
-			max-width: 100%;
-			max-height: 100%;
+			@include media('>=tablet') {
+				height: 295px;
+			}
+
+			&:focus {
+				outline: none;
+			}
+
+			img {
+				@include animate(transform);
+				width: auto;
+				max-width: 100%;
+				max-height: 100%;
+			}
 		}
 	}
 }
