@@ -13,11 +13,8 @@ jQuery(function() {
 	initSlickCarousel();
 	initOpenClose();
 	initAccordion();
+	initTabs();
 	new WOW().init();
-
-	setTimeout( function() {
-		initTabs();
-	}, 500)
 });
 
 
@@ -323,6 +320,46 @@ function initAccordion() {
 		opener: '.opener',
 		slider: '.slide',
 		animSpeed: 300,
+	});
+
+	ResponsiveHelper.addRange({
+		'..768': {
+			on: function() {
+				jQuery('.accordion-content').slideAccordion({
+					opener: '.opener',
+					slider: '.slide',
+					animSpeed: 300
+				});
+			},
+			off: function() {
+				jQuery('.accordion-content').slideAccordion('destroy');
+			}
+		}
+	});
+
+	var arr = jQuery(".tab-block .tabset .opener");
+	var resArr = jQuery(".accordion-content .opener");
+
+	arr.each(function(index, item) {
+		var textOpener = arr.eq(index).text();
+		resArr.eq(index).text(textOpener);
+	});
+}
+
+// content tabs init
+function initTabs() {
+	ResponsiveHelper.addRange({
+		'768..': {
+			on: function() {
+				jQuery('.tabset').tabset({
+					tabLinks: 'a',
+					defaultTab: true,
+				});
+			},
+			off: function() {
+				jQuery('.tabset').tabset('destroy');
+			}
+		}
 	});
 }
 

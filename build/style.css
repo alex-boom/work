@@ -3654,6 +3654,7 @@ mark,
 .social-list,
 #order-menu,
 .list-content,
+.tab-block .tabset,
 .address-list {
   margin: 0;
   padding: 0;
@@ -5369,11 +5370,13 @@ mark {
   margin-bottom: 0;
 }
 
-.title-underline.center {
+.title-underline.center,
+.tab-block .tab-content .slide .title-underline {
   text-align: center;
 }
 
-.title-underline.center:before {
+.title-underline.center:before,
+.tab-block .tab-content .slide .title-underline:before {
   left: 50%;
   -ms-transform: translateX(-50%);
       transform: translateX(-50%);
@@ -6459,6 +6462,69 @@ form.max-width {
       transform: translateX(-50%);
 }
 
+/* style tabs to accordion */
+
+/* style tabs to accordion */
+
+.tab-block .opener {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  background-color: #5bb300;
+  width: 100%;
+  min-height: 40px;
+  font-size: 13px;
+  font-family: "Lora", "Times New Roman", "Times", "Baskerville", "Georgia", serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 10px;
+  margin-bottom: 5px;
+  color: #fff;
+  outline: 1px solid #fff;
+  outline-offset: -3px;
+}
+
+.tab-block .opener.active:before {
+  opacity: 1;
+}
+
+.tab-block .opener:before {
+  height: 0;
+  width: 0;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid #5bb300;
+  border-top: 10px solid transparent;
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+  opacity: 0;
+}
+
+.tab-block .tabset {
+  display: none;
+  text-align: center;
+}
+
+.tab-block .tab-content .opener {
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.tab-block .tab-content .active .slide {
+  opacity: 1;
+}
+
+.tab-block .tab-content .slide {
+  transition: opacity 0.3s ease-in-out;
+}
+
 #footer {
   border-top: 3px solid #5bb300;
   background-color: #fff;
@@ -7022,6 +7088,43 @@ form.max-width {
 
   .slider-for .slider a {
     height: 295px;
+  }
+
+  .js-tab-hidden {
+    display: block !important;
+    left: -9999px !important;
+    position: absolute !important;
+    top: -9999px !important;
+  }
+
+  .tab-block {
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .tab-block .opener {
+    width: 190px;
+    min-height: 60px;
+    margin-bottom: 10px;
+    outline: 2px solid #fff;
+  }
+
+  .tab-block .tabset {
+    display: block;
+    padding-right: 40px;
+  }
+
+  .tab-block .tab-content .opener {
+    display: none;
+  }
+
+  .tab-block .tab-content .slide {
+    opacity: 0;
+  }
+
+  .tab-block .tab-content .slide .title-underline {
+    display: inline-block;
+    text-align: left;
   }
 
   .address-list li {
