@@ -273,6 +273,15 @@ function initOpenClose() {
 			});
 		}
 	});
+
+	jQuery('.order').openClose({
+		activeClass: 'active',
+		opener: '.opener',
+		slider: '.slide',
+		animSpeed: 400,
+		hideOnClickOutside: true,
+		effect: 'slide'
+	});
 }
 
 
