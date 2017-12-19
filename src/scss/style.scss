@@ -3269,6 +3269,9 @@ form.max-width {
 /* style tabs to accordion */
 
 .tab-block {
+	padding: 30px 0;
+	border-top: 1px solid $gray;
+	border-bottom: 1px solid $gray;
 
 	@include media('>=tablet') {
 		display: flex;
@@ -3343,13 +3346,29 @@ form.max-width {
 			.slide {
 				opacity: 1;
 			}
+
+			&.active {
+
+				.opener {
+
+					&:before {
+						@include triangle(20px, $brand-primary, down);
+						top: 100%;
+						left: 50%;
+						transform: translateX(-50%);
+						opacity: 1;
+					}
+				}
+			}
 		}
 
 		.slide {
 			@include animate(opacity);
+			padding: 20px 0;
 
 			@include media('>=tablet') {
 				opacity: 0;
+				padding: 0;
 			}
 
 			.title-underline {
