@@ -3434,12 +3434,16 @@ form.max-width {
 		.col {
 			width: 100%;
 
+			@include media('>=phone') {
+				width: 50%;
+			}
+
 			@include media('>=tablet') {
 				width: 100%;
 			}
 
 			@include media('>=desktop') {
-				width: 50%;
+				width: 33.33%;
 			}
 		}
 	}

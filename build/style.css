@@ -7002,6 +7002,10 @@ form.max-width {
   .single-article .box-img {
     max-width: 350px;
   }
+
+  .section-info > .row .col {
+    width: 50%;
+  }
 }
 
 @media (min-width: 550px) {
@@ -7534,7 +7538,7 @@ form.max-width {
   }
 
   .section-info > .row .col {
-    width: 50%;
+    width: 33.33%;
   }
 
   .section-contact .col:first-child {
