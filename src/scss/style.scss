@@ -3748,6 +3748,13 @@ form.max-width {
 		text-align: left;
 	}
 
+	.form-group {
+
+		@include media('<desktop') {
+			width: 100%;
+		}
+	}
+
 	p {
 		margin-bottom: 25px;
 	}

@@ -7625,6 +7625,10 @@ form.max-width {
   .order .slide .product-box {
     text-align: center;
   }
+
+  .section-holiday .form-group {
+    width: 100%;
+  }
 }
 
 @media (max-width: 767px) {
