@@ -1325,7 +1325,8 @@ h2 {
 		font-size: 26px;
 	}
 
-	.archive & {
+	.archive &,
+	.page-template-template-my-account & {
 		font-size: 18px;
 	}
 }
@@ -1342,6 +1343,13 @@ a {
 			color: $brand-primary;
 		}
 	}
+}
+
+a[href^=tel],
+a[href^=skype],
+a[href^=sms] {
+	cursor: pointer !important;
+	pointer-events: auto !important;
 }
 
 
@@ -3761,6 +3769,49 @@ form.max-width {
 
 	.inner {
 		margin: 0 auto 70px;
+	}
+}
+
+.section-contact {
+	font-family: $base-font-sans-serif-second;
+
+	.col {
+
+		&:first-child {
+			width: 100%;
+
+			@include media('>=desktop') {
+				width: 60%;
+			}
+		}
+
+		&:last-child {
+			width: 100%;
+
+			@include media('>=desktop') {
+				width: 40%;
+			}
+		}
+	}
+
+	.map {
+		margin-bottom: 20px;
+	}
+
+	.list-content {
+
+		@include media('>=desktop') {
+			margin: 0 -15px 30px;
+		}
+
+		a {
+			@extend %underline;
+			color: $black;
+
+			&:hover {
+				color: $brand-primary;
+			}
+		}
 	}
 }
 

@@ -4890,6 +4890,7 @@ form {
 .block-tabs .open-close .tabset a,
 .product-box .description,
 .info-product .list-content a,
+.section-contact .list-content a,
 .address-list a,
 .copyright a {
   position: relative;
@@ -4901,6 +4902,8 @@ form {
 .product-box .active .description:before,
 .active .info-product .list-content a:before,
 .info-product .list-content .active a:before,
+.active .section-contact .list-content a:before,
+.section-contact .list-content .active a:before,
 .active .address-list a:before,
 .address-list .active a:before,
 .active .copyright a:before,
@@ -4908,6 +4911,7 @@ form {
 .block-tabs .open-close .tabset a:hover:before,
 .product-box .description:hover:before,
 .info-product .list-content a:hover:before,
+.section-contact .list-content a:hover:before,
 .address-list a:hover:before,
 .copyright a:hover:before {
   left: 0;
@@ -4919,6 +4923,7 @@ form {
 .block-tabs .open-close .tabset a:before,
 .product-box .description:before,
 .info-product .list-content a:before,
+.section-contact .list-content a:before,
 .address-list a:before,
 .copyright a:before {
   transition: visibility 0.3s ease-in-out, left 0.3s ease-in-out, right 0.3s ease-in-out;
@@ -4948,7 +4953,8 @@ h2 {
   line-height: 1.3;
 }
 
-.archive h2 {
+.archive h2,
+.page-template-template-my-account h2 {
   font-size: 18px;
 }
 
@@ -4964,6 +4970,13 @@ a.phone {
 
 a.phone:hover {
   color: #5bb300;
+}
+
+a[href^=tel],
+a[href^=skype],
+a[href^=sms] {
+  cursor: pointer !important;
+  pointer-events: auto !important;
 }
 
 button {
@@ -6837,6 +6850,30 @@ form.max-width {
   margin: 0 auto 70px;
 }
 
+.section-contact {
+  font-family: "Saira", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
+}
+
+.section-contact .col:first-child {
+  width: 100%;
+}
+
+.section-contact .col:last-child {
+  width: 100%;
+}
+
+.section-contact .map {
+  margin-bottom: 20px;
+}
+
+.section-contact .list-content a {
+  color: #000;
+}
+
+.section-contact .list-content a:hover {
+  color: #5bb300;
+}
+
 #footer {
   border-top: 3px solid #5bb300;
   background-color: #fff;
@@ -7498,6 +7535,18 @@ form.max-width {
 
   .section-info > .row .col {
     width: 50%;
+  }
+
+  .section-contact .col:first-child {
+    width: 60%;
+  }
+
+  .section-contact .col:last-child {
+    width: 40%;
+  }
+
+  .section-contact .list-content {
+    margin: 0 -15px 30px;
   }
 
   .address-list {
