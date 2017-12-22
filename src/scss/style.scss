@@ -1946,6 +1946,8 @@ div {
 }
 
 .five-column-slider {
+	max-height: 327px;
+	overflow: hidden;
 
 	.slick-list {
 		padding: 3px 8px;
@@ -2198,6 +2200,8 @@ div {
 
 .slider-single {
 	position: relative;
+	height: 400px;
+	overflow: hidden;
 	margin-top: 40px;
 	margin-bottom: 20px;
 	margin: 20px 0;
@@ -2220,7 +2224,7 @@ div {
 		display: flex;
 		align-items: center;
 		background-size: cover;
-		min-height: 250px;
+		height: 400px;
 		background-position: center;
 		z-index: 0;
 		padding: 40px;
@@ -2228,7 +2232,6 @@ div {
 		text-align: center;
 
 		@include media('>=tablet') {
-			min-height: 400px;
 			padding: 40px 70px;
 			text-align: left;
 		}
@@ -2259,6 +2262,7 @@ div {
 			margin-bottom: 10px;
 
 			@include media('<phone') {
+				line-height: 1;
 				font-size: 29px;
 			}
 
@@ -2268,7 +2272,11 @@ div {
 		}
 
 		p {
-			margin-bottom: 30px;
+			margin-bottom: 10px;
+
+			@include media('>=tablet') {
+				margin-bottom: 30px;
+			}
 		}
 
 		.btn {
@@ -3731,6 +3739,22 @@ form.max-width {
 
 .text-red {
 	color: red;
+}
+
+.section-holiday {
+	text-align: center;
+
+	.holder-title {
+		text-align: left;
+	}
+
+	p {
+		margin-bottom: 25px;
+	}
+
+	.inner {
+		margin: 0 auto 70px;
+	}
 }
 
 //common

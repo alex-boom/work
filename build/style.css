@@ -5445,6 +5445,11 @@ div:focus {
   padding-right: 15px;
 }
 
+.five-column-slider {
+  max-height: 327px;
+  overflow: hidden;
+}
+
 .five-column-slider .slick-list {
   padding: 3px 8px;
 }
@@ -5613,6 +5618,8 @@ div:focus {
 
 .slider-single {
   position: relative;
+  height: 400px;
+  overflow: hidden;
   margin-top: 40px;
   margin-bottom: 20px;
   margin: 20px 0;
@@ -5634,7 +5641,7 @@ div:focus {
   -ms-flex-align: center;
       align-items: center;
   background-size: cover;
-  min-height: 250px;
+  height: 400px;
   background-position: center;
   z-index: 0;
   padding: 40px;
@@ -5669,7 +5676,7 @@ div:focus {
 }
 
 .slider-single .content-box p {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .slider-single .content-box .btn {
@@ -6814,6 +6821,22 @@ form.max-width {
   color: red;
 }
 
+.section-holiday {
+  text-align: center;
+}
+
+.section-holiday .holder-title {
+  text-align: left;
+}
+
+.section-holiday p {
+  margin-bottom: 25px;
+}
+
+.section-holiday .inner {
+  margin: 0 auto 70px;
+}
+
 #footer {
   border-top: 3px solid #5bb300;
   background-color: #fff;
@@ -7258,9 +7281,12 @@ form.max-width {
   }
 
   .slider-single .item-box {
-    min-height: 400px;
     padding: 40px 70px;
     text-align: left;
+  }
+
+  .slider-single .content-box p {
+    margin-bottom: 30px;
   }
 
   .box-article {
@@ -7753,6 +7779,7 @@ form.max-width {
   }
 
   .slider-single .content-box h1 {
+    line-height: 1;
     font-size: 29px;
   }
 

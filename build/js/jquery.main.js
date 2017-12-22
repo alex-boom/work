@@ -1,5 +1,6 @@
 // page init
 jQuery(function() {
+	initSlickCarousel();
 	footerAtBottom();
 	initDatepicker();
 	initStickyScrollBlock();
@@ -10,7 +11,6 @@ jQuery(function() {
 	initCustomForms();
 	checked();
 	initStickyBlock();
-	initSlickCarousel();
 	initOpenClose();
 	initAccordion();
 	initTabs();
@@ -154,6 +154,7 @@ function initSlickCarousel() {
 		prevArrow: '<i class="fa fa-angle-left" aria-hidden="true"></i>',
 		nextArrow: '<i class="fa fa-angle-right" aria-hidden="true"></i>',
 		autoplay: true,
+		adaptiveHeight: true,
 	});
 
 	jQuery('.five-column-slider').slick({
