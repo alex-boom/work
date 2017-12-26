@@ -6889,6 +6889,10 @@ form.max-width {
   color: #5bb300;
 }
 
+.page-template-template-admin .main-category .row {
+  overflow-x: auto;
+}
+
 #footer {
   border-top: 3px solid #5bb300;
   background-color: #fff;
