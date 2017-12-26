@@ -6624,7 +6624,6 @@ form.max-width {
   right: 0;
   top: -1px;
   bottom: -1px;
-  background-color: #5bb300;
   opacity: .3;
   width: 10px;
   border-top-right-radius: 4px;
@@ -6832,6 +6831,22 @@ form.max-width {
 
 .text-red {
   color: red;
+}
+
+.bg-before-green:before {
+  background-color: rgba(91, 179, 0, 0.7) !important;
+}
+
+.bg-before-gray:before {
+  background-color: #e5e5e5 !important;
+}
+
+.bg-before-orange:before {
+  background-color: rgba(255, 165, 0, 0.7) !important;
+}
+
+.bg-before-red:before {
+  background-color: rgba(255, 0, 0, 0.7) !important;
 }
 
 .section-holiday {
