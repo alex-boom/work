@@ -3163,53 +3163,65 @@ form.max-width {
 		width: 70%;
 		padding-top: 60px;
 	}
-}
 
-.slider-for {
+	.slider-for {
+		overflow: hidden;
+		height: 200px;
 
-	.slider {
+		@include media('>=tablet') {
+			height: 255px;
+		}
 
-		a {
+		* {
+			height: 100%;
+		}
+
+		.slider {
+
+			a {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				&:focus {
+					outline: none;
+				}
+
+				img {
+					@include animate(transform);
+					width: auto;
+					max-width: 100%;
+					max-height: 100%;
+					height: auto;
+				}
+			}
+		}
+	}
+
+	.slider-nav {
+		overflow: hidden;
+		width: 230px;
+		height: 70px;
+		margin: 0 -15px;
+		margin: 0 auto;
+
+		* {
+			height: 100%;
+		}
+
+		.img-nav {
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			height: 200px;
-
-			@include media('>=tablet') {
-				height: 295px;
-			}
-
-			&:focus {
-				outline: none;
-			}
+			padding: 0 15px;
 
 			img {
 				@include animate(transform);
 				width: auto;
 				max-width: 100%;
 				max-height: 100%;
+				height: auto;
 			}
-		}
-	}
-}
-
-.slider-nav {
-	margin: 0 -15px;
-	width: 230px;
-	margin: 0 auto;
-
-	.img-nav {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		height: 90px;
-		padding: 0 15px;
-
-		img {
-			@include animate(transform);
-			width: auto;
-			max-width: 55px;
-			max-height: 100%;
 		}
 	}
 }
