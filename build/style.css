@@ -6955,6 +6955,8 @@ form.max-width {
 #footer .row {
   -ms-flex-align: center;
       align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
 }
 
 #footer .col {
@@ -6971,16 +6973,16 @@ form.max-width {
       flex-wrap: wrap;
   -ms-flex-align: center;
       align-items: center;
-  -ms-flex-pack: start;
-      justify-content: flex-start;
-  max-width: 320px;
+  -ms-flex-pack: center;
+      justify-content: center;
+  max-width: 250px;
   margin: 0 -10px;
   text-align: left;
 }
 
 .address-list li {
   position: relative;
-  padding: 0 10px 0 25px;
+  padding: 0 10px 0 30px;
   width: 100%;
   margin-bottom: 15px;
 }
@@ -7172,6 +7174,7 @@ form.max-width {
     max-width: 90px;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
     border-bottom: none;
     padding: 0 10px;
     margin: 0;
@@ -7647,8 +7650,6 @@ form.max-width {
   }
 
   .address-list {
-    -ms-flex-pack: center;
-        justify-content: center;
     margin: 0 -10px;
     max-width: 100%;
   }
@@ -7698,24 +7699,6 @@ form.max-width {
   .order .slide .ordering-information {
     width: 70%;
     margin-left: auto;
-  }
-
-  #footer .col {
-    -ms-flex-preferred-size: 0;
-        flex-basis: 0;
-    -ms-flex-positive: 1;
-        flex-grow: 1;
-    max-width: 100%;
-  }
-
-  #footer .col:last-child {
-    -ms-flex-positive: 2;
-        flex-grow: 2;
-  }
-
-  .address-list {
-    -ms-flex-pack: end;
-        justify-content: flex-end;
   }
 }
 
