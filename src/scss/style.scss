@@ -2603,12 +2603,19 @@ div {
 	.page-template-template-cvety & {
 
 		@include media('<tablet') {
-			display: none;
+			// display: none;
 		}
 	}
 
 	.section {
 		margin-bottom: 15px;
+	}
+}
+
+.d-md-none {
+
+	@include media('<tablet') {
+		display: none;
 	}
 }
 

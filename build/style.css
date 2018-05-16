@@ -7884,8 +7884,7 @@ form.max-width {
     background-image: url(images/bg-banner.png);
   }
 
-  .archive .sidebar,
-  .page-template-template-cvety .sidebar {
+  .d-md-none {
     display: none;
   }
 
