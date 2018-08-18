@@ -1,0 +1,129 @@
+//burger-menu
+#wrapper {
+
+	&:after {
+		@include animate(opacity z-index background);
+		content: "";
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		opacity: 0;
+		z-index: -1;
+		background-color: transparent;
+	}
+
+	@include media('>=tablet') {
+
+		&:after {
+			display: none;
+		}
+	}
+}
+
+.nav-active {
+	overflow: hidden;
+
+	#wrapper {
+
+		&:after {
+			opacity: 1;
+			z-index: 3;
+			background-color: rgba(51, 51, 51, 0.7);
+		}
+	}
+
+	.main-nav {
+		visibility: visible;
+		left: 0;
+	}
+
+	.nav-opener {
+
+		span {
+			opacity: 0;
+		}
+		&:before,
+		&:after {
+			transform: rotate(-45deg);
+			top: 50%;
+			left: 0;
+			right: 0;
+		}
+		&:before {
+			transform: rotate(45deg);
+		}
+	}
+}
+
+.main-nav {
+	@include animate(visibility right left);
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: -250px;
+	bottom: 0;
+	background-color: $white;
+	height: 100vh;
+	overflow-y: auto;
+	visibility: hidden;
+	z-index: 5;
+
+	@include media('>=350px') {
+		width: 250px;
+	}
+
+	@include media('>=tablet') {
+		position: static;
+		height: auto;
+		visibility: visible;
+		overflow: visible;
+	}
+}
+
+.nav-opener {
+	display: block;
+	width: 36px;
+	height: 30px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	text-indent: -9999px;
+
+	@include media('>=tablet') {
+		display: none;
+	}
+
+	&:after,
+	&:before,
+	span {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 0;
+		right: 0;
+		height: 4px;
+		background: red;
+		transition: all .3s;
+	}
+
+	&:before {
+		top: 0;
+	}
+	span {
+		top: 50%;
+	}
+	&:after {
+		top: 100%;
+	}
+}
+
+.resize-active {
+	.navbar-nav,
+	.main-nav {
+		transition: none;
+	}
+}
+
+//end burger-menu
