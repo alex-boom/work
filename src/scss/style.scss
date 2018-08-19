@@ -21,6 +21,8 @@ $media-expressions: (
 
 @import 'vendors/include-media';
 @import 'vendors/normalize';
+@import 'vendors/style';
+@import 'vendors/custom';
 
 @import 'base/variables';
 @import 'base/functions';
@@ -36,8 +38,10 @@ $media-expressions: (
 /* header */
 
 #header {
+	position: relative;
 	background-color: rgba($black, .7);
 	padding: 10px 0;
+	z-index: 6;
 
 	.logo-box {
 		padding: 0 15px;
@@ -150,6 +154,10 @@ ul {
 /* end-header */
 
 /* common */
+#wrapper {
+	width: 100%;
+	overflow: hidden;
+}
 
 .container {
 	max-width: 1290px;
@@ -159,6 +167,55 @@ ul {
 
 a {
 	@include animate(opacity color background);
+}
+
+
+
+.sl-slide {
+
+	.sl-slide-inner {
+		position: relative;
+		background-size: cover;
+		background-position: 50% 50%;
+		z-index: 0;
+
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			left: 0;
+			bottom: 0;
+			background-color: rgba(black, .5);
+			z-index: -1;
+		}
+
+		h2 {
+			text-transform: capitalize;
+			text-shadow: 0px 0px 8px rgba(255, 255, 255, .6) !important;
+		}
+
+		p,
+		cite {
+			color: rgba($white, .6);
+		}
+	}
+}
+
+.nav-arrows {
+
+	span {
+
+		&.nav-arrow-prev,
+		&.nav-arrow-next {
+			@include animate(all);
+			border-color: rgba($white, .5);
+
+			&:hover {
+				border-color: rgba($white, .2);
+			}
+		}
+	}
 }
 
 /* end-common */
