@@ -21,8 +21,9 @@ $media-expressions: (
 
 @import 'vendors/include-media';
 @import 'vendors/normalize';
-@import 'vendors/style';
-@import 'vendors/custom';
+// @import 'vendors/sl-slider-demo';
+@import 'vendors/sl-slider-style';
+@import 'vendors/sl-slider-custom';
 
 @import 'base/variables';
 @import 'base/functions';
@@ -169,7 +170,20 @@ a {
 	@include animate(opacity color background);
 }
 
+.btn {
+	display: inline-block;
+	padding: 8px 15px;
+	border-radius: 5px;
+	background-color: orange;
+	text-align: center;
+	color: $white;
+}
 
+.holder-slider {
+	position: relative;
+	height: 100vh;
+	margin-top: -58px;
+}
 
 .sl-slide {
 
@@ -218,7 +232,67 @@ a {
 	}
 }
 
+.section-portfolio {
+	background: #131212;
+}
+
+.block-portfolio {
+	column-count: 3;
+	column-gap: 0;
+	overflow: hidden;
+	height: 100vh;
+
+	@include media('>=widescreen') {
+		column-count: 5;
+	}
+
+	&:hover {
+
+		.portfolio-item {
+			@include animate(opacity);
+			opacity: 0.3;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
+
+	.portfolio-item {
+		position: relative;
+		display: block;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			display: block;
+		}
+
+		.text {
+			@include animate(top transform);
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			transform: translateY(100%);
+			background-color: rgba($black, .6);
+			text-align: center;
+			padding: 5px;
+		}
+
+		&:hover {
+
+			.text {
+				transform: translateY(0);
+			}
+		}
+	}
+}
+
 /* end-common */
 
 /* footer */
 /* end-footer */
+
+
+
