@@ -234,16 +234,18 @@ a {
 
 .section-portfolio {
 	background: #131212;
+	overflow: auto;
 }
 
 .block-portfolio {
+	position: relative;
 	column-count: 3;
 	column-gap: 0;
 	overflow: hidden;
-	height: 100vh;
+	padding-bottom: 30px;
 
 	@include media('>=widescreen') {
-		column-count: 5;
+		column-count: 4;
 	}
 
 	&:hover {
@@ -259,9 +261,11 @@ a {
 	}
 
 	.portfolio-item {
+		display: none;
 		position: relative;
-		display: block;
 		overflow: hidden;
+		// opacity: .1;
+		margin: 0;
 
 		img {
 			width: 100%;
@@ -293,6 +297,3 @@ a {
 
 /* footer */
 /* end-footer */
-
-
-
