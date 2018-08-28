@@ -21,7 +21,6 @@ $media-expressions: (
 
 @import 'vendors/include-media';
 @import 'vendors/normalize';
-// @import 'vendors/sl-slider-demo';
 @import 'vendors/sl-slider-style';
 @import 'vendors/sl-slider-custom';
 
@@ -40,7 +39,7 @@ $media-expressions: (
 
 #header {
 	position: relative;
-	background-color: rgba($black, .7);
+	background-image: linear-gradient(325deg, rgba($primary-color, 1), rgba($secondary-color, 1));
 	padding: 10px 0;
 	z-index: 6;
 
@@ -59,23 +58,108 @@ ul {
 }
 
 .main-nav {
+	display: flex;
+	flex-wrap: wrap;
 	flex-basis: 0;
 	flex-grow: 1;
 	max-width: 100%;
-	padding: 0 15px;
+	padding: 15px;
+
+	@include media('>=tablet') {
+		display: block;
+	}
+
+	@include media('>=tablet') {
+		padding: 0 15px;
+	}
+
+	.social-box {
+		width: calc(100% + 20px);
+		justify-content: center;
+		text-align: center;
+		font-size: 37px;
+		padding: 10px 0;
+		margin: 0 -10px;
+		align-self: flex-end;
+
+		@include media('>=tablet') {
+			display: none;
+		}
+
+		> li {
+			padding: 0 10px;
+
+			a {
+				color: $white;
+
+				&:hover {
+					opacity: .5;
+				}
+			}
+		}
+	}
 }
 
 .navbar-nav {
+	width: 100%;
+	text-transform: uppercase;
+	text-align: center;
+	align-self: center;
 
 	@include media('>=tablet') {
 		display: flex;
 		flex-wrap: wrap;
+		justify-content: flex-end;
+		align-items: center;
+		text-align: left;
+		text-transform: none;
+		width: auto;
+		height: 100%;
+		font-weight: 500;
+		font-style: italic;
 		margin: 0 -15px;
 	}
 
 	> li {
 		position: relative;
-		padding: 0 15px;
+		padding: 10px 0;
+
+		@include media('>=tablet') {
+			padding: 0 15px;
+		}
+
+		&.has-drop-down {
+
+			> .slide {
+
+				@include media('<tablet') {
+					padding: 10px 0 0;
+				}
+			}
+		}
+
+		&.active {
+
+			> a {
+
+				&:before {
+					left: 0;
+					right: 0;
+					visibility: visible;
+					opacity: 1;
+				}
+			}
+		}
+
+		> a {
+			@extend %underline;
+			color: $white;
+			padding-bottom: 4px;
+
+			&:before {
+				height: 2px;
+			}
+		}
 
 		&:hover {
 
@@ -89,11 +173,13 @@ ul {
 		> .slide { // slide -1
 
 			> ul {
+				font-size: 12px;
+				line-height: 1.6;
 
 				> li {
 
 					> a {
-						color: red;
+						color: $white;
 					}
 				}
 			}
@@ -128,7 +214,7 @@ ul {
 				> .has-drop-down-a {
 
 					&:after {
-						transform: rotate(90deg);
+						transform: rotate(-180deg);
 					}
 				}
 			}
@@ -139,13 +225,13 @@ ul {
 
 				&:after {
 					@include animate(transform);
-					content: "\f105";
+					content: "\f110";
 					position: absolute;
-					top: -4px;
+					top: 3px;
 					right: 0;
 					transform: rotate(0);
-					font-size: 20px;
-					font-family: FontAwesome;
+					font-size: 13px;
+					font-family: "LineAwesome";
 				}
 			}
 		}
@@ -166,23 +252,54 @@ ul {
 	margin: 0 auto;
 }
 
+h1 {
+
+	@include media('>=desktop') {
+		font-size: 47px;
+	}
+}
+
+h2 {
+
+	@include media('>=desktop') {
+		font-size: 43px;
+	}
+}
+
 a {
 	@include animate(opacity color background);
 }
 
 .btn {
 	display: inline-block;
-	padding: 8px 15px;
-	border-radius: 5px;
-	background-color: orange;
-	text-align: center;
 	color: $white;
+	font-weight: 500;
+	text-align: center;
+	text-transform: capitalize;
+	text-decoration: none;
+	border-radius: 4px;
+	background-color: $primary-color;
+	box-shadow: 0 10px 20px -7px rgba(0, 0, 0, .2);
+	padding: 10px 15px;
+
+	&.btn-primary {
+		background-image: $primary-gradient;
+
+		&:hover {
+			background-image: $back-primary-gradient;
+		}
+	}
+}
+
+.social-box {
+	@extend %listreset;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .holder-slider {
 	position: relative;
 	height: 100vh;
-	margin-top: -58px;
 }
 
 .sl-slide {
@@ -200,18 +317,28 @@ a {
 			right: 0;
 			left: 0;
 			bottom: 0;
-			background-color: rgba(black, .5);
+			background: linear-gradient(to bottom, rgba(0,0,0, 0.02) 0%, rgba(0,0,0, 0.2) 53%, rgba(0,0,0, 0.7) 100%);
 			z-index: -1;
+		}
+
+		h2,
+		p,
+		cite {
+			color: $white;
+			text-shadow: 0px 0px 8px rgba(0, 0, 0, .6) !important;
+			line-height: 1.4;
 		}
 
 		h2 {
 			text-transform: capitalize;
-			text-shadow: 0px 0px 8px rgba(255, 255, 255, .6) !important;
 		}
 
-		p,
+		p {
+			font-size: 14px;
+		}
+
 		cite {
-			color: rgba($white, .6);
+			font-size: 10px;
 		}
 	}
 }
@@ -233,39 +360,74 @@ a {
 }
 
 .section-portfolio {
-	background: #131212;
-	overflow: auto;
+
+	.loadmore {
+
+		.btn {
+			border: none;
+		}
+	}
 }
 
 .block-portfolio {
 	position: relative;
-	column-count: 3;
-	column-gap: 0;
+	column-count: 2;
+	column-gap: 15px;
 	overflow: hidden;
 	padding-bottom: 30px;
 
+	@include media('>=tablet') {
+		column-count: 3;
+	}
+
 	@include media('>=widescreen') {
+		column-gap: 30px;
 		column-count: 4;
 	}
 
-	&:hover {
+	// &:hover {
 
-		.portfolio-item {
-			@include animate(opacity);
-			opacity: 0.3;
+	// 	.portfolio-item {
+	// 		@include animate(opacity);
+	// 		filter: blur(1px);
 
-			&:hover {
-				opacity: 1;
-			}
-		}
-	}
+	// 		&:hover {
+	// 			filter: blur(0);
+	// 		}
+	// 	}
+	// }
 
 	.portfolio-item {
 		display: none;
 		position: relative;
-		overflow: hidden;
-		// opacity: .1;
-		margin: 0;
+		margin: 0 0 11px;
+
+		@include media('>=widescreen') {
+			margin: 0 0 26px;
+		}
+
+		&:before {
+			@include mboxshadow(3);
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+
+			@include media('>=widescreen') {
+				@include mboxshadow(4);
+			}
+		}
+
+		&:hover {
+
+			.text {
+				transform: translateY(0);
+				visibility: visible;
+				opacity: 1;
+			}
+		}
 
 		img {
 			width: 100%;
@@ -273,22 +435,17 @@ a {
 		}
 
 		.text {
-			@include animate(top transform);
+			@include animate(transform visibility opacity);
 			position: absolute;
 			left: 0;
 			right: 0;
 			bottom: 0;
 			transform: translateY(100%);
+			visibility: hidden;
+			opacity: 0;
 			background-color: rgba($black, .6);
 			text-align: center;
 			padding: 5px;
-		}
-
-		&:hover {
-
-			.text {
-				transform: translateY(0);
-			}
 		}
 	}
 }

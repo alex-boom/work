@@ -162,10 +162,10 @@ function initMixItUp() {
 			initial: 11,
 			loadMore: 5,
 			buttonWrapper: ".loadmore",
-			buttonClass: "loadmore-button",
-			buttonLabel: "Load more",
-			lessClass: "loadmore-less",
-			lessLabel: "Reset"
+			buttonClass: "loadmore-button btn btn-primary",
+			buttonLabel: "показать больше",
+			lessClass: "loadmore-less btn btn-primary",
+			lessLabel: "свернуть"
 		}
 	});
 }
@@ -174,28 +174,28 @@ function initMixitupLoadmore() {
 
 	jQuery(".example").mixItUp({
 		selectors: {
-          target: ".example-item" // As in mixitup
-        },
-        layout: {
-          display: "inline-block" // As in mixitup
-        },
-        loadmore: {
-          // The number of items to start with
-          initial: 4,
-          // The number of items to load on click on the loadmore button
-          loadMore: 2,
-          // A selector string for the existing wrapper the buttons will be inserted into
-          buttonWrapper: ".loadmore",
-          // The class of the Load more button
-          buttonClass: "loadmore-button",
-          // The label of the Load more button
-          buttonLabel: "Load more",
-          // The class of the less button
-          lessClass: "loadmore-less",
-          // The label of the less button
-          lessLabel: "Reset"
-        }
-      });
+			target: ".example-item" // As in mixitup
+		},
+		layout: {
+			display: "inline-block" // As in mixitup
+		},
+		loadmore: {
+			// The number of items to start with
+			initial: 4,
+			// The number of items to load on click on the loadmore button
+			loadMore: 2,
+			// A selector string for the existing wrapper the buttons will be inserted into
+			buttonWrapper: ".loadmore",
+			// The class of the Load more button
+			buttonClass: "loadmore-button",
+			// The label of the Load more button
+			buttonLabel: "Load more",
+			// The class of the less button
+			lessClass: "loadmore-less",
+			// The label of the less button
+			lessLabel: "Reset"
+		}
+});
 
 }
 
