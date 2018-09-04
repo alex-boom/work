@@ -2,14 +2,21 @@
 // Color calculator - http://razorjam.github.io/sasscolourfunctioncalculator/
 // Color names - http://name-of-color.com/
 
-$gray: #999;
-$black: #333;
-$black-light: #131212;
+$gray: #888;
+$black-light: #4d4d4d;
+$black: #131212;
 $white: #fff;
-$light-blue: #39f;
-$pink: #9100ff;
-$orange: #ed6245;
+$light-blue: #3dade9;
+$pink: #846EF4;
+$orange: #F17674;
 $porcelain: #E2E1E0;
+
+$yellow:  #add356;
+$teal:    #00dfa6;
+$lorange: #ffcb52;
+$dorange: #ff451f;
+$blue:    #3dade9;
+$purple:  #bf2fcb;
 
 $primary-color: $pink;
 $secondary-color: $orange;
@@ -22,7 +29,7 @@ $base-font-serif: 'Times New Roman', 'Times', 'Baskerville', 'Georgia', serif;
 $base-font-cursive: 'Lobster', cursive;
 
 // Body
-$base-text-color: $black !default;
+$base-text-color: $gray !default;
 $base-background-color: $white !default;
 $base-font-size: 16px !default;
 $base-line-height: 1.2 !default;
@@ -56,7 +63,7 @@ $h5-font-size: 17px !default;
 $h6-font-size: 15px !default;
 
 $headings-font-family: $base-font-cursive;
-$headings-color: inherit !default;
+$headings-color: $black-light !default;
 
 
 $animation-speed: 0.3s;

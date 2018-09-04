@@ -38,8 +38,12 @@ $media-expressions: (
 /* header */
 
 #header {
+	@include mboxshadow(4);
 	position: relative;
 	background-image: linear-gradient(325deg, rgba($primary-color, 1), rgba($secondary-color, 1));
+	background-image: $primary-gradient;
+	background-size: 400% 400%;
+	animation: Gradient 15s ease infinite;
 	padding: 10px 0;
 	z-index: 6;
 
@@ -255,7 +259,7 @@ ul {
 h1 {
 
 	@include media('>=desktop') {
-		font-size: 47px;
+		font-size: 57px;
 	}
 }
 
@@ -270,6 +274,12 @@ a {
 	@include animate(opacity color background);
 }
 
+%gradient-text {
+	background: $primary-gradient;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
 .btn {
 	display: inline-block;
 	color: $white;
@@ -277,6 +287,7 @@ a {
 	text-align: center;
 	text-transform: capitalize;
 	text-decoration: none;
+	cursor: pointer;
 	border-radius: 4px;
 	background-color: $primary-color;
 	box-shadow: 0 10px 20px -7px rgba(0, 0, 0, .2);
@@ -287,6 +298,101 @@ a {
 
 		&:hover {
 			background-image: $back-primary-gradient;
+		}
+	}
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+.open-close {
+	position: relative;
+	font-size: 16px;
+
+	@include media('<tablet') {
+		margin-bottom: 45px;
+	}
+
+	&.active {
+
+		.slide {
+			border-color: #979797;
+		}
+
+		.opener {
+			&:after {
+				transform: rotate(-180deg);
+			}
+		}
+	}
+
+	.opener {
+		display: block;
+		padding: 7px 35px 7px 15px;
+		text-decoration: none;
+		color: $gray;
+
+		&:after {
+			@include animate(transform);
+			font-family: LineAwesome;
+			content: "\f110";
+			position: absolute;
+			top: 12px;
+			right: 21px;
+		}
+
+		@include media('>=tablet') {
+			display: none;
+			padding: 0;
+		}
+	}
+
+	.slide {
+
+		@include media('<tablet') {
+
+			@include animate(border, .2s);
+			position: absolute;
+			z-index: 1;
+			top: 98%;
+			left: 0;
+			right: 0;
+			background-color: $white;
+			border: 1px solid transparent;
+			border-top: none;
 		}
 	}
 }
@@ -330,7 +436,8 @@ a {
 		}
 
 		h2 {
-			text-transform: capitalize;
+			background: none;
+			-webkit-text-fill-color: snow;
 		}
 
 		p {
@@ -360,11 +467,91 @@ a {
 }
 
 .section-portfolio {
+	@include animate(background);
+	background-size: 40%, 30%;
+	background-repeat: repeat-x, no-repeat;
+	background-position: bottom -50px left, top left;
+	text-align: center;
+	padding: 25px 15px;
+
+	@include media('>=widescreen') {
+		padding: 50px 25px;
+	}
 
 	.loadmore {
+		text-align: center;
 
 		.btn {
 			border: none;
+		}
+	}
+
+	.controls {
+		font-weight: 600;
+		padding: 5px 0 25px;
+
+		@include media('>=widescreen') {
+			padding: 15px 0 40px;
+		}
+
+		.opener {
+
+			@include media('<tablet') {
+				color: $white;
+				text-align: center;
+				padding: 12px 35px 12px 35px;
+				background-image: $primary-gradient;
+				background-size: 400% 400%;
+				animation: Gradient 8s ease infinite;
+			}
+		}
+	}
+
+	.tabset {
+
+		@include media('>=tablet') {
+			display: flex;
+			justify-content: center;
+			text-transform: uppercase;
+		}
+
+		.filter {
+			@extend %gradient-text;
+			@extend %underline;
+			display: block;
+			cursor: pointer;
+			border-radius: 0;
+
+			@include media('<tablet') {
+				background-image: $primary-gradient;
+				background-size: 400% 400%;
+				animation: Gradient 8s ease infinite;
+				color: $white;
+				text-align: center;
+				padding: 10px 0;
+				-webkit-background-clip: inherit;
+				-webkit-text-fill-color: snow;
+			}
+
+			@include media('>=tablet') {
+				margin: 0 10px;
+				padding: 0 0 3px;
+			}
+
+			&:before {
+				background: $primary-gradient;
+			}
+
+			&.active {
+
+				&:before {
+					left: 0;
+					right: 0;
+					visibility: visible;
+					background: $primary-gradient;
+					opacity: 1;
+				}
+			}
 		}
 	}
 }
@@ -414,6 +601,8 @@ a {
 			left: 0;
 			right: 0;
 			bottom: 0;
+
+			// background-color: #ccc;
 
 			@include media('>=widescreen') {
 				@include mboxshadow(4);

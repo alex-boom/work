@@ -64,7 +64,6 @@
 	top: 0;
 	left: -100%;
 	bottom: 0;
-	background-image: $primary-gradient;
 	height: 100vh;
 	overflow-y: auto;
 	visibility: hidden;
@@ -73,6 +72,12 @@
 	@include media('>=350px') {
 		left: -250px;
 		width: 250px;
+	}
+
+	@include media('<tablet') {
+		background-image: $primary-gradient;
+		background-size: 400% 400%;
+		animation: Gradient 8s ease infinite;
 	}
 
 	@include media('>=tablet') {
