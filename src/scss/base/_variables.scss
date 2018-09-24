@@ -4,10 +4,12 @@
 
 $gray: #888;
 $black-light: #4d4d4d;
-$black: #131212;
+$black: #000;
 $white: #fff;
 $light-blue: #3dade9;
 $pink: #846EF4;
+$light-pink: #b972b1;
+
 $orange: #F17674;
 $porcelain: #E2E1E0;
 
@@ -26,12 +28,12 @@ $back-primary-gradient: linear-gradient(225deg,  $secondary-color, $primary-colo
 
 $base-font-sans-serif: 'Montserrat', 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
 $base-font-serif: 'Times New Roman', 'Times', 'Baskerville', 'Georgia', serif;
-$base-font-cursive: 'Lobster', cursive;
+$base-font-cursive: 'Lobster', cursive, $base-font-sans-serif;
 
 // Body
 $base-text-color: $gray !default;
 $base-background-color: $white !default;
-$base-font-size: 16px !default;
+$base-font-size: 18px !default;
 $base-line-height: 1.2 !default;
 $base-font-family: $base-font-sans-serif !default;
 
@@ -63,7 +65,7 @@ $h5-font-size: 17px !default;
 $h6-font-size: 15px !default;
 
 $headings-font-family: $base-font-cursive;
-$headings-color: $black-light !default;
+$headings-color: $light-pink !default;
 
 
 $animation-speed: 0.3s;

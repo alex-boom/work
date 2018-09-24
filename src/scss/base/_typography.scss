@@ -9,9 +9,13 @@ h6, .h6,
 .h {
   font-family: $headings-font-family;
   font-weight: 400;
-  margin: 0 0 0.5em;
+  letter-spacing: 2px;
+  margin: 0 0 0.3em;
   color: $headings-color;
   text-transform: uppercase;
+}
+
+.gradient-text {
   background: $primary-gradient;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
