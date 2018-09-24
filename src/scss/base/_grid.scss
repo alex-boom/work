@@ -207,6 +207,13 @@
 	flex-direction: column-reverse!important;
 }
 
+.flex-column-reverse-xs {
+
+	@include media('<tablet') {
+		flex-direction: column-reverse!important;
+	}
+}
+
 .flex-row-reverse {
 	flex-direction: row-reverse!important;
 }
@@ -231,4 +238,8 @@
 
 .d-none {
 	display: none !important;
+}
+
+.ov-h {
+	overflow: hidden;
 }

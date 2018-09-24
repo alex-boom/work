@@ -3,10 +3,11 @@
 // Color names - http://name-of-color.com/
 
 $gray: #888;
+$light-gray: #ccc;
 $black-light: #4d4d4d;
 $black: #000;
 $white: #fff;
-$light-blue: #3dade9;
+$light-blue: #7b7992;
 $pink: #846EF4;
 $light-pink: #b972b1;
 
@@ -31,9 +32,9 @@ $base-font-serif: 'Times New Roman', 'Times', 'Baskerville', 'Georgia', serif;
 $base-font-cursive: 'Lobster', cursive, $base-font-sans-serif;
 
 // Body
-$base-text-color: $gray !default;
+$base-text-color: $light-blue !default;
 $base-background-color: $white !default;
-$base-font-size: 18px !default;
+$base-font-size: 16px !default;
 $base-line-height: 1.2 !default;
 $base-font-family: $base-font-sans-serif !default;
 

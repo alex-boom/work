@@ -35,10 +35,10 @@ function initSlickCarousel() {
 		rows: 0,
 		arrows: false,
 		slidesToShow: 4,
-		slidesToScroll: 4,
+		// slidesToScroll: 4,
 		centerMode: true,
 		autoplay: true,
-		autoplaySpeed: 3000,
+		autoplaySpeed: 2000,
 		responsive: [
 		{
 			breakpoint: 1770,
@@ -82,7 +82,7 @@ function initSlickCarousel() {
 		fade: true,
 		cssEase: 'linear',
 		autoplay: true,
-		autoplaySpeed: 3000,
+		autoplaySpeed: 5000,
 		arrows: false,
 	});
 }
@@ -1200,11 +1200,11 @@ lib = {
 		// maximum possible scale
 		maxScale : 2,
 		// slideshow on / off
-		autoplay : false,
+		autoplay : true,
 		// keyboard navigation
 		keyboard : true,
 		// time between transitions
-		interval : 4000,
+		interval : 6000,
 		// callbacks
 		onBeforeChange : function( slide, idx ) { return false; },
 		onAfterChange : function( slide, idx ) { return false; }
