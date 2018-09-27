@@ -15,6 +15,7 @@ input[type='password'],
 //input[type='url'],
 // input[type='date'],
 textarea {
+  width: 100%;
   -webkit-appearance: none;
   -webkit-border-radius: 0;
   box-sizing: border-box;
@@ -22,7 +23,7 @@ textarea {
   padding: $form-element-padding;
 
   // &:hover {
-    
+
   // }
 
   &:focus {
@@ -53,3 +54,23 @@ input[type='submit'] {
   cursor: pointer;
 }
 
+.form-group {
+ margin-bottom: 20px;
+}
+
+.form-control {
+  height: 40px;
+  border-radius: 5px !important;
+  overflow: hidden;
+}
+
+textarea {
+
+  &.form-control {
+    min-height: 100px;
+
+    @include media('>=tablet') {
+      min-height: 150px;
+    }
+  }
+}

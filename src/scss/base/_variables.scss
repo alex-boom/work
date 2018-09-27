@@ -7,10 +7,9 @@ $light-gray: #ccc;
 $black-light: #4d4d4d;
 $black: #000;
 $white: #fff;
-$light-blue: #7b7992;
+$light-blue: #67707a;
 $pink: #846EF4;
 $light-pink: #b972b1;
-
 $orange: #F17674;
 $porcelain: #E2E1E0;
 
@@ -20,6 +19,10 @@ $lorange: #ffcb52;
 $dorange: #ff451f;
 $blue:    #3dade9;
 $purple:  #bf2fcb;
+
+$lighten-gray: #c7c7c7;
+$red: #ff6e6f;
+$bezier: cubic-bezier(.175, .885, .32, 1.275);
 
 $primary-color: $pink;
 $secondary-color: $orange;
@@ -48,12 +51,12 @@ $base-link-color: $light-blue;
 // Buttons
 $btn-color: $white;
 $btn-background: $black !default;
-$btn-padding: 0.4em 0.7em !default;
+$btn-padding: 10px 15px !default;
 $btn-font-size: inherit !default;
 
 // Forms
 $form-element-padding: $btn-padding !default;
-$form-element-border-color: $gray !default;
+$form-element-border-color: $light-pink !default;
 $form-element-focus-border-color: $black !default;
 $placeholder-color: $gray !default;
 
