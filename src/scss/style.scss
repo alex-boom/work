@@ -25,6 +25,7 @@ $media-expressions: (
 @import 'vendors/sl-slider-custom';
 @import 'vendors/slick';
 @import 'vendors/swiper';
+@import 'vendors/fancybox';
 
 @import 'base/variables';
 @import 'base/functions';
@@ -455,7 +456,7 @@ a {
 			right: 21px;
 		}
 
-		@include media('>=tablet') {
+		@include media('>=desktop') {
 			display: none;
 			padding: 0;
 		}
@@ -463,7 +464,7 @@ a {
 
 	.slide {
 
-		@include media('<tablet') {
+		@include media('<desktop') {
 
 			@include animate(border, .2s);
 			position: absolute;
@@ -584,7 +585,7 @@ a {
 	background-repeat: repeat-x, no-repeat;
 	background-position: bottom left, top left;
 	text-align: center;
-	padding: 25px 15px;
+	padding: 25px 0;
 	box-shadow: inset 0px 0px 15px 10px $white;
 
 	@include media('>=tablet') {
@@ -597,7 +598,7 @@ a {
 		background-position: bottom 50px left, top left;
 		background-size: 40%, 30%;
 		box-shadow: inset 0 -40px 45px 28px $white;
-		padding: 50px 25px;
+		padding: 50px 0;
 	}
 
 	.loadmore {
@@ -610,15 +611,15 @@ a {
 
 	.controls {
 		font-weight: 600;
-		margin: 5px 0 25px;
+		margin: 15px;
 
 		@include media('>=widescreen') {
-			margin: 15px 0 40px;
+			margin: 15px 0 5px;
 		}
 
 		.opener {
 
-			@include media('<tablet') {
+			@include media('<desktop') {
 				color: $white;
 				text-align: center;
 				padding: 12px 35px 12px 35px;
@@ -631,8 +632,9 @@ a {
 
 	.tabset {
 
-		@include media('>=tablet') {
+		@include media('>=desktop') {
 			display: flex;
+			flex-wrap: wrap;
 			justify-content: center;
 			text-transform: uppercase;
 		}
@@ -644,7 +646,7 @@ a {
 			cursor: pointer;
 			border-radius: 0;
 
-			@include media('<tablet') {
+			@include media('<desktop') {
 				background-image: $primary-gradient;
 				background-size: 400% 400%;
 				animation: Gradient 8s ease infinite;
@@ -655,7 +657,7 @@ a {
 				-webkit-text-fill-color: snow;
 			}
 
-			@include media('>=tablet') {
+			@include media('>=desktop') {
 				margin: 0 10px;
 				padding: 0 0 3px;
 			}
@@ -683,22 +685,28 @@ a {
 	column-count: 2;
 	column-gap: 15px;
 	overflow: hidden;
-	padding-bottom: 10px;
+	padding: 15px;
 
 	@include media('>=tablet') {
 		column-count: 3;
-		padding-bottom: 20px;
 	}
 
 	@include media('>=widescreen') {
 		column-gap: 30px;
 		column-count: 4;
-		padding-bottom: 30px;
+		padding: 25px;
+	}
+
+	&.mixitup {
+
+		.portfolio-item {
+			display: none;
+		}
 	}
 
 	.portfolio-item {
-		display: none;
 		position: relative;
+		display: inline-block;
 		margin: 0 0 11px;
 
 		@include media('>=widescreen') {
@@ -756,6 +764,58 @@ a {
 			}
 		}
 	}
+
+	.load-more {
+		display: none;
+	}
+}
+
+.load-more-holder {
+	@extend %bg-decoration-b-l;
+	@include animate(padding opacity);
+	background-repeat: repeat-x;
+	position: relative;
+
+	&.is-busy {
+		padding-bottom: 150px;
+	}
+
+	.portfolio-item {
+		@include animate(opacity transform);
+		transform: translateY(0);
+		opacity: 1;
+
+		&.new-item {
+			opacity: 0;
+			transform: translateY(25px);
+		}
+	}
+}
+
+.preloader {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: none;
+	flex-wrap: wrap;
+	justify-content: center;
+	color: $gray;
+
+	.is-busy & {
+		display: flex;
+	}
+
+	img {
+		max-width: 80px;
+	}
+
+	.text {
+		display: block;
+		width: 100%;
+		text-align: center;
+		padding: 6px;
+	}
 }
 
 .bg-gray {
@@ -765,6 +825,12 @@ a {
 .bg-primary {
 	background-color: $pink !important;
 	background-image: $primary-gradient;
+}
+
+[disabled^='disabled'] {
+	opacity: .5;
+	cursor: default;
+	pointer-events: none;
 }
 
 .section-price {
