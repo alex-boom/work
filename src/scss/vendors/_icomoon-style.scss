@@ -1,0 +1,119 @@
+@import "icomoon-variables";
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?l0jukv');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?l0jukv#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?l0jukv') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?l0jukv') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?l0jukv##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-indent-all {
+  &:before {
+    content: $icon-indent-all;
+  }
+}
+.icon-arrow-right {
+  &:before {
+    content: $icon-arrow-right;
+  }
+}
+.icon-arrow-up {
+  &:before {
+    content: $icon-arrow-up;
+  }
+}
+.icon-arrow-left {
+  &:before {
+    content: $icon-arrow-left;
+  }
+}
+.icon-birthday-cake {
+  &:before {
+    content: $icon-birthday-cake;
+  }
+}
+.icon-certificate {
+  &:before {
+    content: $icon-certificate;
+  }
+}
+.icon-customer-review {
+  &:before {
+    content: $icon-customer-review;
+  }
+}
+.icon-view {
+  &:before {
+    content: $icon-view;
+  }
+}
+.icon-hearts {
+  &:before {
+    content: $icon-hearts;
+  }
+}
+.icon-individual {
+  &:before {
+    content: $icon-individual;
+  }
+}
+.icon-maternity {
+  &:before {
+    content: $icon-maternity;
+  }
+}
+.icon-open-folder-outline {
+  &:before {
+    content: $icon-open-folder-outline;
+  }
+}
+.icon-play-button {
+  &:before {
+    content: $icon-play-button;
+  }
+}
+.icon-pregnan {
+  &:before {
+    content: $icon-pregnan;
+  }
+}
+.icon-left-arrow {
+  &:before {
+    content: $icon-left-arrow;
+  }
+}
+.icon-right-arrow {
+  &:before {
+    content: $icon-right-arrow;
+  }
+}
+.icon-rings {
+  &:before {
+    content: $icon-rings;
+  }
+}
+.icon-scroll {
+  &:before {
+    content: $icon-scroll;
+  }
+}
+
