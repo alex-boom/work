@@ -1,5 +1,6 @@
 // page init
 jQuery(function() {
+	// initSmoothScroll();
 	initFancybox();
 	initLoadMore();
 	initStickyScrollBlock();
@@ -15,6 +16,42 @@ jQuery(function() {
 	initSwiper();
 });
 
+
+// Smooth Scrollinit
+function initSmoothScroll() {
+	var lastScrollTop = 0;
+	$(window).scroll(function(event){
+		var st = $(this).scrollTop();
+		if (st < 100){
+			$(".back-to-top").removeClass('active');
+		} else {
+			if (st > lastScrollTop){
+				$(".back-to-top").removeClass('active');
+			} else {
+				$(".back-to-top").addClass('active');
+			}
+		}
+		lastScrollTop = st;
+	});
+
+	$(function() {
+		$("html, body").animate({ scrollTop: $(document).height() }, 200);
+		return false;
+	});
+
+	$(function() {
+		$('a[href^="#"]').on('click',function (e) {
+			e.preventDefault();
+			var target = this.hash,
+			$target = $(target);
+			$('html, body').stop().animate({
+				'scrollTop': $target.offset().top
+			}, 200, function () {
+				window.location.hash = target;
+			});
+		});
+	});
+}
 
 // lightbox init
 function initFancybox() {
@@ -35,7 +72,7 @@ function initLoadMore() {
 	});
 }
 
-// initialize fixed blocks on scroll
+// init fixed blocks on scroll
 function initStickyScrollBlock() {
 
 	ResponsiveHelper.addRange({
@@ -77,12 +114,11 @@ function initSwiper() {
 		mousewheel: {
 			invert: false,
 		},
-    // autoHeight: true,
-    pagination: {
-    	el: '.blog-slider__pagination',
-    	clickable: true,
-    }
-  });
+		pagination: {
+			el: '.blog-slider__pagination',
+			clickable: true,
+		}
+	});
 }
 
 
@@ -91,8 +127,8 @@ function initSlickCarousel() {
 	jQuery('.price-box .container').slick({
 		rows: 0,
 		// infinite: false,
-		prevArrow: '<button class="slick-prev la la-chevron-circle-left"></button>',
-		nextArrow: '<button class="slick-next la la-chevron-circle-right"></button>',
+		prevArrow: '<button class="slick-prev icon-arrow-left"></button>',
+		nextArrow: '<button class="slick-next icon-arrow-right"></button>',
 		slidesToShow: 3,
 		focusOnSelect: true,
 		appendArrows: '.section-price .slick-btn-box',

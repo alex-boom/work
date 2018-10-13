@@ -272,7 +272,7 @@ ul {
 				> .has-drop-down-a {
 
 					&:after {
-						transform: rotate(-180deg);
+						transform: rotate(0);
 					}
 				}
 			}
@@ -283,13 +283,13 @@ ul {
 
 				&:after {
 					@include animate(transform);
-					content: "\f110";
+					font-family: "icomoon";
+					content: $icon-arrow-up;
 					position: absolute;
 					top: 3px;
 					right: 0;
-					transform: rotate(0);
+					transform: rotate(-180deg);
 					font-size: 13px;
-					font-family: "LineAwesome";
 				}
 			}
 		}
@@ -399,6 +399,90 @@ a {
 	}
 }
 
+.back-to-top {
+	@include animate(bottom);
+	width: 35px;
+	height: 35px;
+	position: fixed;
+	bottom: -100%;
+	right: 10px;
+	z-index: 90;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: $white;
+	border-radius: 50%;
+
+	@include media('>=tablet') {
+		right: 15px;
+		width: 55px;
+		height: 55px;
+	}
+
+	&.active {
+		bottom: 10px;
+
+		@include media('>=tablet') {
+			bottom: 55px;
+		}
+	}
+
+	&:before {
+		@include animate(opacity background);
+		content: "";
+		width: 35px;
+		height: 35px;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		border-radius: 50%;
+		background-image: $primary-gradient;
+		opacity: .5;
+		z-index: -1;
+
+
+		@include media('>=tablet') {
+			width: 55px;
+			height: 55px;
+		}
+	}
+
+	.icon {
+		font-size: 14px;
+		margin-top: -2px;
+
+		@include media('>=tablet') {
+			font-size: 25px;
+			margin-top: -2px;
+		}
+	}
+
+	&:hover {
+		background-image: $primary-gradient;
+		color: $white;
+		outline: none;
+	}
+
+	&:hover:before {
+		opacity: 1;
+		background-image: $primary-gradient;
+	}
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0,0,0,0);
+	border: 0;
+}
+
 .video-holder {
 	padding: 20px 0;
 	text-align: center;
@@ -411,6 +495,10 @@ a {
 .video-box {
 	border-bottom: 1px solid $light-gray;
 	padding: 20px 0;
+
+	h1,h2,h3,h4,h5, {
+		margin-bottom: 20px;
+	}
 
 	.entry-img {
 		position: relative;
@@ -502,7 +590,7 @@ a {
 
 		.opener {
 			&:after {
-				transform: rotate(-180deg);
+				transform: rotate(0);
 			}
 		}
 	}
@@ -515,10 +603,11 @@ a {
 
 		&:after {
 			@include animate(transform);
-			font-family: LineAwesome;
-			content: "\f110";
+			font-family: icomoon;
+			content: $icon-arrow-up;
+			transform: rotate(-180deg);
 			position: absolute;
-			top: 12px;
+			top: 15px;
 			right: 21px;
 		}
 
@@ -751,42 +840,34 @@ a {
 			}
 
 			@include media('>=desktop') {
-				@include mboxshadow(1);
+				@include animate(all);
 				display: flex;
 				flex-wrap: wrap;
 				justify-content: center;
 				align-items: center;
 				width: calc(25% - 20px);
 				min-height: 120px;
-				font-weight: normal;
-				color: $light-pink;
-				background-color: $white;
+				letter-spacing: 3px;
 				border: 1px solid $porcelain;
 				border-radius: 5px;
 				padding: 5px;
 				margin: 10px;
+				background: lighten($porcelain, 3%);
+				border: 1px solid darken($porcelain, 4%);
+				box-shadow: 0px 2px 0 darken($porcelain, 5%), 2px 4px 6px darken($porcelain, 2%);
 
-				// &:before {
-				// 	background: $primary-gradient;
-				// }
-
+				&.active,
 				&:hover {
 
 					@include media('>=desktop') {
-						color: $white;
-						background-color: $porcelain;
-						box-shadow: inset 0 -130px 70px -65px rgba(0,0,0,.1)
+						background: darken($porcelain, 1.5%);
+						border: 1px solid rgba(#000, .05);
+						box-shadow: 1px 1px 2px rgba(#fff, .2);
+						color: lighten($porcelain, 18%);
+						text-decoration: none;
+						text-shadow: -1px -1px 0 darken($porcelain, 9.5%);
+						transition: all 250ms linear;
 					}
-				}
-			}
-
-			&.active {
-
-				@include media('>=desktop') {
-					transform: scale(1.1);
-					color: $white;
-					background-color: $porcelain;
-					box-shadow: inset 0 -130px 70px -65px rgba(0,0,0,.1);
 				}
 			}
 		}
@@ -1002,39 +1083,18 @@ a {
 }
 
 .title-decoration {
-	display: inline-block;
-	min-width: 25%;
 	position: relative;
-	background-image: radial-gradient(circle at 0 0, rgba($white,0) 14.5px, $white 15.5px, $white 19.5px, rgba($white,0) 20.5px), radial-gradient(circle at 35px 0, rgba($white,0) 14.5px, $white 15.5px, $white 19.5px, rgba($white,0) 20.5px);
-	background-size: 35px 20px;
-	background-position: center bottom;
-	background-repeat: no-repeat;
-	padding-bottom: 5px;
-	margin: 0 auto 30px;
-
-	&:before,
-	&:after {
-		content: "";
-		width: 50%;
-		height: 100%;
-		content: "";
-		position: absolute;
-		top: 100%;
-		margin-top: -5px;
-	}
+	padding: 0 0 11px;
 
 	&:before {
-		border-top: 5px solid $white;
-		border-left: 1px solid transparent;
-		border-top-left-radius: 20% 30px;
-		left: -15px;
-	}
-
-	&:after {
-		border-top: 5px solid $white;
-		border-right: 1px solid transparent;
-		border-top-right-radius: 20% 30px;
-		right: -15px;
+		content: "";
+		width: 60px;
+		height: 2px;
+		background-color: $light-pink;
+		position: absolute;
+		left: 50%;
+		bottom: 2px;
+		transform: translateX(-50%);
 	}
 }
 
@@ -1099,24 +1159,24 @@ a {
 }
 
 .slick-arrow {
-	@include animate(opacity visibility);
+	@include animate(opacity color visibility);
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
+	color: $black;
 	border: none;
 	background: none;
 	z-index: 2;
 	cursor: pointer;
 	padding: 0;
-	color: rgba($black, .4);
+	opacity: .3;
 
 	&:focus {
 		outline: none;
 	}
 
 	&:hover {
-		color: $black;
-		opacity: 1;
+		opacity: .6;
 	}
 
 	&:before {
@@ -1775,6 +1835,7 @@ a {
 
 			i {
 				display: inline-block;
+				vertical-align: middle;
 				padding-right: 10px;
 				font-size: 18px;
 			}
@@ -1807,7 +1868,7 @@ a {
 			i {
 				@include animate(transform);
 				display: inline-block;
-				font-size: 25px;
+				font-size: 22px;
 				padding: 0 6px;
 			}
 		}
@@ -1880,7 +1941,7 @@ a {
 				i {
 					@include animate(transform);
 					display: inline-block;
-					font-size: 25px;
+					font-size: 22px;
 					padding-left: 6px;
 				}
 			}
@@ -2018,9 +2079,9 @@ a {
 		}
 	}
 
-	.la {
+	i {
 		display: inline-block;
-		font-size: 20px;
+		font-size: 22px;
 		padding-right: 6px;
 	}
 }
