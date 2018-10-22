@@ -49,6 +49,7 @@ $media-expressions: (
 	top: 0;
 	left: 0;
 	right: 0;
+	min-width: 320px;
 	background-image: $primary-gradient;
 	background-size: 300% 300%;
 	animation: Gradient 15s ease infinite;
@@ -91,7 +92,7 @@ ul {
 		text-align: center;
 		font-size: 47px;
 		padding: 10px 0;
-		margin: 0 -5px;
+		margin: 0 -10px;
 		align-self: flex-end;
 
 		@include media('>=tablet') {
@@ -99,13 +100,13 @@ ul {
 		}
 
 		> li {
-			padding: 0 5px;
+			padding: 0 10px;
 
 			a {
 				color: $white;
 
 				&:hover {
-					opacity: .5;
+					opacity: .7;
 				}
 			}
 		}
@@ -469,6 +470,26 @@ a {
 	&:hover:before {
 		opacity: 1;
 		background-image: $primary-gradient;
+	}
+}
+
+.bg-icon {
+	display: block;
+	width: 30px;
+	height: 30px;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+	&.instagram {
+		background-image: url(images/instagram.svg);
+	}
+
+	&.facebook {
+		background-image: url(images/facebook.svg);
+	}
+
+	&.vk {
+		background-image: url(images/vk.svg);
 	}
 }
 
@@ -847,23 +868,24 @@ a {
 				align-items: center;
 				width: calc(25% - 20px);
 				min-height: 120px;
+				color: $headings-color;
 				letter-spacing: 3px;
-				border: 1px solid $porcelain;
+				border: 1px solid $light-pink;
 				border-radius: 5px;
+				background: lighten($porcelain, 8%);
+				border: 1px solid darken($light-pink, 4%);
+				box-shadow: 0px 2px 0 darken($porcelain, 5%), 2px 4px 6px darken($porcelain, 2%);
 				padding: 5px;
 				margin: 10px;
-				background: lighten($porcelain, 3%);
-				border: 1px solid darken($porcelain, 4%);
-				box-shadow: 0px 2px 0 darken($porcelain, 5%), 2px 4px 6px darken($porcelain, 2%);
 
 				&.active,
 				&:hover {
 
 					@include media('>=desktop') {
-						background: darken($porcelain, 1.5%);
-						border: 1px solid rgba(#000, .05);
-						box-shadow: 1px 1px 2px rgba(#fff, .2);
-						color: lighten($porcelain, 18%);
+						background: darken($porcelain, 1.2%);
+						border: 1px solid rgba($light-pink, .3);
+						box-shadow: 1px 1px 2px rgba($white, .2);
+						color: $white;
 						text-decoration: none;
 						text-shadow: -1px -1px 0 darken($porcelain, 9.5%);
 						transition: all 250ms linear;
@@ -1062,22 +1084,10 @@ a {
 		color: $white;
 	}
 
-	.container-lg {
+	p {
 
-		@include media('<1450px') {
-			max-width: 1100px;
-		}
-
-		@include media('<1200px') {
-			max-width: 700px;
-		}
-
-		@include media('<768px') {
-			max-width: 500px;
-		}
-
-		@include media('<500px') {
-			max-width: 355px;
+		@include media('<tablet') {
+			margin-bottom: 10px;
 		}
 	}
 }
@@ -1100,10 +1110,48 @@ a {
 
 .price-box {
 	position: relative;
-	padding: 20px 0;
+	padding: 10px 0;
 
 	@include media('>=widescreen') {
-		padding: 30px 0;
+		padding: 15px 0;
+	}
+
+	.container-lg {
+
+		@include media('<1450px') {
+			max-width: 1100px;
+		}
+
+		@include media('<1200px') {
+			max-width: 700px;
+		}
+
+		@include media('<768px') {
+			max-width: 500px;
+		}
+
+		@include media('<500px') {
+			max-width: 355px;
+		}
+	}
+
+	.row {
+		width: calc(100% + 10px);
+		margin: 0 -5px;
+		overflow: hidden;
+
+		@include media('>=tablet') {
+			width: calc(100% + 20px);
+			margin: 0 -10px;
+		}
+
+		[class*='col-'] {
+			padding: 5px;
+
+			@include media('>=tablet') {
+				padding: 10px;
+			}
+		}
 	}
 
 	.slick-initialized {
@@ -1144,7 +1192,7 @@ a {
 		}
 	}
 
-	.slick-list{
+	.slick-list {
 		overflow: visible;
 	}
 
@@ -1217,11 +1265,18 @@ a {
 	overflow: hidden;
 	height: 100%;
 	padding: 0 0 70px;
-	margin: 8px 10px;
+	margin: 10px 0 20px;
 
 	@include media('>=widescreen') {
 		border-radius: 10px;
-		margin: 8px 15px;
+	}
+
+	.container-lg & {
+		margin: 0 10px;
+
+		@include media('>=widescreen') {
+			margin: 0 15px;
+		}
 	}
 
 	.entry-title {
@@ -1231,6 +1286,13 @@ a {
 		@include media('>=widescreen') {
 			padding: 30px 80px;
 		}
+
+		.price-main & {
+
+			@include media('<tablet') {
+				padding: 10px 5px;
+			}
+		}
 	}
 
 	h3 {
@@ -1238,6 +1300,14 @@ a {
 		color: $black;
 		font-weight: 500;
 		margin-bottom: 0;
+
+		.price-main & {
+
+			@include media('<tablet') {
+				font-size: 16px;
+				letter-spacing: 0;
+			}
+		}
 	}
 
 	.sale {
@@ -1250,6 +1320,14 @@ a {
 		transform: rotate(-43deg);
 		background-image: $primary-gradient;
 		padding: 9px 35px;
+
+		.price-main & {
+
+			@include media('<tablet') {
+				top: 6px;
+				font-size: 8px;
+			}
+		}
 	}
 
 	.offers-list {
@@ -1264,12 +1342,24 @@ a {
 			margin-bottom: 12px;
 		}
 
+		.price-main & {
+			font-size: 10px;
+
+			@include media('>=tablet') {
+				font-size: 15px;
+			}
+		}
+
 		> li {
 			border-bottom: 1px dashed #e3e2e2;
 			padding: 10px 0;
 
 			@include media('>=widescreen') {
 				padding: 15px 0;
+			}
+
+			.price-main & {
+				padding: 5px 0;
 			}
 
 			> a {
@@ -1299,12 +1389,28 @@ a {
 				height: 130px;
 			}
 
+			.price-main & {
+
+				@include media('<tablet') {
+					width: 70px;
+					height: 70px;
+					font-size: 13px;
+				}
+			}
+
 			strong {
 				display: block;
 				font-size: 24px;
 
 				@include media('>=widescreen') {
 					font-size: 30px;
+				}
+
+				.price-main & {
+
+					@include media('<tablet') {
+						font-size: 16px;
+					}
 				}
 			}
 		}
@@ -1329,6 +1435,11 @@ a {
 	.container {
 
 		> p {
+			font-size: 16px;
+
+			@include media('>=tablet') {
+				font-size: 18px;
+			}
 
 			@include media('>=desktop') {
 				font-size: 22px;

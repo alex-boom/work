@@ -124,7 +124,7 @@ function initSwiper() {
 
 // slick init
 function initSlickCarousel() {
-	jQuery('.price-box .container').slick({
+	jQuery('.price-box .container-lg').slick({
 		rows: 0,
 		// infinite: false,
 		prevArrow: '<button class="slick-prev icon-arrow-left"></button>',
