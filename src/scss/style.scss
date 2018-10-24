@@ -730,29 +730,29 @@ a {
 	}
 }
 
-%bg-decoration {
+.bg-decoration {
 	background-repeat: no-repeat;
 	background-size: 50%;
 	box-shadow: inset 0px 0px 60px 50px $white;
 }
 
-%bg-decoration-t-l {
-	@extend %bg-decoration;
+.bg-decoration-t-l {
+	@extend .bg-decoration;
 	background-position: left top;
 }
 
-%bg-decoration-t-r {
-	@extend %bg-decoration;
+.bg-decoration-t-r {
+	@extend .bg-decoration;
 	background-position: right top;
 }
 
-%bg-decoration-b-l {
-	@extend %bg-decoration;
+.bg-decoration-b-l {
+	@extend .bg-decoration;
 	background-position: left bottom;
 }
 
-%bg-decoration-b-r {
-	@extend %bg-decoration;
+.bg-decoration-b-r {
+	@extend .bg-decoration;
 	background-position: right bottom;
 }
 
@@ -989,7 +989,7 @@ a {
 }
 
 .load-more-holder {
-	@extend %bg-decoration-b-l;
+	@extend .bg-decoration-b-l;
 	@include animate(padding opacity);
 	background-repeat: repeat-x;
 	position: relative;
@@ -1055,9 +1055,7 @@ a {
 	position: relative;
 	text-align: center;
 	font-size: 18px;
-	color: $white;
-	background-attachment: fixed;
-	background-position: center;
+	// background-color: #edeef04a;
 	z-index: 1;
 	padding: 25px 0;
 
@@ -1069,19 +1067,29 @@ a {
 		font-size: 22px;
 	}
 
-	&:before {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: linear-gradient(to top, rgba(0,0,0, 0.02) 0%, rgba(0,0,0, 0.2) 53%, rgba(0,0,0, 0.5) 100%);
-		z-index: -1;
-	}
-
-	h2 {
+	&.bg-stretch {
 		color: $white;
+		background-attachment: fixed;
+		background-position: center;
+
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: linear-gradient(to top, rgba(0,0,0, 0.02) 0%, rgba(0,0,0, 0.2) 53%, rgba(0,0,0, 0.5) 100%);
+			z-index: -1;
+		}
+
+		.price-item {
+			border: none;
+		}
+
+		h2 {
+			color: $white;
+		}
 	}
 
 	p {
@@ -1255,6 +1263,7 @@ a {
 }
 
 .price-item {
+	@include mboxshadow(1);
 	position: relative;
 	display: block;
 	text-align: center;
@@ -1266,9 +1275,19 @@ a {
 	height: 100%;
 	padding: 0 0 70px;
 	margin: 10px 0 20px;
+	border-top: 1px solid lighten($light-gray, 10%);
 
 	@include media('>=widescreen') {
 		border-radius: 10px;
+	}
+
+	.price-main & {
+		max-width: 900px;
+		margin: 0 auto 20px;
+
+		@include media('>=tablet') {
+			background-size: 30%;
+		}
 	}
 
 	.container-lg & {
@@ -1288,9 +1307,10 @@ a {
 		}
 
 		.price-main & {
+			padding: 22px 50px;
 
 			@include media('<tablet') {
-				padding: 10px 5px;
+				padding: 15px 5px;
 			}
 		}
 	}
@@ -1302,12 +1322,24 @@ a {
 		margin-bottom: 0;
 
 		.price-main & {
+			font-size: 24px;
 
 			@include media('<tablet') {
 				font-size: 16px;
 				letter-spacing: 0;
 			}
 		}
+	}
+
+	.open {
+
+		.slide {
+			display: block;
+		}
+	}
+
+	.slide {
+		display: none;
 	}
 
 	.sale {
@@ -1324,8 +1356,9 @@ a {
 		.price-main & {
 
 			@include media('<tablet') {
-				top: 6px;
+				top: 8px;
 				font-size: 8px;
+				padding: 5px 35px;
 			}
 		}
 	}
@@ -1339,18 +1372,17 @@ a {
 
 		@include media('>=widescreen') {
 			font-size: 18px;
-			margin-bottom: 12px;
 		}
 
 		.price-main & {
-			font-size: 10px;
+			font-size: 12px;
 
 			@include media('>=tablet') {
 				font-size: 15px;
 			}
 		}
 
-		> li {
+		li {
 			border-bottom: 1px dashed #e3e2e2;
 			padding: 10px 0;
 
@@ -1359,11 +1391,21 @@ a {
 			}
 
 			.price-main & {
-				padding: 5px 0;
+				padding: 7px 0;
 			}
 
 			> a {
 				text-decoration: none;
+			}
+
+			.price-main & {
+
+				li {
+
+					&:last-child {
+						border-bottom: none;
+					}
+				}
 			}
 		}
 	}
@@ -1390,6 +1432,8 @@ a {
 			}
 
 			.price-main & {
+				width: 105px;
+				height: 105px;
 
 				@include media('<tablet') {
 					width: 70px;
@@ -1407,6 +1451,7 @@ a {
 				}
 
 				.price-main & {
+					font-size: 24px;
 
 					@include media('<tablet') {
 						font-size: 16px;
@@ -1449,7 +1494,7 @@ a {
 }
 
 .section-blog {
-	@extend %bg-decoration-t-l;
+	@extend .bg-decoration-t-l;
 	background-size: 36%;
 	text-align: center;
 	background-repeat: no-repeat;
@@ -1461,7 +1506,7 @@ a {
 }
 
 .blog-slider {
-	@extend %bg-decoration-b-r;
+	@extend .bg-decoration-b-r;
 	// width: 75%;
 	position: relative;
 	max-width: 1000px;
@@ -1767,7 +1812,7 @@ a {
 }
 
 .sidebar-box {
-	@extend %bg-decoration-b-r;
+	@extend .bg-decoration-b-r;
 	background-size: 80%;
 	text-align: center;
 	border: 1px solid $light-gray;

@@ -179,6 +179,12 @@ function initMobileNav() {
 // accordion init
 function initAccordion() {
 
+	jQuery('.price-main .offers-list').slideAccordion({
+		opener: '.opener',
+		slider: '.slide',
+		animSpeed: 300
+	});
+
 	ResponsiveHelper.addRange({
 		'..767': {
 			on: function() {
