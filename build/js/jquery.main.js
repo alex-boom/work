@@ -13,7 +13,6 @@ jQuery(function() {
 	initSlitSlider();
 	initMixItUp();
 	initOpenClose();
-	initSwiper();
 });
 
 
@@ -82,13 +81,8 @@ function initStickyScrollBlock() {
 					setBoxHeight: true,
 					activeClass: 'fixed-position',
 					positionType: 'fixed',
-					extraTop: function() {
-						var totalHeight = 200;
-						jQuery('0').each(function() {
-							totalHeight += jQuery(this).outerHeight();
-						});
-						return totalHeight;
-					}
+					extraTop: 51,
+					extraBottom: 20
 				});
 			},
 			off: function() {
@@ -155,6 +149,17 @@ function initSlickCarousel() {
 	});
 
 	jQuery('.testimonial-box').slick({
+		dots: false,
+		infinite: true,
+		speed: 500,
+		fade: true,
+		cssEase: 'linear',
+		autoplay: true,
+		autoplaySpeed: 5000,
+		arrows: false,
+	});
+
+	jQuery('.slick-blog').slick({
 		dots: false,
 		infinite: true,
 		speed: 500,

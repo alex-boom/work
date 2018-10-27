@@ -24,7 +24,6 @@ $media-expressions: (
 @import 'vendors/sl-slider-style';
 @import 'vendors/sl-slider-custom';
 @import 'vendors/slick';
-@import 'vendors/swiper';
 @import 'vendors/fancybox';
 @import 'vendors/icomoon-variables';
 @import 'vendors/icomoon-style';
@@ -993,6 +992,7 @@ a {
 	@include animate(padding opacity);
 	background-repeat: repeat-x;
 	position: relative;
+	padding-bottom: 100px !important;
 
 	&.is-busy {
 		padding-bottom: 150px;
@@ -1055,8 +1055,8 @@ a {
 	position: relative;
 	text-align: center;
 	font-size: 18px;
-	// background-color: #edeef04a;
 	z-index: 1;
+	background-attachment: fixed;
 	padding: 25px 0;
 
 	@include media('>=tablet') {
@@ -1069,7 +1069,6 @@ a {
 
 	&.bg-stretch {
 		color: $white;
-		background-attachment: fixed;
 		background-position: center;
 
 		&:before {
@@ -1176,7 +1175,7 @@ a {
 			z-index: 1;
 			opacity: .7;
 			border-radius: 10px;
-			margin: 8px -15px;
+			margin: 0 -15px;
 
 			@include media('>=650px') {
 				display: block;
@@ -1501,197 +1500,11 @@ a {
 	padding: 20px 5px;
 
 	@include media('>=desktop') {
-		padding: 50px 5px;
-	}
-}
-
-.blog-slider {
-	@extend .bg-decoration-b-r;
-	// width: 75%;
-	position: relative;
-	max-width: 1000px;
-	background-size: 30%;
-	background-repeat: no-repeat;
-	background-color: $white;
-	text-align: left;
-	border-radius: 25px;
-	transition: all .3s;
-	box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
-	padding: 25px;
-	margin: auto;
-
-	@include media('<widescreen') {
-		max-width: 640px;
-		height: 400px;
+		padding: 30px 5px;
 	}
 
-	@include media('<tablet') {
-		min-height: 500px;
-		height: auto;
-		margin: 140px auto 0;
-	}
-
-	@media screen and (max-height: 500px) and (min-width: 992px) {
-		height: 350px;
-	}
-
-	&__item {
-		display: flex;
-		align-items: center;
-
-		@include media('<tablet') {
-			flex-direction: column;
-		}
-
-		&.swiper-slide-active {
-			.blog-slider__img {
-				img {
-					opacity: 1;
-					transition-delay: .3s;
-				}
-			}
-			.blog-slider__content {
-				> * {
-
-					opacity: 1;
-					transform: none;
-
-					@for $i from 0 to 15 {
-						&:nth-child(#{$i + 1}) {
-							transition-delay: $i * 0.1 + 0.3s;
-						}
-					}
-				}
-			}
-		}
-	}
-
-	&__img {
-		flex-shrink: 0;
-		width: 300px;
-		height: 300px;
-		background-image: $primary-gradient;
-		box-shadow: 4px 13px 30px 1px rgba($black, .1);
-		border-radius: 20px;
-		transform: translateX(-80px);
-		overflow: hidden;
-
-		img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			display: block;
-			opacity: 0;
-			border-radius: 20px;
-			transition: all .3s;
-		}
-
-		@include media('<tablet') {
-			transform: translateY(-50%);
-			width: 90%;
-		}
-
-		@include media('<576px') {
-			width: 95%;
-		}
-
-		@media screen and (max-height: 500px) and (min-width: 992px) {
-			height: 270px;
-		}
-	}
-
-	&__content {
-		padding-right: 25px;
-
-		@include media('<tablet') {
-			margin-top: -80px;
-			text-align: center;
-			padding: 0 30px;
-		}
-
-		@include media('<576px') {
-			padding: 0
-		}
-
-		> * {
-			opacity: 0;
-			transform: translateY(25px);
-			transition: all .4s;
-		}
-	}
-
-	&__code {
-		color: #7b7992;
-		margin-bottom: 15px;
-		display: block;
-		font-weight: 500;
-	}
-
-	&__title {
-		margin-bottom: 20px;
-	}
-
-	&__text {
-		margin-bottom: 30px;
-		line-height: 1.5em;
-	}
-
-	.swiper-container-horizontal>.swiper-pagination-bullets,
-	.swiper-pagination-custom, .swiper-pagination-fraction {
-		bottom: 10px;
-		left: 0;
-		width: 100%;
-	}
-	&__pagination {
-		position: absolute;
-		z-index: 21;
-		right: 20px;
-		width: 11px!important;
-		text-align: center;
-		left: auto!important;
-		top: 50%;
-		bottom: auto!important;
-		transform: translateY(-50%);
-
-		@include media('<tablet') {
-			transform: translateX(-50%);
-			left: 50%!important;
-			top: 205px;
-			width: 100%!important;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
-
-		&.swiper-pagination-bullets .swiper-pagination-bullet {
-			margin: 8px 0;
-
-			@include media('<tablet') {
-				margin: 0 5px;
-			}
-		}
-
-		.swiper-pagination-bullet {
-			width: 11px;
-			height: 11px;
-			display: block;
-			border-radius: 10px;
-			background: $light-pink;
-			opacity: .8;
-			transition: all .3s;
-
-			&-active {
-				opacity: 1;
-				background: $orange;
-				height: 30px;
-				box-shadow: 0px 0px 20px rgba($pink, 0.3);
-
-				@include media('<tablet') {
-					height: 11px;
-					width: 30px;
-				}
-			}
-		}
+	p {
+		margin-bottom: 10px;
 	}
 }
 
@@ -1727,7 +1540,11 @@ a {
 	.container {
 
 		> p {
-			margin-bottom: 40px;
+			margin-bottom: 15px;
+
+			@include media('>=desktop') {
+				margin-bottom: 40px;
+			}
 		}
 	}
 }
@@ -1797,6 +1614,19 @@ a {
 .blog-holder {
 	padding: 20px 0;
 
+	&:before {
+		@extend .bg-decoration-t-l;
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-image: url(images/bg-pattern3.svg);
+		background-size: 40%;
+		background-attachment: fixed;
+	}
+
 	@include media('>=tablet') {
 		padding: 40px 0;
 	}
@@ -1825,7 +1655,7 @@ a {
 .recent-detail {
 	text-align: left;
 	border-bottom: 1px solid $light-gray;
-	padding: 30px 0 15px;
+	padding: 20px 0 10px;
 
 	&:last-child {
 		border-bottom: none;
@@ -1881,10 +1711,28 @@ a {
 	}
 }
 
+.slick-blog {
+	max-width: 850px;
+	margin: 0 auto;
+
+	[class*='col'] {
+
+		@include media('>=tablet') {
+			text-align: left;
+		}
+	}
+}
+
 .entry-content {
 	text-align: center;
 	border-bottom: 1px solid $light-gray;
 	padding: 10px 0 20px;
+
+	.slick-blog & {
+		text-align: center;
+		padding: 10px 0;
+		border-bottom: none;
+	}
 
 	@include media('>=tablet') {
 		text-align: left;
@@ -1900,10 +1748,27 @@ a {
 
 	h2,h3,h4 {
 		text-transform: none;
+
+		.slick-blog & {
+			width: 90%;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			margin: 0 auto 10px;
+		}
 	}
 
 	> p {
 		text-align: left;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+
+		&:focus {
+			outline: none;
+		}
 	}
 }
 
@@ -1964,6 +1829,10 @@ a {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+	}
+
+	.slick-blog & {
+		@include mboxshadow(1);
 	}
 }
 

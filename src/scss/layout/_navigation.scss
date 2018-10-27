@@ -60,8 +60,7 @@
 .main-nav {
 	@include animate(visibility right left);
 	position: fixed;
-	width: 100%;
-	min-width: 320px;
+	width: 250px;
 	top: 0;
 	left: -100%;
 	bottom: 0;
@@ -69,10 +68,6 @@
 	overflow-y: auto;
 	visibility: hidden;
 	z-index: 5;
-
-	@include media('>=375px') {
-		width: 250px;
-	}
 
 	@include media('<tablet') {
 		background-image: url(images/FemalePhotographer.png), $primary-gradient;
