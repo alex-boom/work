@@ -1,6 +1,6 @@
 // page init
 jQuery(function() {
-	// initSmoothScroll();
+	initSmoothScroll();
 	initFancybox();
 	initLoadMore();
 	initStickyScrollBlock();
@@ -15,39 +15,28 @@ jQuery(function() {
 	initOpenClose();
 });
 
-
 // Smooth Scrollinit
 function initSmoothScroll() {
-	var lastScrollTop = 0;
-	$(window).scroll(function(event){
-		var st = $(this).scrollTop();
-		if (st < 100){
-			$(".back-to-top").removeClass('active');
+
+	var ScrollTop = jQuery(".back-to-top");
+
+	window.onscroll = function() {scrollFunction()};
+	function scrollFunction() {
+		if (document.body.scrollTop > 1500 || document.documentElement.scrollTop > 1500) {
+			ScrollTop.addClass("active");
 		} else {
-			if (st > lastScrollTop){
-				$(".back-to-top").removeClass('active');
-			} else {
-				$(".back-to-top").addClass('active');
-			}
+			ScrollTop.removeClass("active");
 		}
-		lastScrollTop = st;
-	});
+	}
 
-	$(function() {
-		$("html, body").animate({ scrollTop: $(document).height() }, 200);
-		return false;
-	});
-
-	$(function() {
-		$('a[href^="#"]').on('click',function (e) {
-			e.preventDefault();
-			var target = this.hash,
-			$target = $(target);
-			$('html, body').stop().animate({
-				'scrollTop': $target.offset().top
-			}, 200, function () {
-				window.location.hash = target;
-			});
+	ScrollTop.on('click',function (e) {
+		e.preventDefault();
+		var target = this.hash,
+		jQuerytarget = jQuery(target);
+		jQuery('html, body').stop().animate({
+			'scrollTop': jQuerytarget.offset().top
+		}, 200, function () {
+			window.location.hash = target;
 		});
 	});
 }
