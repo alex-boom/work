@@ -1,5 +1,6 @@
 // page init
 jQuery(function() {
+	initPreloader();
 	initSmoothScroll();
 	initFancybox();
 	initLoadMore();
@@ -14,6 +15,14 @@ jQuery(function() {
 	initMixItUp();
 	initOpenClose();
 });
+
+
+// preloader init
+function initPreloader() {
+	jQuery(function() {
+		jQuery('.preloader-bg').find('.box-img').fadeOut().end().delay(400).fadeOut('slow');
+	});
+}
 
 // Smooth Scrollinit
 function initSmoothScroll() {
@@ -35,7 +44,7 @@ function initSmoothScroll() {
 		jQuerytarget = jQuery(target);
 		jQuery('html, body').stop().animate({
 			'scrollTop': jQuerytarget.offset().top
-		}, 200, function () {
+		}, 800, function () {
 			window.location.hash = target;
 		});
 	});
