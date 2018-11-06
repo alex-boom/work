@@ -309,6 +309,20 @@ a {
 #main {
 	position: relative;
 	z-index: 1;
+
+	&:before {
+		@extend .bg-decoration-t-l;
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-image: url(images/bg-pattern3.svg);
+		background-size: 42% !important;
+		background-attachment: fixed;
+		z-index: -1;
+	}
 }
 
 .container {
@@ -808,7 +822,7 @@ a {
 .bg-decoration {
 	background-repeat: no-repeat;
 	background-size: 50%;
-	box-shadow: inset 0px 0px 60px 50px $white;
+	box-shadow: inset 0px 0px 60px 50px $base-background-color;
 }
 
 .bg-decoration-t-l {
@@ -838,6 +852,7 @@ a {
 	background-position: bottom left, top left;
 	text-align: center;
 	padding: 25px 0;
+	background-color: $base-background-color;
 	box-shadow: inset 0px 0px 15px 10px $white;
 
 	@include media('>=tablet') {
@@ -1571,12 +1586,18 @@ a {
 
 .section-blog {
 	@extend .bg-decoration-t-l;
-	background-size: 36%;
+	background-size: 65%;
 	text-align: center;
 	background-repeat: no-repeat;
+	background-color: $base-background-color;
 	padding: 20px 5px;
 
+	@include media('<tablet') {
+		box-shadow: none;
+	}
+
 	@include media('>=desktop') {
+		background-size: 36%;
 		padding: 30px 5px;
 	}
 
@@ -1694,19 +1715,6 @@ a {
 
 .blog-holder {
 	padding: 20px 0;
-
-	&:before {
-		@extend .bg-decoration-t-l;
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background-image: url(images/bg-pattern3.svg);
-		background-size: 40%;
-		background-attachment: fixed;
-	}
 
 	@include media('>=tablet') {
 		padding: 40px 0;
@@ -2337,7 +2345,7 @@ a {
 	z-index: 1;
 
 	@include media('>=tablet') {
-		background-size: 35%;
+		background-size: 27%;
 		padding: 6px 0;
 	}
 
