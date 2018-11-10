@@ -11,6 +11,7 @@
   font-style: normal;
 }
 
+
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: '#{$icomoon-font-family}' !important;
@@ -26,14 +27,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-individual {
+.icon-christmas-tree {
   &:before {
-    content: $icon-individual;
-  }
-}
-.icon-hearts {
-  &:before {
-    content: $icon-hearts;
+    content: $icon-christmas-tree;
   }
 }
 .icon-indent-all {
@@ -74,6 +70,11 @@
 .icon-view {
   &:before {
     content: $icon-view;
+  }
+}
+.icon-individual {
+  &:before {
+    content: $icon-individual;
   }
 }
 .icon-individual1 {
@@ -119,6 +120,11 @@
 .icon-scroll {
   &:before {
     content: $icon-scroll;
+  }
+}
+.icon-hearts {
+  &:before {
+    content: $icon-hearts;
   }
 }
 

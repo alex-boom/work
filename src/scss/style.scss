@@ -751,8 +751,13 @@ a {
 }
 
 .holder-slider {
+	display: none;
 	position: relative;
 	height: calc(100vh - 51px);
+
+	@include media('>=tablet') {
+		display: block;
+	}
 }
 
 .sl-slide {
@@ -1083,7 +1088,7 @@ a {
 	@include animate(padding opacity);
 	background-repeat: repeat-x;
 	position: relative;
-	padding-bottom: 100px !important;
+	padding-bottom: 40px !important;
 	box-shadow: none;
 
 	&.is-busy {
@@ -1382,7 +1387,11 @@ a {
 	}
 
 	.container-lg & {
-		margin: 0 10px;
+		margin: 0 4px;
+
+		@include media('>=tablet') {
+			margin: 0 10px;
+		}
 
 		@include media('>=widescreen') {
 			margin: 0 15px;
@@ -2034,8 +2043,12 @@ a {
 }
 
 .post-body {
-	padding: 10px 0;
+	padding: 20px 0;
 	margin: 0 auto;
+
+	@include media('>=tablet') {
+		padding: 40px 0;
+	}
 
 	[class*='col-'] {
 		width: auto;
