@@ -123,7 +123,7 @@ function initSlickCarousel() {
 		slidesToShow: 3,
 		focusOnSelect: true,
 		appendArrows: '.section-price .slick-btn-box',
-		// autoplay: true,
+		autoplay: true,
 		autoplaySpeed: 2000,
 		responsive: [
 		{
@@ -152,7 +152,7 @@ function initSlickCarousel() {
 		fade: true,
 		cssEase: 'linear',
 		autoplay: true,
-		autoplaySpeed: 5000,
+		autoplaySpeed: 3000,
 		arrows: false,
 	});
 

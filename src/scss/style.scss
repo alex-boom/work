@@ -52,12 +52,51 @@ $media-expressions: (
 	background-image: $primary-gradient;
 	background-size: 300% 300%;
 	animation: Gradient 15s ease infinite;
-	padding: 10px 0;
+	padding: 5px 0;
 	z-index: 6;
 
+	@include media('<375px') {
+		padding: 11px 0;
+	}
+
 	.logo-box {
+		display: flex;
+		align-items: center;
+		font-size: 22px;
+		color: $white;
+		font-family: 'Niconne', cursive;
 		padding: 0 15px;
 		overflow: hidden;
+		margin: 0 -5px;
+
+		@include media('>=phone') {
+			font-size: 26px;
+		}
+
+		@include media('>=desktop') {
+			font-size: 29px;
+			letter-spacing: 1px;
+		}
+	}
+
+	.logo {
+		display: block;
+		width: 60px;
+		padding: 0 5px;
+		transform: translateY(3px);
+
+		@include media('>=375px') {
+			width: 75px;
+		}
+
+		@include media('>=tablet') {
+			width: 85px;
+		}
+	}
+
+	.logo-text {
+		display: block;
+		padding: 0 5px
 	}
 
 	a {
