@@ -216,7 +216,7 @@
 
 .flex-column-reverse-xs {
 
-	@include media('<tablet') {
+	@include media('<desktop') {
 		flex-direction: column-reverse!important;
 	}
 }

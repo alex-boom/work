@@ -1319,7 +1319,11 @@ a {
 		}
 
 		&:before {
-			right: calc(100% - -10px);
+			right: calc(100% - -4px);
+
+			@include media('>=tablet') {
+				right: calc(100% - -10px);
+			}
 
 			@include media('>=widescreen') {
 				right: calc(100% - -15px);
@@ -1327,7 +1331,11 @@ a {
 		}
 
 		&:after{
-			left: calc(100% - -10px);
+			left: calc(100% - -4px);
+
+			@include media('>=tablet') {
+				left: calc(100% - -10px);
+			}
 
 			@include media('>=widescreen') {
 				left: calc(100% - -15px);
@@ -1792,7 +1800,7 @@ a {
 .recent-detail {
 	text-align: left;
 	border-bottom: 1px solid $light-gray;
-	padding: 20px 0 10px;
+	padding: 15px 0 5px;
 
 	&:last-child {
 		border-bottom: none;
@@ -1810,14 +1818,6 @@ a {
 		height: 70px;
 		float: left;
 		margin-right: 15px;
-
-		@include media('>=tablet') {
-			display: none;
-		}
-
-		@include media('>=desktop') {
-			display: block;
-		}
 
 		img {
 			object-fit: cover;
@@ -1985,7 +1985,7 @@ a {
 
 	> li {
 		border-bottom: 1px dotted $light-gray;
-		padding: 15px 0;
+		padding: 10px 0;
 
 		&:last-child {
 			border-bottom: none;

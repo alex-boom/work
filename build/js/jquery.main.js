@@ -72,7 +72,7 @@ function initLoadMore() {
 function initStickyScrollBlock() {
 
 	ResponsiveHelper.addRange({
-		'768..': {
+		'1024..': {
 			on: function() {
 				jQuery('.sidebar').stickyScrollBlock({
 					setBoxHeight: true,
