@@ -1,3 +1,15 @@
+
+/*!
+Theme Name: Medentseva Photography
+Author: Aleksandr Yakovenko
+Author URI:
+Version: 1000.1.0
+Description: Medentseva Photography theme for Wordpress (WP v.1.0)
+License:
+License URI:
+Theme URI:
+*/
+
 $breakpoints: (
 	'xs-phone': 320px,
 	'phone': 480px,
@@ -507,8 +519,27 @@ a {
 		padding: 30px 25px 5px;
 	}
 
+	.title-box & {
+		position: static;
+		display: block;
+		text-align: center;
+		padding: 10px 0;
+
+		@include media('>=tablet') {
+			position: absolute;
+			top: 50%;
+			left: 15px;
+			transform: translateY(-20%);
+			padding: 0;
+		}
+
+		@include media('>=widescreen') {
+			left: 25px;
+		}
+	}
+
 	a {
-		display: flex;
+		display: inline-flex;
 		align-items: center;
 		text-decoration: none;
 		color: $base-text-color;
@@ -1447,10 +1478,10 @@ a {
 
 	.entry-title {
 		display: block;
-		padding: 30px 50px;
+		padding: 15px;
 
 		@include media('>=widescreen') {
-			padding: 30px 80px;
+			padding: 30px;
 		}
 
 		.price-main & {
@@ -1464,9 +1495,15 @@ a {
 
 	h3 {
 		font-family: $base-font-sans-serif;
+		letter-spacing: 0;
+		font-size: 16px;
 		color: $black;
 		font-weight: 500;
 		margin-bottom: 0;
+
+		@include media('>=tablet') {
+			font-size: 26px;
+		}
 
 		.price-main & {
 			font-size: 24px;
@@ -1742,8 +1779,8 @@ a {
 			display: inline-block;
 			width: 100px;
 			height: 100px;
-			overflow: hidden;
 			border-radius: 50%;
+			padding: 8px;
 
 			img {
 				object-fit: cover;
@@ -1917,7 +1954,7 @@ a {
 .blog-category,
 .blog-autor {
 	display: inline-flex;
-	font-size: 12px;
+	font-size: 10px;
 	font-weight: 600;
 	text-transform: uppercase;
 	padding: 5px 0;
@@ -2081,6 +2118,30 @@ a {
 	}
 }
 
+.title-box {
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	padding: 15px 15px 0;
+	text-align: center;
+
+	@include media('>=tablet') {
+		padding: 15px 15px 0 250px;
+	}
+
+	@include media('>=widescreen') {
+		padding: 25px 25px 0 250px;
+	}
+
+	h1 {
+		margin-bottom: 0;
+
+		@include media('>=tablet') {
+			padding-right: 250px;
+		}
+	}
+}
+
 .post-body {
 	padding: 20px 0;
 	margin: 0 auto;
@@ -2117,7 +2178,9 @@ a {
 }
 
 .comments-box {
+	max-width: 600px;
 	padding: 0 0 20px;
+	margin: 0 auto;
 
 	h2,h3,h4 {
 		font-family: $base-font-sans-serif;

@@ -51,7 +51,7 @@ function initSmoothScroll() {
 
 // lightbox init
 function initFancybox() {
-	jQuery('a.lightbox, .load-more-holder a.portfolio-item, [data-fancybox]').fancybox({
+	jQuery('a.lightbox, [data-fancybox]').fancybox({
 		parentEl: 'body',
 		margin: [50, 0]
 	});
@@ -246,9 +246,9 @@ function initSlitSlider() {
 			on: function() {
 				var Page = (function() {
 
-					var $navArrows = $( '#nav-arrows' ),
-					$nav = $( '#nav-dots > span' ),
-					slitslider = $( '#slider' ).slitslider( {
+					var $navArrows = jQuery( '#nav-arrows' ),
+					$nav = jQuery( '#nav-dots > span' ),
+					slitslider = jQuery( '#slider' ).slitslider( {
 						onBeforeChange : function( slide, pos ) {
 
 							$nav.removeClass( 'nav-dot-current' );
@@ -280,7 +280,7 @@ function initSlitSlider() {
 
 						$nav.each( function( i ) {
 
-							$( this ).on( 'click', function( event ) {
+							jQuery( this ).on( 'click', function( event ) {
 
 								var $dot = $( this );
 
