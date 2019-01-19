@@ -1080,9 +1080,11 @@ img {
 	column-count: 2;
 	column-gap: 15px;
 	overflow: hidden;
+	min-height: 355px;
 	-webkit-column-break-inside: avoid;
 	page-break-inside: avoid;
 	break-inside: avoid;
+	column-fill: balance;
 	padding: 15px;
 
 	@include media('>=tablet') {
@@ -1187,6 +1189,7 @@ img {
 
 	.portfolio-item {
 		@include animate(opacity transform);
+		cursor: zoom-in;
 		opacity: 1;
 
 		&.new-item {
@@ -1778,6 +1781,69 @@ img {
 .testimonial-box {
 	max-width: 700px;
 	margin: 0 auto;
+
+	&.slick-slider {
+
+		.slick-prev,
+		.slick-next {
+			background-color: $white;
+			border-radius: 4px;
+			padding: 4px;
+
+			@include media('<desktop') {
+				top: 85px;
+				padding: 3px;
+			}
+
+			@include media('>=desktop') {
+				opacity: .8;
+			}
+
+			&:hover {
+				opacity: 1;
+			}
+			&:before {
+				display: block;
+				font-size: 20px;
+
+				@include media('>=desktop') {
+					font-size: 25px;
+				}
+			}
+		}
+
+		.slick-prev {
+			left: 25px;
+
+			&:before {
+				margin-left: -2px;
+			}
+
+			@include media('>=phone') {
+				left: 100px;
+			}
+
+			@include media('>=desktop') {
+				left: -70px;
+			}
+		}
+
+		.slick-next {
+			right: 25px;
+
+			&:before {
+				margin-right: -2px;
+			}
+
+			@include media('>=phone') {
+				right: 100px;
+			}
+
+			@include media('>=desktop') {
+				right: -70px;
+			}
+		}
+	}
 }
 
 .testimonial-item {
@@ -1789,7 +1855,7 @@ img {
 	background-color: rgba($black, .6);
 	padding: 15px;
 
-	@include media('>=tablet') {
+	@include media('>=desktop') {
 		width: 70%;
 	}
 
@@ -1801,7 +1867,7 @@ img {
 	.autor {
 		width: 100%;
 
-		@include media('>=tablet') {
+		@include media('>=desktop') {
 			width: auto;
 			max-width: 190px;
 		}
@@ -1831,7 +1897,7 @@ img {
 		flex-grow: 1;
 		max-width: 100%;
 
-		@include media('>=tablet') {
+		@include media('>=desktop') {
 			text-align: left;
 		}
 	}

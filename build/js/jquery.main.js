@@ -172,9 +172,11 @@ function initSlickCarousel() {
 		speed: 500,
 		fade: true,
 		cssEase: 'linear',
-		autoplay: true,
-		autoplaySpeed: 3000,
-		arrows: false,
+		// autoplay: true,
+		// autoplaySpeed: 3000,
+		arrows: true,
+		prevArrow: '<button class="slick-prev icon-arrow-left"></button>',
+		nextArrow: '<button class="slick-next icon-arrow-right"></button>',
 	});
 
 	jQuery('.slick-blog').slick({
