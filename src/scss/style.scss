@@ -1782,6 +1782,18 @@ img {
 	max-width: 700px;
 	margin: 0 auto;
 
+	&.slick-initialized {
+
+		.slick-slide {
+
+			@include media('>=desktop') {
+				float: none;
+				display: inline-block;
+				vertical-align: middle;
+			}
+		}
+	}
+
 	&.slick-slider {
 
 		.slick-prev,
