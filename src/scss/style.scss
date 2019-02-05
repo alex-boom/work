@@ -85,6 +85,10 @@ $media-expressions: (
 			font-size: 26px;
 		}
 
+		@include media('>=tablet') {
+			font-size: 22px;
+		}
+
 		@include media('>=desktop') {
 			font-size: 29px;
 			letter-spacing: 1px;
@@ -102,6 +106,10 @@ $media-expressions: (
 		}
 
 		@include media('>=tablet') {
+			width: 55px;
+		}
+
+		@include media('>=desktop') {
 			width: 85px;
 		}
 	}
@@ -170,7 +178,7 @@ ul {
 		padding: 10px 0;
 
 		@include media('>=tablet') {
-			padding: 0 8px;
+			padding: 0 5px;
 			font-size: 14px;
 		}
 
@@ -387,7 +395,7 @@ img {
 }
 
 .container {
-	max-width: 1200px;
+	max-width: 1100px;
 	padding: 0 15px;
 	margin: 0 auto;
 
@@ -1014,7 +1022,7 @@ img {
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: center;
-			max-width: 1220px;
+			max-width: 1120px;
 			text-transform: uppercase;
 			font-family: $base-font-cursive;
 			letter-spacing: 3px;
@@ -1981,7 +1989,7 @@ img {
 		font-size: 10px;
 		text-transform: uppercase;
 		font-weight: 500;
-		padding: 15px 0;
+		padding: 12px 0;
 		margin: 0 -2px;
 
 		> li {
@@ -2252,6 +2260,7 @@ img {
 }
 
 .post-body {
+	max-width: 800px;
 	padding: 20px 0;
 	margin: 0 auto;
 
@@ -2554,6 +2563,71 @@ img {
 	50% {
 		visibility: visible;
 		transform: translate(2px, -18px) rotate(-25deg);
+	}
+}
+
+.section-about {
+	min-height: calc(100vh - 113px);
+	padding: 30px 0;
+
+	@include media('>=desktop') {
+		padding: 70px 0 50px;
+	}
+
+	h1,h2,h3 {
+		text-align: center;
+
+		@include media('>=desktop') {
+			text-align: left;
+		}
+	}
+
+	.slick-about {
+		width: 100%;
+		max-width: 400px;
+		margin: 0 auto 20px;
+
+		@include media('>=desktop') {
+			margin: 0 15px 20px;
+		}
+	}
+
+	.bg-box {
+		background-position: center;
+		background-size: cover;
+		padding-bottom: 120%;
+
+		@include media('>=desktop') {
+			padding-bottom: 160%;
+		}
+	}
+
+	.subtitle {
+		display: block;
+		text-transform: uppercase;
+		font-size: 12px;
+		text-align: center;
+		margin-bottom: 5px;
+
+		@include media('>=desktop') {
+			margin-bottom: 15px;
+			text-align: left;
+		}
+	}
+
+	.content-box {
+		padding: 10px 0;
+
+		@include media('>=desktop') {
+			padding: 20px 0;
+		}
+	}
+
+	.social-box {
+
+		@include media('<desktop') {
+			justify-content: center;
+		}
 	}
 }
 /* end-common */
