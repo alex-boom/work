@@ -1981,6 +1981,16 @@ img {
 
 	.recent-content {
 		overflow: hidden;
+
+
+		a {
+			display: block;
+			white-space: nowrap;
+			width: 90%;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+		}
 	}
 
 	.blog-category {
@@ -1997,6 +2007,7 @@ img {
 
 			> a {
 				@extend %underline;
+				width: 100%;
 			}
 		}
 	}
