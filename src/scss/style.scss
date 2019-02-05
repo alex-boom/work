@@ -1986,7 +1986,6 @@ img {
 		a {
 			display: block;
 			white-space: nowrap;
-			width: 90%;
 			white-space: nowrap;
 			text-overflow: ellipsis;
 			overflow: hidden;
@@ -2007,7 +2006,6 @@ img {
 
 			> a {
 				@extend %underline;
-				width: 100%;
 			}
 		}
 	}
