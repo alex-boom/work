@@ -1,6 +1,7 @@
 // page init
 jQuery(function() {
-	initImgHeight()
+	initMixItUp();
+	initImgHeight();
 	initSmoothScrollToAnotherPage()
 	initPreloader();
 	initSmoothScroll();
@@ -14,7 +15,6 @@ jQuery(function() {
 	initTouchNav();
 	initDropDownClasses();
 	initSlitSlider();
-	initMixItUp();
 	initOpenClose();
 
 	jQuery(window).on('resize orientationchange', function(){
@@ -26,7 +26,7 @@ jQuery(function() {
 function initImgHeight() {
 	jQuery(document).ready(function() {
 		jQuery('.block-portfolio .portfolio-item').each(function() {
-			var maxWidth = 500;
+			var maxWidth = 501;
 			var width = jQuery(this).width();
 			var height = jQuery(this).find("img").attr('height');
 			var ratioW = maxWidth / width;  // Width ratio
@@ -53,7 +53,7 @@ function initSmoothScrollToAnotherPage() {
 // preloader init
 function initPreloader() {
 	jQuery(function() {
-		jQuery('.preloader-bg').find('.box-img').fadeOut().end().delay(400).fadeOut('slow');
+		jQuery('.preloader-bg').find('.box-img').fadeOut().end().delay(600).fadeOut('slow');
 	});
 }
 
