@@ -1,5 +1,6 @@
 // page init
 jQuery(function() {
+	initImgHeight()
 	initSmoothScrollToAnotherPage()
 	initPreloader();
 	initSmoothScroll();
@@ -15,8 +16,26 @@ jQuery(function() {
 	initSlitSlider();
 	initMixItUp();
 	initOpenClose();
+
+	jQuery(window).on('resize orientationchange', function(){
+		initImgHeight();
+	});
 });
 
+//init image height
+function initImgHeight() {
+	jQuery(document).ready(function() {
+		jQuery('.block-portfolio .portfolio-item').each(function() {
+			var maxWidth = 500;
+			var width = jQuery(this).width();
+			var height = jQuery(this).find("img").attr('height');
+			var ratioW = maxWidth / width;  // Width ratio
+
+			// If height ratio is bigger then we need to scale height
+				jQuery(this).css("height", height / ratioW);  // Scale height according to width ratio
+			});
+	});
+}
 
 //init smooth-scroll to another page
 function initSmoothScrollToAnotherPage() {
