@@ -7,6 +7,7 @@
     url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?8vdihz') format('truetype'),
     url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?8vdihz') format('woff'),
     url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?8vdihz##{$icomoon-font-family}') format('svg');
+  font-display: swap;
   font-weight: normal;
   font-style: normal;
 }
