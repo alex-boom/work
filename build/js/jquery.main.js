@@ -392,8 +392,8 @@ function initMixItUp() {
 		},
 
 		loadmore: {
-			initial: 12,
-			loadMore: 5,
+			initial: 16,
+			loadMore: 12,
 			buttonWrapper: ".loadmore",
 			buttonClass: "loadmore-button btn btn-primary",
 			buttonLabel: "показать еще...",
