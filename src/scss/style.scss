@@ -1115,6 +1115,19 @@ img {
 	}
 
 	&.mixitup {
+		display: grid;
+		grid-gap: 15px;
+		grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+
+		@include media('>=tablet') {
+			grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+		}
+
+		@include media('>=widescreen') {
+			grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+			padding: 20px;
+			grid-gap: 20px;
+		}
 
 		.portfolio-item {
 			@include animate(box-shadow);
@@ -1122,6 +1135,7 @@ img {
 			box-shadow: inset 2px 3px 6px rgba(0,0,0,.16), 3px 8px 6px rgba(0,0,0,.23);
 			max-height: 98px;
 			overflow: hidden;
+			margin-bottom: 0;
 
 			@include media('>=phone') {
 				max-height: 290px;
@@ -1135,8 +1149,13 @@ img {
 				box-shadow: inset 4px 6px 9px rgba(0,0,0,.23), 3px 5px 16px rgba(0,0,0,.33);
 
 				.text {
-					transform: scale(1.1);
+					transform: scale(1.07);
 				}
+			}
+
+			img {
+				height: 100%;
+				object-fit: cover;
 			}
 		}
 	}
