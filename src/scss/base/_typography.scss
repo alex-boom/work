@@ -13,13 +13,16 @@ h6, .h6,
   line-height: normal;
   margin: 0 0 .7em;
   color: $headings-color;
-  text-transform: uppercase;
 }
 
 h1, .h1,
 h2, .h2,
 h3, .h3 {
-  margin: 0 0 .3em;
+  margin: 0 0 .7em;
+
+  @include media('>=desktop') {
+    margin: 0 0 .3em;
+  }
 }
 
 .gradient-text {
