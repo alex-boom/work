@@ -124,7 +124,7 @@ function initStickyScrollBlock() {
 					setBoxHeight: true,
 					activeClass: 'fixed-position',
 					positionType: 'fixed',
-					extraTop: 51,
+					extraTop: 97,
 					extraBottom: 20
 				});
 			},
@@ -225,6 +225,7 @@ function initSlickCarousel() {
 		autoplay: true,
 		autoplaySpeed: 3000,
 		arrows: false,
+		pauseOnHover: false
 	});
 }
 
