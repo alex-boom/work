@@ -1000,6 +1000,11 @@ img {
 
 	.loadmore {
 		text-align: center;
+		padding: 10px 0 0;
+
+		@include media('>=widescreen') {
+			padding: 25px 0 0;
+		}
 
 		.btn {
 			border: none;
@@ -1007,6 +1012,8 @@ img {
 	}
 
 	.controls {
+		letter-spacing: 4px;
+		font-family: $base-font-cursive;
 		margin: 15px;
 
 		@include media('>=widescreen') {
@@ -1016,7 +1023,7 @@ img {
 		.opener {
 
 			@include media('<desktop') {
-				font-weight: 600;
+				font-size: 18px;
 				color: $white;
 				text-align: center;
 				padding: 12px 35px 12px 35px;
@@ -1034,8 +1041,7 @@ img {
 			flex-wrap: wrap;
 			justify-content: center;
 			max-width: 1120px;
-			text-transform: uppercase;
-			font-family: $base-font-cursive;
+			font-size: 22px;
 			letter-spacing: 3px;
 			padding: 0 15px;
 			margin: 0 auto;
@@ -1053,7 +1059,7 @@ img {
 				background-size: 400% 400%;
 				background-image: $primary-gradient;
 				animation: Gradient 8s ease infinite;
-				font-weight: 600;
+				font-size: 18px;
 				color: $white;
 				text-align: center;
 			}
@@ -2479,7 +2485,7 @@ img {
 	position: relative;
 	margin-right: .25em;
 	font-size: 1.5rem;
-	background: url('data:image/svg+xml;utf8,<svg width="21" height="18" viewBox="0 0 21 18" xmlns="http://www.w3.org/2000/svg"><title>heart-colored</title><path d="M10.101 4.417S8.895.207 5.111.207c-4.465 0-10.967 6.846 5.082 17.592C25.237 7.03 19.665.202 15.501.202c-4.162 0-5.4 4.215-5.4 4.215z" fill="#FF6E6F" fill-rule="evenodd"/></svg>') no-repeat center;
+	background: url('images/heart-1.svg') no-repeat center;
 	background-size: 100%;
 	animation: heartUnlike .25s $bezier both;
 }
@@ -2488,7 +2494,7 @@ img {
 	animation: heartPulse .25s $bezier both;
 
 	[class^="heart-animation-"] {
-		background: url('data:image/svg+xml;utf8,<svg width="21" height="18" viewBox="0 0 21 18" xmlns="http://www.w3.org/2000/svg"><title>heart-colored</title><path d="M10.101 4.417S8.895.207 5.111.207c-4.465 0-10.967 6.846 5.082 17.592C25.237 7.03 19.665.202 15.501.202c-4.162 0-5.4 4.215-5.4 4.215z" fill="#FF6E6F" fill-rule="evenodd"/></svg>') no-repeat center;
+		background: url('images/heart-2.svg') no-repeat center;
 		background-size: 100%;
 		display: block;
 		position: absolute;
