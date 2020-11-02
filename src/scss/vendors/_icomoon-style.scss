@@ -1,0 +1,131 @@
+@import "icomoon-variables";
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?8vdihz');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?8vdihz#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?8vdihz') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?8vdihz') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?8vdihz##{$icomoon-font-family}') format('svg');
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-christmas-tree {
+  &:before {
+    content: $icon-christmas-tree;
+  }
+}
+.icon-indent-all {
+  &:before {
+    content: $icon-indent-all;
+  }
+}
+.icon-arrow-right {
+  &:before {
+    content: $icon-arrow-right;
+  }
+}
+.icon-arrow-up {
+  &:before {
+    content: $icon-arrow-up;
+  }
+}
+.icon-arrow-left {
+  &:before {
+    content: $icon-arrow-left;
+  }
+}
+.icon-birthday-cake {
+  &:before {
+    content: $icon-birthday-cake;
+  }
+}
+.icon-certificate {
+  &:before {
+    content: $icon-certificate;
+  }
+}
+.icon-customer-review {
+  &:before {
+    content: $icon-customer-review;
+  }
+}
+.icon-view {
+  &:before {
+    content: $icon-view;
+  }
+}
+.icon-individual {
+  &:before {
+    content: $icon-individual;
+  }
+}
+.icon-individual1 {
+  &:before {
+    content: $icon-individual1;
+  }
+}
+.icon-maternity {
+  &:before {
+    content: $icon-maternity;
+  }
+}
+.icon-open-folder-outline {
+  &:before {
+    content: $icon-open-folder-outline;
+  }
+}
+.icon-play-button {
+  &:before {
+    content: $icon-play-button;
+  }
+}
+.icon-pregnan {
+  &:before {
+    content: $icon-pregnan;
+  }
+}
+.icon-left-arrow {
+  &:before {
+    content: $icon-left-arrow;
+  }
+}
+.icon-right-arrow {
+  &:before {
+    content: $icon-right-arrow;
+  }
+}
+.icon-rings {
+  &:before {
+    content: $icon-rings;
+  }
+}
+.icon-scroll {
+  &:before {
+    content: $icon-scroll;
+  }
+}
+.icon-hearts {
+  &:before {
+    content: $icon-hearts;
+  }
+}
+

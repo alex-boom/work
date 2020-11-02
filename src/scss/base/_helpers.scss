@@ -1,3 +1,31 @@
+%underline {
+  position: relative;
+
+  .active &,
+  &:hover {
+
+    &:before {
+      left: 0;
+      right: 0;
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &:before {
+    @include animate(visibility left right);
+    content: "";
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    background-color: currentColor;
+    height: 1px;
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
 // list reset
 %listreset {
   margin: 0;
@@ -56,4 +84,3 @@
   text-overflow: ellipsis; /* 2 */
   overflow: hidden;
 }
-

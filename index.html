@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>AlenaPortfolio</title>
 	<link media="all" rel="stylesheet" href="build/style.css">
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i,800&amp;subset=cyrillic" rel="stylesheet">
+	<!-- <link href="https://fonts.googleapis.com/css?family=Lobster%7CNiconne%7CMontserrat:400,500,600&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet"> -->
 </head>
-<body>
+
+<body class="home">
+	<div class="preloader-bg">
+		<div class="box-img"><img src="build/images/main-preloader.svg" alt="images-description"></div>
+	</div>
 	<div id="wrapper">
+		<a href="#wrapper" class="anchor-link back-to-top">
+			<span class="sr-only">back to top</span><i class="icon icon-arrow-up"></i>
+		</a>
 		<header id="header">
 			<div class="container">
 				<div class="row">
 					<a href="#" class="logo-box">
-						<img src="build/images/logo.png" alt="images-description" width="249" height="27">
+						<span class="logo">
+							<img src="build/images/logo.svg" alt="images-description">
+						</span>
+						<span class="logo-text">Medentseva Photography</span>
 					</a>
 					<nav class="main-nav">
 						<ul class="navbar-nav accordion multilevel-accordion">
-							<li><a href="#">new!</a></li>
-							<li><a href="#">fabrics</a></li>
-							<li><a href="#">boms / clubs</a></li>
+							<li class="active"><a href="#">Главная</a></li>
+							<li><a href="#">Портфолио</a></li>
+							<li><a href="#">Прайсы</a></li>
 							<li>
-								<a href="#" class="opener">Submenu-1</a>
+								<a href="http://google.com" class="opener">Блог</a>
 								<div class="slide">
 									<ul>
 										<li>
@@ -33,8 +44,12 @@
 									</ul>
 								</div>
 							</li>
-							<li><a href="#">Submenu-1</a></li>
-							<li><a href="#">Submenu-1</a></li>
+							<li><a href="#">Слайдшоу</a></li>
+						</ul>
+						<ul class="social-box">
+							<li><a href="#" class="bg-icon instagram"></a></li>
+							<li><a href="#" class="bg-icon facebook"></a></li>
+							<li><a href="#" class="bg-icon vk"></a></li>
 						</ul>
 					</nav>
 					<a href="#" class="nav-opener">
@@ -44,139 +59,540 @@
 			</div>
 		</header>
 		<main id="main">
-<!-- 			<div class="holder-slider">
-				<div class="demo-1">
-					<div id="slider" class="sl-slider-wrapper">
-						<div class="sl-slider">
-							<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
-								<div class="sl-slide-inner" style="background-image: url(build/images/bg-1.jpg);">
-									<h2>Для своей Любимой...</h2>
-									<blockquote><p>Я вас любил безмолвно, безнадежно,
-										То робостью, то ревностью томим;
-										Я вас любил так искренно, так нежно,
-									Как дай вам бог любимой быть другим.</p><cite>Александр Сергеевич Пушкин</cite></blockquote>
-								</div>
-							</div>
-							<div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
-								<div class="sl-slide-inner" style="background-image: url(build/images/bg-2.jpg);">
-									<h2>Я сделаю все...</h2>
-									<blockquote><p>"Цена человека зависит от того, как долго он дарил любовь своим близким и наслаждался их любовью".</p><cite>Тьерри Коэн</cite></blockquote>
-								</div>
-							</div>
-							<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
-								<div class="sl-slide-inner" style="background-image: url(build/images/bg-3.jpg);">
-									<h2>На что я...</h2>
-									<blockquote><p>Thousands of people who say they 'love' animals sit down once or twice a day to enjoy the flesh of creatures who have been utterly deprived of everything that could make their lives worth living and who endured the awful suffering and the terror of the abattoirs.</p><cite>Dame Jane Morris Goodall</cite></blockquote>
-								</div>
-							</div>
-							<div class="sl-slide" data-orientation="vertical" data-slice1-rotation="-5" data-slice2-rotation="25" data-slice1-scale="2" data-slice2-scale="1">
-								<div class="sl-slide-inner" style="background-image: url(build/images/bg-4.jpg);">
-									<h2>Способен...</h2>
-									<blockquote><p>The human body has no more need for cows' milk than it does for dogs' milk, horses' milk, or giraffes' milk.</p><cite>Michael Klaper M.D.</cite></blockquote>
-								</div>
-							</div>
-							<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-5" data-slice2-rotation="10" data-slice1-scale="2" data-slice2-scale="1">
-								<div class="sl-slide-inner" style="background-image: url(build/images/bg-5.jpg);">
-									<h2>Ты и Я навсегда!</h2>
-									<blockquote><p>I think if you want to eat more meat you should kill it yourself and eat it raw so that you are not blinded by the hypocrisy of having it processed for you.</p><cite>Margi Clarke</cite></blockquote>
-								</div>
+			<div class="holder-slider">
+				<div id="slider" class="sl-slider-wrapper">
+					<div class="sl-slider">
+						<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25"
+							data-slice1-scale="2" data-slice2-scale="2">
+							<div class="sl-slide-inner" style="background-image: url(build/images/bg-1.jpg);">
+								<h2>Для своей Любимой...</h2>
+								<blockquote>
+									<p>Я вас любил безмолвно, безнадежно,
+										То робостью, то ревностью томим;</p><cite>Александр Сергеевич Пушкин</cite>
+								</blockquote>
 							</div>
 						</div>
-						<nav id="nav-arrows" class="nav-arrows">
-							<span class="nav-arrow-prev">Previous</span>
-							<span class="nav-arrow-next">Next</span>
-						</nav>
-						<nav id="nav-dots" class="nav-dots">
-							<span class="nav-dot-current"></span>
-							<span></span>
-							<span></span>
-							<span></span>
-							<span></span>
-						</nav>
+						<div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15"
+							data-slice1-scale="1.5" data-slice2-scale="1.5">
+							<div class="sl-slide-inner" style="background-image: url(build/images/bg-2.jpg);">
+								<h2>Я сделаю все...</h2>
+								<blockquote>
+									<p>"Цена человека зависит от того, как долго он дарил...".</p><cite>Тьерри Коэн</cite>
+								</blockquote>
+							</div>
+						</div>
+						<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3"
+							data-slice1-scale="2" data-slice2-scale="1">
+							<div class="sl-slide-inner" style="background-image: url(build/images/bg-3.jpg);">
+								<h2>На что я...</h2>
+								<blockquote>
+									<p>Thousands of people who say they 'love' animals sit down once or twicers.</p><cite>Dame Jane Morris
+										Goodall</cite>
+								</blockquote>
+							</div>
+						</div>
+						<div class="sl-slide" data-orientation="vertical" data-slice1-rotation="-5" data-slice2-rotation="25"
+							data-slice1-scale="2" data-slice2-scale="1">
+							<div class="sl-slide-inner" style="background-image: url(build/images/bg-4.jpg);">
+								<h2>Способен...</h2>
+								<blockquote>
+									<p>The human body has no more need for cows' milk than it does for dogs' milk, horses' milk, or
+										giraffes' milk.</p><cite>Michael Klaper M.D.</cite>
+								</blockquote>
+							</div>
+						</div>
+						<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-5" data-slice2-rotation="10"
+							data-slice1-scale="2" data-slice2-scale="1">
+							<div class="sl-slide-inner" style="background-image: url(build/images/bg-5.jpg);">
+								<h2>Ты и Я навсегда!</h2>
+								<blockquote>
+									<p>I think if you want to eat more meat you should kill it having it processed for you.</p><cite>Margi
+										Clarke</cite>
+								</blockquote>
+							</div>
+						</div>
+					</div>
+					<nav id="nav-arrows" class="nav-arrows">
+						<span class="nav-arrow-prev">Previous</span>
+						<span class="nav-arrow-next">Next</span>
+					</nav>
+					<nav id="nav-dots" class="nav-dots">
+						<span class="nav-dot-current"></span>
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+					</nav>
+				</div>
+			</div>
+			<section id="category-portfolio" class="section-portfolio"
+				style="background-image: url(build/images/bg-pattern2.svg), url(build/images/bg-pattern3.svg)">
+				<h2>Портфолио</h2>
+				<div class="open-close controls">
+					<a href="#" class="opener"></a>
+					<div class="slide">
+						<ul class="tabset">
+							<li class="filter" data-filter="all"><span class="icon-indent-all"></span>Все</li>
+							<li class="filter" data-filter=".category-wedding"><span class="icon-rings"></span>Свадьбы</li>
+							<li class="filter" data-filter=".category-family"><span class="icon-maternity"></span>Семейные</li>
+							<li class="filter" data-filter=".category-individual"><span class="icon-individual"></span>Индивидуальные
+							</li>
+							<li class="filter" data-filter=".category-pregnant"><span class="icon-pregnan"></span>9 месяцев</li>
+							<li class="filter" data-filter=".category-love-stoty"><span class="icon-hearts"></span>Love story</li>
+							<li class="filter" data-filter=".category-anniversary"><span class="icon-birthday-cake"></span>Годовщины
+							</li>
+							<li class="filter" data-filter=".category-certificate"><span class="icon-christmas-tree"></span>Новогодние
+							</li>
+						</ul>
 					</div>
 				</div>
-			</div> -->
-			<section class="section-portfolio">
-				<div class="controls">
-					<label>Filter:</label>
-					<button class="filter" data-filter="all">All</button>
-					<button class="filter" data-filter=".category-1">Category 1</button>
-					<button class="filter" data-filter=".category-2">Category 2</button>
+				<div class="block-portfolio mixitup">
+					<a href="#" class="portfolio-item category-wedding">
+						<img src="build/images/blank.gif" srcset="build/images/bg-1.jpg" alt="images description">
+						<span class="text">John and Sofi</span>
+					</a>
+					<a href="#" class="portfolio-item category-family">
+						<img src="build/images/blank.gif" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/9.jpg"
+							alt="images description">
+						<span class="text">John and Sofi</span>
+					</a>
+					<a href="#" class="portfolio-item category-wedding">
+						<img src="build/images/blank.gif" srcset="build/images/bg-2.jpg" alt="images description">
+						<span class="text">John and Sofi</span>
+					</a>
+					<a href="#" class="portfolio-item category-wedding">
+						<img src="build/images/blank.gif" srcset="build/images/bg-3.jpg" alt="images description">
+						<span class="text">John and Sofi</span>
+					</a>
+					<a href="#" class="portfolio-item category-family">
+						<img src="build/images/blank.gif" srcset="build/images/bg-4.jpg" alt="images description">
+						<span class="text">John and Sofi</span>
+					</a>
+					<a href="#" class="portfolio-item category-wedding">
+						<img src="build/images/blank.gif" srcset="build/images/bg-5.jpg" alt="images description">
+						<span class="text">John and Sofi</span>
+					</a>
+					<a href="#" class="portfolio-item category-wedding">
+						<img src="build/images/blank.gif" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/4.jpg"
+							alt="images description">
+						<span class="text">John and Sofi</span>
+					</a>
+					<a href="#" class="portfolio-item category-family">
+						<img src="build/images/blank.gif" srcset="build/images/bg-1.jpg" alt="images description">
+						<span class="text">John and Sofi</span>
+					</a>
+					<a href="#" class="portfolio-item category-wedding">
+						<img src="build/images/blank.gif" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/4.jpg"
+							alt="images description">
+						<span class="text">John and Sofi</span>
+					</a>
+					<a href="#" class="portfolio-item category-wedding">
+						<img src="build/images/blank.gif" srcset="build/images/bg-2.jpg" alt="images description">
+						<span class="text">John and Sofi</span>
+					</a>
+					<a href="#" class="portfolio-item category-family">
+						<img src="build/images/blank.gif" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/6.jpg"
+							alt="images description">
+						<span class="text">John and Sofi</span>
+					</a>
+					<a href="#" class="portfolio-item category-family">
+						<img src="build/images/blank.gif" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/9.jpg"
+							alt="images description">
+						<span class="text">John and Sofi</span>
+					</a>
+					<a href="#" class="portfolio-item category-family">
+						<img src="build/images/blank.gif" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/3.jpg"
+							alt="images description">
+						<span class="text">John and Sofi</span>
+					</a>
+					<a href="#" class="portfolio-item category-wedding">
+						<img src="build/images/blank.gif" srcset="build/images/bg-5.jpg" alt="images description">
+						<span class="text">John and Sofi</span>
+					</a>
+					<a href="#" class="portfolio-item category-wedding">
+						<img src="build/images/blank.gif" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/4.jpg"
+							alt="images description">
+						<span class="text">John and Sofi</span>
+					</a>
+					<a href="#" class="portfolio-item category-family">
+						<img src="build/images/blank.gif" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/1.jpg"
+							alt="images description">
+						<span class="text">John and Sofi</span>
+					</a>
+					<a href="#" class="portfolio-item category-family">
+						<img src="build/images/blank.gif" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/3.jpg"
+							alt="images description">
+						<span class="text">John and Sofi</span>
+					</a>
+					<a href="#" class="portfolio-item category-family">
+						<img src="build/images/blank.gif" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/1.jpg"
+							alt="images description">
+						<span class="text">John and Sofi</span>
+					</a>
+					<a href="#" class="portfolio-item category-individual">
+						<img src="build/images/blank.gif" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/3.jpg"
+							alt="images description">
+						<span class="text">John and Sofi</span>
+					</a>
+					<a href="#" class="portfolio-item category-individual">
+						<img src="build/images/blank.gif" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/1.jpg"
+							alt="images description">
+						<span class="text">John and Sofi</span>
+					</a>
+					<a href="#" class="portfolio-item category-pregnant">
+						<img src="build/images/blank.gif" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/3.jpg"
+							alt="images description">
+						<span class="text">John and Sofi</span>
+					</a>
+					<a href="#" class="portfolio-item category-pregnant">
+						<img src="build/images/blank.gif" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/2.jpg"
+							alt="images description">
+						<span class="text">John and Sofi</span>
+					</a>
+					<a href="#" class="portfolio-item category-love-stoty">
+						<img src="build/images/blank.gif" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/1.jpg"
+							alt="images description">
+						<span class="text">John and Sofi</span>
+					</a>
+					<a href="#" class="portfolio-item category-love-stoty">
+						<img src="build/images/blank.gif" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/4.jpg"
+							alt="images description">
+						<span class="text">John and Sofi</span>
+					</a>
+					<a href="#" class="portfolio-item category-anniversary">
+						<img src="build/images/blank.gif" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/5.jpg"
+							alt="images description">
+						<span class="text">John and Sofi</span>
+					</a>
+					<a href="#" class="portfolio-item category-anniversary">
+						<img src="build/images/blank.gif" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/1.jpg"
+							alt="images description">
+						<span class="text">John and Sofi</span>
+					</a>
+					<a href="#" class="portfolio-item category-certificate">
+						<img src="build/images/blank.gif" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/2.jpg"
+							alt="images description">
+						<span class="text">John and Sofi</span>
+					</a>
+					<a href="#" class="portfolio-item category-certificate">
+						<img src="build/images/blank.gif" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/5.jpg"
+							alt="images description">
+						<span class="text">John and Sofi</span>
+					</a>
 				</div>
-				<div class="block-portfolio">
-					<a href="#" class="portfolio-item mix category-1">
-						<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/1.jpg">
-						<span class="text">Alex and Sofi</span>
-					</a>
-					<a href="#" class="portfolio-item mix category-1">
-						<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/2.jpg">
-						<span class="text">Alex and Sofi</span>
-					</a>
-					<a href="#" class="portfolio-item mix category-1">
-						<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/9.jpg">
-						<span class="text">Alex and Sofi</span>
-					</a>
-					<a href="#" class="portfolio-item mix category-2">
-						<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/7.jpg">
-						<span class="text">Alex and Sofi</span>
-					</a>
-					<a href="#" class="portfolio-item mix category-1">
-						<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/3.jpg">
-						<span class="text">Alex and Sofi</span>
-					</a>
-					<a href="#" class="portfolio-item mix category-2">
-						<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/9.jpg">
-						<span class="text">Alex and Sofi</span>
-					</a>
-					<a href="#" class="portfolio-item mix category-1">
-						<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/4.jpg">
-						<span class="text">Alex and Sofi</span>
-					</a>
-					<a href="#" class="portfolio-item mix category-2">
-						<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/6.jpg">
-						<span class="text">Alex and Sofi</span>
-					</a>
-					<a href="#" class="portfolio-item mix category-2">
-						<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/9.jpg">
-						<span class="text">Alex and Sofi</span>
-					</a>
-					<a href="#" class="portfolio-item mix category-2">
-						<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/3.jpg">
-						<span class="text">Alex and Sofi</span>
-					</a>
-					<a href="#" class="portfolio-item mix category-1">
-						<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/4.jpg">
-						<span class="text">Alex and Sofi</span>
-					</a>
-					<a href="#" class="portfolio-item mix category-2">
-						<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/1.jpg">
-						<span class="text">Alex and Sofi</span>
-					</a>
-
-	<a href="#" class="portfolio-item mix category-2">
-						<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/3.jpg">
-						<span class="text">Alex and Sofi</span>
-					</a>
-					<a href="#" class="portfolio-item mix category-1">
-						<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/4.jpg">
-						<span class="text">Alex and Sofi</span>
-					</a>
-					<a href="#" class="portfolio-item mix category-2">
-						<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/1.jpg">
-						<span class="text">Alex and Sofi</span>
-					</a>
+				<div class="container">
+					<a href="catalog/works" class="btn btn-primary btn-more">показать еще...</a>
+					<!-- 		<div class="loadmore">
+								<a href="#" class="btn btn-primary">показать еще...</a>
+							</div> -->
 				</div>
-				<a href="#" class="btn btn-primary">Lorem</a>
 			</section>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dolor omnis natus. Ea doloremque in eligendi ducimus, voluptate porro cumque exercitationem natus, excepturi debitis quisquam odio ratione quis nobis commodi!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dolor omnis natus. Ea doloremque in eligendi ducimus, voluptate porro cumque exercitationem natus, excepturi debitis quisquam odio ratione quis nobis commodi!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dolor omnis natus. Ea doloremque in eligendi ducimus, voluptate porro cumque exercitationem natus, excepturi debitis quisquam odio ratione quis nobis commodi!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dolor omnis natus. Ea doloremque in eligendi ducimus, voluptate porro cumque exercitationem natus, excepturi debitis quisquam odio ratione quis nobis commodi!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dolor omnis natus. Ea doloremque in eligendi ducimus, voluptate porro cumque exercitationem natus, excepturi debitis quisquam odio ratione quis nobis commodi!</p>
+			<section class="section-price bg-stretch" style="background-image: url(build/images/bg-4.jpg);">
+				<div class="container">
+					<h2>Прайсы</h2>
+					<p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Вдали от всех живут
+						они в буквенных домах на берегу Семантика большого языкового океана.</p>
+				</div>
+				<div class="price-box">
+					<div class="slick-btn-box"></div>
+					<div class="container container-lg">
+						<a href="./price.html" class="price-item">
+							<span class="sale">скидка 10%</span>
+							<div class="entry-title">
+								<h3>Базовый</h3>
+							</div>
+							<div class="price bg-primary">
+								<span class="count">
+									<span>
+										<strong>&#8372;1300</strong>
+										/1 час
+									</span>
+								</span>
+							</div>
+							<ul class="offers-list">
+								<li>Свадьба до 3 х часов съемки</li>
+								<li>Бронь даты 1000 грн</li>
+								<li>Время выполнения 1 месяц</li>
+								<li>Авторская обработка всех кадров</li>
+							</ul>
+							<button class="btn btn-primary">подробнее</button>
+						</a>
+						<a href="./price.html" class="price-item">
+							<div class="entry-title">
+								<h3>Базовый</h3>
+							</div>
+							<div class="price">
+								<span class="count">
+									<span>
+										<strong>&#8372;1300</strong>
+										/1 час
+									</span>
+								</span>
+							</div>
+							<ul class="offers-list">
+								<li>Свадьба до 3 х часов съемки</li>
+								<li>Бронь даты 1000 грн</li>
+								<li>Время выполнения 1 месяц</li>
+								<li>Авторская обработка всех кадров</li>
+							</ul>
+							<button class="btn btn-primary">подробнее</button>
+						</a>
+						<a href="./price.html" class="price-item">
+							<span class="sale">скидка 30%</span>
+							<div class="entry-title">
+								<h3>Прайм</h3>
+							</div>
+							<div class="price bg-primary">
+								<span class="count">
+									<span>
+										<strong>&#8372;1300</strong>
+										/1 час
+									</span>
+								</span>
+							</div>
+							<ul class="offers-list">
+								<li>Свадьба до 3 х часов съемки</li>
+								<li>Бронь даты 1000 грн</li>
+								<li>Время выполнения 1 месяц</li>
+								<li>Авторская обработка всех кадров</li>
+							</ul>
+							<button class="btn btn-primary">подробнее</button>
+						</a>
+						<a href="./price.html" class="price-item">
+							<span class="sale">скидка 30%</span>
+							<div class="entry-title">
+								<h3>Прайм</h3>
+							</div>
+							<div class="price bg-primary">
+								<span class="count">
+									<span>
+										<strong>&#8372;1300</strong>
+										/1 час
+									</span>
+								</span>
+							</div>
+							<ul class="offers-list">
+								<li>Свадьба до 3 х часов съемки</li>
+								<li>Бронь даты 1000 грн</li>
+								<li>Время выполнения 1 месяц</li>
+								<li>Авторская обработка всех кадров</li>
+							</ul>
+							<button class="btn btn-primary">подробнее</button>
+						</a>
+						<a href="./price.html" class="price-item">
+							<span class="sale">скидка 30%</span>
+							<div class="entry-title">
+								<h3>Прайм</h3>
+							</div>
+							<div class="price bg-primary">
+								<span class="count">
+									<span>
+										<strong>&#8372;1300</strong>
+										/1 час
+									</span>
+								</span>
+							</div>
+							<ul class="offers-list">
+								<li>Свадьба до 3 х часов съемки</li>
+								<li>Бронь даты 1000 грн</li>
+								<li>Время выполнения 1 месяц</li>
+								<li>Авторская обработка всех кадров</li>
+							</ul>
+							<button class="btn btn-primary">подробнее</button>
+						</a>
+					</div>
+				</div>
+			</section>
+			<section class="section-blog" style="background-image: url(build/images/bg-pattern3.svg)">
+				<div class="container">
+					<h2>Блог</h2>
+					<p>Мои последнии публикации...</p>
+					<div class="slick-blog">
+						<article class="entry-content">
+							<h3><a href="#">Далеко-далеко за словесными горами в стране.</a></h3>
+							<a href="#" class="entry-img">
+								<img src="build/images/blank.gif" srcset="build/images/bg-2.jpg" alt="images-description">
+							</a>
+							<div class="row align-items-center justify-content-center-xs flex-column-reverse-xs">
+								<div class="col-lg">
+									<ul class="blog-category">
+										<li><a href="#">Семейные</a></li>
+									</ul>
+									<ul class="blog-autor">
+										<li>post by : admin</li>
+										<li>on : 20 may 2016</li>
+									</ul>
+								</div>
+								<div class="col-lg-3">
+									<ul class="meta-list">
+										<li><i class="icon-view"></i>0</li>
+										<li><a href="#"><i class="icon-customer-review"></i>0</a></li>
+										<li>
+											<a class="like-button">
+												<div class="like-icon">
+													<div class="heart-animation-1"></div>
+													<div class="heart-animation-2"></div>
+												</div>
+												Like 0
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. гласных и
+								согласных живут рыбные тексты. гласных и согласных живут рыбные тексты.</p>
+							<a href="#" class="btn btn-primary" tabindex="-1">подробнее</a>
+						</article>
+						<article class="entry-content">
+							<h3><a href="#">Далеко-далеко за словесными горами в стране.</a></h3>
+							<a href="#" class="entry-img">
+								<img src="build/images/blank.gif" srcset="build/images/bg-2.jpg" alt="images-description">
+							</a>
+							<div class="row align-items-center justify-content-center-xs flex-column-reverse-xs">
+								<div class="col-lg">
+									<ul class="blog-category">
+										<li><a href="#">Семейные</a></li>
+									</ul>
+									<ul class="blog-autor">
+										<li>post by : admin</li>
+										<li>on : 20 may 2016</li>
+									</ul>
+								</div>
+								<div class="col-lg-3">
+									<ul class="meta-list">
+										<li><i class="icon-view"></i>0</li>
+										<li><a href="#"><i class="icon-customer-review"></i>0</a></li>
+										<li>
+											<a class="like-button">
+												<div class="like-icon">
+													<div class="heart-animation-1"></div>
+													<div class="heart-animation-2"></div>
+												</div>
+												Like 0
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты.</p>
+							<a href="#" class="btn btn-primary" tabindex="-1">подробнее</a>
+						</article>
+						<article class="entry-content">
+							<h3><a href="#">Далеко-далеко за словесными горами в стране.</a></h3>
+							<a href="#" class="entry-img">
+								<img src="build/images/blank.gif" srcset="build/images/bg-2.jpg" alt="images-description">
+							</a>
+							<div class="row align-items-center justify-content-center-xs flex-column-reverse-xs">
+								<div class="col-lg">
+									<ul class="blog-category">
+										<li><a href="#">Семейные</a></li>
+									</ul>
+									<ul class="blog-autor">
+										<li>post by : admin</li>
+										<li>on : 20 may 2016</li>
+									</ul>
+								</div>
+								<div class="col-lg-3">
+									<ul class="meta-list">
+										<li><i class="icon-view"></i>0</li>
+										<li><a href="#"><i class="icon-customer-review"></i>0</a></li>
+										<li>
+											<a class="like-button">
+												<div class="like-icon">
+													<div class="heart-animation-1"></div>
+													<div class="heart-animation-2"></div>
+												</div>
+												Like 0
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты.</p>
+							<a href="#" class="btn btn-primary" tabindex="-1">подробнее</a>
+						</article>
+					</div>
+				</div>
+			</section>
+			<section class="section-testimonial" style="background-image: url(build/images/img-3.jpg);">
+				<div class="container">
+					<h2>Отзывы</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam vero distinctio beatae rerum pariatur
+						sapiente, dolor tempore fugiat laudantium delectus animi perspiciatis.</p>
+					<div class="testimonial-box">
+						<div class="testimonial-item">
+							<div class="row">
+								<div class="autor">
+									<div class="box-img">
+										<img src="build/images/testimonial.svg" alt="images-description" width="102" height="101">
+									</div>
+									<h5>John Capone</h5>
+									<p> Web Art Director</p>
+								</div>
+								<div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mi odio, gravida at
+									turpis et, porta bibendum justo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mi odio,
+									gravida at turpis et, porta bibendum justo.</div>
+							</div>
+						</div>
+						<div class="testimonial-item">
+							<div class="row">
+								<div class="autor">
+									<div class="box-img">
+										<img src="build/images/testimonial.svg" alt="images-description" width="102" height="101">
+									</div>
+									<h5>John Capone</h5>
+									<p> Web Art Director</p>
+								</div>
+								<div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mi odio, gravida at
+									turpis et, porta bibendum justo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mi odio,
+									gravida at turpis et, porta bibendum justo.</div>
+							</div>
+						</div>
+						<div class="testimonial-item">
+							<div class="row">
+								<div class="autor">
+									<div class="box-img">
+										<img src="build/images/testimonial.svg" alt="images-description" width="102" height="101">
+									</div>
+									<h5>John Capone</h5>
+									<p> Web Art Director</p>
+								</div>
+								<div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mi odio, gravida at
+									turpis et, porta bibendum justo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mi odio,
+									gravida at turpis et, porta bibendum justo.</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 		</main>
+		<footer id="footer" style="background-image: url(build/images/bg-pattern2.svg)">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-md">
+						<ul class="contact-list">
+							<li><a href="tel:0675307112"><span class="icon-box"><img src="build/images/icon-life.svg"
+											alt="images description"></span>(067)530-71-12</a></li>
+							<li><a href="tel:0675307113"><span class="icon-box"><img src="build/images/icon-kievstar.svg"
+											alt="images description"></span>(067)530-71-13</a></li>
+							<li><a href="tel:0675307114"><span class="icon-box"><img src="build/images/icon-viber.svg"
+											alt="images description"></span>(067)530-71-14</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<ul class="social-box">
+							<li><a href="#" class="bg-icon instagram"></a></li>
+							<li><a href="#" class="bg-icon facebook"></a></li>
+							<li><a href="#" class="bg-icon vk"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
 	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" ></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="build/js/jquery-3.2.1.min.js"><\/script> ')</script>
-	<script src="build/js/jquery.main.js" ></script>
+	<script src="build/js/jquery.main.js"></script>
 </body>
+
 </html>

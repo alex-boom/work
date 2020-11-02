@@ -2,19 +2,44 @@
 // Color calculator - http://razorjam.github.io/sasscolourfunctioncalculator/
 // Color names - http://name-of-color.com/
 
-$gray: #999;
-$black: #333;
+$gray: #888;
+$light-gray: #ccc;
+$lightening-gray: #F9FAFA;
+$black-light: #4d4d4d;
+$black: #000;
 $white: #fff;
-$light-blue: #39f;
+$light-blue: #67707a;
+$pink: #846EF4;
+$light-pink: #b972b1;
+$orange: #F17674;
+$porcelain: #E2E1E0;
+
+$yellow:  #add356;
+$teal:    #00dfa6;
+$lorange: #ffcb52;
+$dorange: #ff451f;
+$blue:    #3dade9;
+$purple:  #bf2fcb;
+
+$lighten-gray: #c7c7c7;
+$red: #ff6e6f;
+$bezier: cubic-bezier(.175, .885, .32, 1.275);
+
+$primary-color: $pink;
+$secondary-color: $orange;
+
+$primary-gradient: linear-gradient(225deg, $primary-color, $secondary-color);
+$back-primary-gradient: linear-gradient(225deg,  $secondary-color, $primary-color);
 
 $base-font-sans-serif: 'Montserrat', 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
 $base-font-serif: 'Times New Roman', 'Times', 'Baskerville', 'Georgia', serif;
+$base-font-cursive: 'Lobster', cursive, $base-font-sans-serif;
 
 // Body
-$base-text-color: $black !default;
-$base-background-color: $white !default;
+$base-text-color: $light-blue !default;
+$base-background-color: $lightening-gray !default;
 $base-font-size: 16px !default;
-$base-line-height: 1.2 !default;
+$base-line-height: 1.4 !default;
 $base-font-family: $base-font-sans-serif !default;
 
 $vertical-rhythm: ($base-line-height * 1em);
@@ -25,14 +50,14 @@ $base-min-width: 320px;
 $base-link-color: $light-blue;
 
 // Buttons
-$btn-color: $white !default;
+$btn-color: $white;
 $btn-background: $black !default;
-$btn-padding: 0.4em 0.7em !default;
+$btn-padding: 10px 15px !default;
 $btn-font-size: inherit !default;
 
 // Forms
 $form-element-padding: $btn-padding !default;
-$form-element-border-color: $gray !default;
+$form-element-border-color: $light-pink !default;
 $form-element-focus-border-color: $black !default;
 $placeholder-color: $gray !default;
 
@@ -44,8 +69,8 @@ $h4-font-size: 21px !default;
 $h5-font-size: 17px !default;
 $h6-font-size: 15px !default;
 
-$headings-font-family: inherit !default;
-$headings-color: inherit !default;
+$headings-font-family: $base-font-cursive;
+$headings-color: $light-pink !default;
 
 
 $animation-speed: 0.3s;

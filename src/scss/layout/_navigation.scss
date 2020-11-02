@@ -60,18 +60,20 @@
 .main-nav {
 	@include animate(visibility right left);
 	position: fixed;
-	width: 100%;
+	width: 250px;
 	top: 0;
-	left: -250px;
+	left: -100%;
 	bottom: 0;
-	background-color: $white;
 	height: 100vh;
 	overflow-y: auto;
 	visibility: hidden;
 	z-index: 5;
 
-	@include media('>=350px') {
-		width: 250px;
+	@include media('<tablet') {
+		background-image: url(images/FemalePhotographer.png), $primary-gradient;
+		background-size: 180px, 100%;
+		background-position: bottom 80px center, 0 0;
+		background-repeat: no-repeat;
 	}
 
 	@include media('>=tablet') {
@@ -79,17 +81,24 @@
 		height: auto;
 		visibility: visible;
 		overflow: visible;
+		background-image: none;
 	}
 }
 
 .nav-opener {
 	display: block;
-	width: 36px;
-	height: 30px;
+	width: 30px;
+	height: 16px;
 	position: absolute;
-	top: 0;
-	right: 0;
+	top: 6px;
+	right: 15px;
 	text-indent: -9999px;
+	z-index: 9999;
+
+	@include media('>=375px') {
+		width: 38px;
+		height: 22px;
+	}
 
 	@include media('>=tablet') {
 		display: none;
@@ -103,8 +112,8 @@
 		top: 50%;
 		left: 0;
 		right: 0;
-		height: 4px;
-		background: red;
+		height: 3px;
+		background: $white;
 		transition: all .3s;
 	}
 
