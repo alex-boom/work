@@ -383,8 +383,6 @@ function initMixItUp() {
 		var bar = foo.slice(1, 3).toString();
 		var anchorLinkCategory = bar.replace(/,/g, '-');
 
-		console.log(anchorLinkCategory)
-
 		category.on('click', function() {
 			var btnMore = jQuery('.btn-more');
 			btnMore.attr('href', `/catalog/${anchorLinkCategory}`)
